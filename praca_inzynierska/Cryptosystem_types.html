@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="StyleSheet" href="config.css" />
+<script type="text/javascript" src="strona_glowna.js"></script>
+
+</head>
+<body>
+<div class="page">
+	<header class="header">
+	<h1>Cryptosystems types</h1>
+	</header>
+
+	<div class="row">
+		<div class = "col-3 col-m-3">	
+			<nav class= "menu_theory">
+				<br>Menu-theory<br>
+					<ul>	
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptology');">Cryptology</a>
+						</li>	
+						<div class = "submenu" id ="submenu_cryptology">
+							<ul>	
+								<br><li>
+										Cryptography
+									</li>
+								<br><li>
+										Cryptoanalysis
+									</li>
+							</ul>	
+						</div>
+							<br><li>
+								<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems');">Cryptosystem Types</a>
+							</li>
+						<div class = "submenu" id ="submenu_cryptosystems">
+							<ul>
+								<br><li>
+										Basic information
+									</li>
+								<br><li>
+										Symmetric Cryptosystems
+									</li>
+								<br><li>
+										Asymetric Cryptosystems
+									</li>
+							</ul>	
+						</div>
+						<li>
+							<br><a href ='#' onclick = "toggle_visibility('submenu_cryptosystems_examples');">Cryptosystem Examples</a>
+						</li>
+						<div class = "submenu" id ="submenu_cryptosystems_examples">
+							<ul>
+								<br><li>
+										Ceasar Cipher
+									</li>
+								<br><li>
+										Vigenere Cipher
+									</li>
+								<br><li>
+										RSA Cipher
+									</li>
+								<br><li>
+									working on (DSA?)
+									</li>
+							</ul>
+						</div>
+						<br><li>
+								Digital Signature
+							</li>
+						<br><li>
+								Electronic Signature
+							</li>
+						<br><li>
+								CrypTool
+							</li>
+					</ul>
+			</nav>
+		</div>
+
+		<div class="col-6 col-m-9">
+			<section class = "section">
+				<h3 class="title">Cryptosystem types</h3>
+				We can distinguish two basic types of cryptosystems: 
+				<br> - Cryptosystem with symmetric keys
+				<br> - Cryptosystem with public keys
+				<br><br> {place for picture}  wan
+				<br><br>In the next pages you will learn more about each of one. If you want to move to 'Cryptosystems withh symmetric key' click on 'Next'.
+			</section>
+			<section class = "section">
+					<center class = "buttons_next_prev"><a href = "strona.html">Back</a> <a href = "Cryptosystems_symmetric_keys.html">Next</a></center>
+			</section>
+		</div>
+
+		<div class="col-3 col-m-12">
+		<aside class="menu_practical">
+			Cryptgraphy in practice
+		</aside>
+		</div>
+
+	</div>
+
+	<div class="footer">
+	<p>Done by Pawel Grzegorzewski 190116</p>
+	</div>
+
+</body>
+</html>
