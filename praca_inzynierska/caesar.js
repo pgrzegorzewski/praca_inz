@@ -18,22 +18,33 @@ var direction;
 var shift2;
 var direction2;
 
+/* FLAGS */
+
 var smallLetterFlag;
 var capitalLetterFlag;
 var blankCharFlag;
+
+var shiftSet = 0;
+var shiftSet2 = 0;
+var directionSet = 0;
+var directionSet2 = 0;
+
+/* -----*/
 
 function setShift()
 {
 	var readShift = document.getElementById('list');
 	direction = readShift.value;
-	//alert(direction);
+	directionSet = 1;
+	enable_input();
 }
 
 function setShift2()
 {
 	var readShift2 = document.getElementById('list2');
 	direction2 = readShift2.value;
-	//alert(direction);
+	directionSet2 = 1;
+	enable_input2()
 }
 
 
@@ -43,6 +54,8 @@ function setKey()
 	shift = Math.abs(keyValue.value);
 	//alert(shift);
 	document.getElementById('key').value = shift;
+	shiftSet = 1;
+	enable_input();
 }
 
 
@@ -51,6 +64,8 @@ function setKey2()
 	var keyValue2 = document.getElementById('key2');
 	shift2 = Math.abs(keyValue2.value);
 	document.getElementById('key2').value = shift2;
+	shiftSet2 = 1;
+	enable_input2();
 }
 
 function caesar()
@@ -128,8 +143,6 @@ function casearCharacter(character)
 			after = CAPITAL_Z - (CAPITAL_A - after - 1);
 		}
 	}
-
-	//alert(after);
 	return after;
 }
 
@@ -143,11 +156,9 @@ function ceasarString()
 	var check = document.getElementById('caesarString').value;
 	for (var i = 0; i < check.length;  i++)
 	{
-		//alert(check[i]);
 		letter = String.fromCharCode(casearCharacter(check[i]));
 		newString = newString.concat(letter);
 	}
-	//alert(newString);
 	document.getElementById('caesarString').value = newString;	
 	
 }
@@ -163,4 +174,17 @@ function classic_caesar()
 	//alert('letter ' + before + ' before encryption. Result of encryption: ' + after + ' with key ' + CAESAR_KEY);
 	document.getElementById('caesar_classic').value = String.fromCharCode(after);	
 	
+}
+
+function enable_input()
+{
+	if(shiftSet == 1 && directionSet == 1)
+		document.getElementById('caesar').disabled = false;
+}
+
+function enable_input2()
+{
+	
+	if(shiftSet2 == 1 && directionSet2 == 1)
+		document.getElementById('caesarString').disabled = false;
 }

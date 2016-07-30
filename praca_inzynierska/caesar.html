@@ -54,7 +54,7 @@
 						<div class = "submenu" id ="submenu_cryptosystems_examples">
 							<ul>
 								<br><li>
-										Ceasar Cipher
+										<a href = "Caesar_theory.html">Ceasar Cipher</a>
 									</li>
 								<br><li>
 										Vigenere Cipher
@@ -87,9 +87,9 @@
 				<br> Let's say that our key is '6' shifted right. So our encrypted 'A' is now 'G'. 
 				<br><br><br>
 				<div id="letter">Letter:</div>
-				<input type = "text" id = "caesar" placeholder = "Letter before encryption" maxlength = "1" onblur="caesar()" />
+				<input type = "text" id = "caesar" placeholder = "Letter before encryption" maxlength = "1" onblur="caesar()" disabled = "true" />
 				<div>Key:</div>
-				<input type = "number" id = "key", placeholder = "key (number)" onblur = "setKey()" />
+				<input type = "number" id = "key", placeholder = "key (number)" min="0" max="26" onblur = "setKey()" />
 				<div>Direction:</div>
 				<select name="shift direction" id="list" onblur="setShift()">
 					<option>right</option>
@@ -103,9 +103,9 @@
 			
 				<br><br><br>
 				<div id="letter">Text:</div>
-				<input type = "text" id = "caesarString" placeholder = "String before encryption" onblur="ceasarString()" />
+				<input type = "text" id = "caesarString" placeholder = "String before encryption" disabled = "true" onblur="ceasarString()" />
 				<div>Key:</div>
-				<input type = "number" id = "key2", placeholder = "key (number)" onblur = "setKey2()" />
+				<input type = "number" id = "key2", placeholder = "key (number)"  min="0" max="26" onblur = "setKey2()" />
 				<div>Direction:</div>
 				<select name="shift direction" id="list2" onblur="setShift2()">
 					<option>right</option>

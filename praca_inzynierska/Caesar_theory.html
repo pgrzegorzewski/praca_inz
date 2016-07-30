@@ -3,13 +3,15 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="StyleSheet" href="config.css" />
-<script type="text/javascript" src="strona_glowna.js"></script>
-
+<link rel="StyleSheet" href="caesar.css" />
+<script type="text/javascript" src="caesar.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
 </head>
 <body>
 <div class="page">
 	<header class="header">
-	<h1>Cryptosystems types</h1>
+	<h1>Magic of cryptography</h1>
 	</header>
 
 	<div class="row">
@@ -36,10 +38,10 @@
 						<div class = "submenu" id ="submenu_cryptosystems">
 							<ul>
 								<br><li>
-										Basic information
+										<a href = "Cryptosystems_types.html">Basic information</a>
 									</li>
 								<br><li>
-										Symmetric Cryptosystems
+										<a href = "Cryptosystems_symmetric_keys.html"> Symmetric Cryptosystems </a>
 									</li>
 								<br><li>
 										Asymetric Cryptosystems
@@ -80,21 +82,21 @@
 
 		<div class="col-6 col-m-9">
 			<section class = "section">
-				<h3 class="title">Cryptosystem types</h3>
-				We can distinguish two basic types of cryptosystems: 
-				<br> - Cryptosystem with symmetric keys
-				<br> - Cryptosystem with public keys
-				<br><br> {place for picture}  wan
-				<br><br>In the next pages you will learn more about each of one. If you want to move to 'Cryptosystems withh symmetric key' click on 'Next'.
-			</section>
-			<section class = "section">
-					<center class = "buttons_next_prev"><a href = "strona.html">Back</a> <a href = "Cryptosystems_symmetric_keys.html">Next</a></center>
+				<h3>Ceasar Cypher</h3>
+				Caesar Cypher is the first cypher wich appears in human history. Key is the number which means the number of shifted letters in alphabet.
+				<br> Let's say that our key is '6' shifted right. So our encrypted 'A' is now 'G'. 
+				<img src="resources/caesar2.gif" style="width:520px">
 			</section>
 		</div>
 
 		<div class="col-3 col-m-12">
 		<aside class="menu_practical">
 			Cryptgraphy in practice
+			<ul>
+				<br><li>
+						<a href = "Cryptosystems_types.html">Basic information</a>
+					</li>
+			</ul>
 		</aside>
 		</div>
 
