@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="StyleSheet" href="config.css" />
+<link rel="StyleSheet" href="vigenere_theory.css" />
+<script type="text/javascript" src="vigenere_theory.js"></script>
+
+<script type="text/javascript" src="caesar.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="page">
+	<header class="header">
+	<h1>Magic of cryptography</h1>
+	</header>
+
+	<div class="row">
+		<div class = "col-3 col-m-3">	
+			<nav class= "menu_theory">
+				<br>Menu-theory<br>
+					<ul>	
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptology');">Cryptology</a>
+						</li>	
+						<div class = "submenu" id ="submenu_cryptology">
+							<ul>	
+								<br><li>
+										Cryptography
+									</li>
+								<br><li>
+										Cryptoanalysis
+									</li>
+							</ul>	
+						</div>
+							<br><li>
+								<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems');">Cryptosystem Types</a>
+							</li>
+						<div class = "submenu" id ="submenu_cryptosystems">
+							<ul>
+								<br><li>
+										<a href = "Cryptosystems_types.html">Basic information</a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_symmetric_keys.html"> Symmetric Cryptosystems </a>
+									</li>
+								<br><li>
+										Asymetric Cryptosystems
+									</li>
+							</ul>	
+						</div>
+						<li>
+							<br><a href ='#' onclick = "toggle_visibility('submenu_cryptosystems_examples');">Cryptosystem Examples</a>
+						</li>
+						<div class = "submenu" id ="submenu_cryptosystems_examples">
+							<ul>
+								<br><li>
+										<a href = "Caesar_theory.html">Ceasar Cipher</a>
+									</li>
+								<br><li>
+										Vigenere Cipher
+									</li>
+								<br><li>
+										RSA Cipher
+									</li>
+								<br><li>
+									working on (DSA?)
+									</li>
+							</ul>
+						</div>
+						<br><li>
+								Digital Signature
+							</li>
+						<br><li>
+								Electronic Signature
+							</li>
+						<br><li>
+								CrypTool
+							</li>
+					</ul>
+			</nav>
+		</div>
+
+		<div class="col-6 col-m-9">
+			<section class = "section">
+				<center><h1>Vigenere Cipher</h1></center>
+				<h2>Historical brief</h2>
+				More than fourteen centuries passed until Caesar cipher found its improved alternative. In 1467 Leaon Battista Alberti invented a metal disc to switch between different alphabets, however it was not very useful. 41 years later Johannes Trithemius described in his work "Poligraphia" his huge invention - Tabula recta. Tabula recta is two dimmensional array consisting od all possible shifted alphabets. In the first row there is not shifted alphabet, in the next row we can find alphabet shifted by one position right, next is alphabet shifted by two and so on and so on... You can find Tabula Recta on the image on the right. How to create encrypted text with Tabula Recta according to Trithrmius instruction? Simple and easy, Every next letter of text you want to encrypt you should take from next row of Tabula. Again as in the case of previous cipher it was not very applicative. However not cipher but Tabula found great application in Vigenere Cipher.
+				
+				<br><br>
+				<div id="center">
+					<img id="tabula_recta" src="resources/tabula_recta.png"  align = "middle" alt = "tabula recta" onclick = "increase_decrease_size()" />
+					<br>Tabula recta
+				</div>
+				<br>
+				Blaise de Vigenere seems to be really sad Cryptographer, truth is that he is not the invetor of the cipher signed his name. We can find description of the Vigenere cipher in the "La cifra del. Sig. Giovan Battista Bellaso". Basing on Trithemius cipher work Bellaso improved cipher by adding counetsign. Key provided significant safety for the encrypted message. Bellaso's cipher required for users only strong security for the key so they were usually stated between useres in advance. 
+				<br> 
+				To tell the truth Blaise de Vigenere has something in common with Blaise's cryptology system. Vigenere made another improvement after Bellaso which was also connected with the key. This time Vigenere exchanged previous key which usually was one word or short pharse with autokey. Autokey is as in case of previous key a  word or even one letter with appended message to it.
+				<br>So lets say we want to encrypt a word "<b>example</b>" with autokey "<b>z</b>" the autkey becomes "<b>zexampl</b>"
+				<br><br>
+				<h2>Cipher description</h2>
+				Vigenere cipher belongs to an <b>poliaphabetic, subtitution</b> family of ciphers. If we want to encrypt a message using one of three ciphers described above we can use tabula recta. If we are encrypting a word using firss - Trithemius method we are looking at positions of plain text and we are exchanging them by letters read from following rows of tabula.
+				<br> <gif>
+				<br>In case of Bellaso or Vigenere version we are cancentrating on pair of letters: the letter from plain text and the letter from the key. We are looking at row with one of them and column with other one. Encrypted letter is at the cell where our column and row are crossing together.
+				<br> <gif>
+				<br>
+				<h2>Mathematical description</h2>
+				<br>Processes of encryption and decryption look almost identically like in the Caesar cipher. 
+				<br><br>For changing text into cryptogram we are using following formula:
+				<br><b>C<small>i</small> = M<small>i</small> + K<small>i</small>) mod 26</b>
+				<br>Where:
+				<br>C<small>i</small> - Ciphertext letter
+				<br>i - Index
+				<br>M<small>i</small> - Message at index i
+				<br>K<small>i</small> - Key at index i
+				<br>Again we are using mod 26 baceause of a lenght of English alphabet. We can expand alphabet by special characters like white characters or numbers.
+				<br><br>For decrypting text we are using formula:
+				<br><b>D<small>i</small> = C<small>i</small> - K<small>i</small>) mod 26</b>
+				<br>Where:
+				<br>Where:
+				<br>D<small>i</small> - Plaintext letter
+				<br>i - Index
+				<br>C<small>i</small> - Ciphertext at index i
+				<br>K<small>i</small> - Key at index i
+				
+				<br><br>
+				<h2>Cryptoanalysis methods</h2>
+				<br>Unfortunately Caesar cipher was useful only in for small period before Christ when nobody had heard about ciphers. Today everyone can break the cipher in few minutes with a pencil and piece of paper.
+				<br>Caesar cipher does not provide any safety. However other ciphers which are using this simple cryptology method can be even unbreakable (of course some conditions must be fullfilled).
+				<br>To break the cipher we can use:
+				<ul>
+					<li>Brute force method - checking all existing keys one by one</li>
+					<li>Finding element of decrypted text</li>
+					<li>Statistics - with knowledge which letters are the most common for language we can suppose which encrypted letters may be in plain text.</li>
+				</ul>
+				<br>If You want to try Caesar cipher in practice click<a href = "caesar.html"><img src = "resources/key.png" style ="width:60px; height:60px" align = "middle"></a> 				
+			</section>
+		</div>
+
+		<div class="col-3 col-m-12">
+		<aside class="menu_practical">
+			Cryptgraphy in practice
+			<ul>
+				<br><li>
+						<a href = "Cryptosystems_types.html">Basic information</a>
+					</li>
+			</ul>
+		</aside>
+		</div>
+
+	</div>
+
+	<div class="footer">
+	<p>Done by Pawel Grzegorzewski 190116</p>
+	</div>
+
+</body>
+</html>
