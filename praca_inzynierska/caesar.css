@@ -2,3 +2,25 @@
 	width:40px;
 	height:40px;	
 }
+
+td{
+	width:250px;
+	height:70px;
+}
+
+#key{
+	width:170px;
+	
+}
+
+#list{
+	width:170px;
+}
+
+#caesar_encrypted{
+	width:170px;
+}
+#caesar{
+	width:170px;
+}
+

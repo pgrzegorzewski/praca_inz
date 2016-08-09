@@ -87,17 +87,34 @@
 				<br> Let's say that our key is '6' shifted right. So our encrypted 'A' is now 'G'. 
 				<br><br><br>
 				<div id="letter">Letter:</div>
-				<input type = "text" id = "caesar" placeholder = "Letter before encryption" maxlength = "1" onblur="caesar()" disabled = "true" />
-				<div>Key:</div>
-				<input type = "number" id = "key", placeholder = "key (number)" min="0" max="26" onblur = "setKey()" />
-				<div>Direction:</div>
-				<select name="shift direction" id="list" onblur="setShift()">
-					<option>right</option>
-					<option>left</option>
-				</select>
-				
+				<table>
+					<tr>
+						<td>
+							<div>Key:</div>
+							<input type = "number" id = "key", placeholder = "key (number)" min="0" max="26" onblur = "setKey()" /> 
+						</td>
+						<td>
+							<div>Direction:</div>
+							<select name="shift direction" id="list" onblur="setShift()">
+								<option>right</option>
+								<option>left</option>
+							</select>
+						</td>
+					<tr>
+					
+					<tr>
+						<td>
+							<input type = "text" id = "caesar" placeholder = "Letter before encryption" maxlength = "1" onblur="caesar()" disabled = "true" />
+						</td>
+						<td>
+							<textarea id = "caesar_encrypted" rows="2" cols="15" disabled = "true" placeholder = "letter after encryption"></textarea>
+						</td>
+					<tr>
+				</table>
+								
 				<br><br><br><h3>Classic Caesar cypher:</h3>
 				<input type = "text" id = "caesar_classic" placeholder = "Letter before encryption" onblur="classic_caesar()" />
+				
 			</section>
 			<section class = "section">
 			

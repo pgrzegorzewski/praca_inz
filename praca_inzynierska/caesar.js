@@ -100,7 +100,7 @@ function caesar()
 		}
 	}
 	alert('letter ' + before + ' before encryption. Result of encryption: ' + after + ' with key ' + shift);
-	document.getElementById('caesar').value = String.fromCharCode(after);	
+	document.getElementById('caesar_encrypted').value = String.fromCharCode(after);	
 }
 
 function caesarWhitCharIgnore(character)
