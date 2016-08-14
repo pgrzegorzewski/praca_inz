@@ -1,26 +1,52 @@
+
+td{
+	width:168px;
+	height:70px;
+	text-align:left;
+	padding:10px;
+}
+
+tr{
+	padding:5px;
+}
+
 #caesar{
 	width:40px;
 	height:40px;	
 }
 
-td{
-	width:250px;
-	height:70px;
+#key, #key2{
+	width:160px;
 }
 
-#key{
-	width:170px;
-	
+#list, #list2{
+	width:160px;
 }
 
-#list{
-	width:170px;
-}
 
 #caesar_encrypted{
-	width:170px;
+	width:160px;
 }
 #caesar{
-	width:170px;
+	width:160px;
 }
 
+#encrypt_button{
+	width: 150px;
+	text-align:center;
+	height:38px;
+}
+
+input, label {
+    display:block;
+}
+
+#caesar_encrypted_3, #caesar_encrypted_2, #caesar_encrypted
+{
+	width:160px;
+}
+
+#caesarString, #caesarClassic
+{
+	width:160px;	
+}

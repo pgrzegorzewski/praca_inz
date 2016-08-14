@@ -3,6 +3,9 @@
 	text-align:left;
 }
 
+img{
+	padding:10px;
+}
 
 .row::after {
     content: "";
@@ -40,13 +43,14 @@ html {
 
 .menu_theory {
 	float:left;
-	width:285px;
+	width:275px;
     background-color: #CCCCCC;
     padding: 15px;
     color: #ffffff;
     text-align: center;
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	
 }
 
 #menu_header{
@@ -58,7 +62,7 @@ html {
 .section{
 	
 	max-width:800px;
-	width: 285px;
+	width: 265px;
 	background-color: #EEEEEE;
     padding: 15px;
     color: #000000;
@@ -76,7 +80,7 @@ html {
 }
 
 .menu_practical {
-	width:285px;
+	width:265px;
     background-color: #CCCCCC;
     padding: 15px;
     color: #ffffff;

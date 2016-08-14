@@ -150,16 +150,14 @@ function ceasarString()
 {
 	var newString = "";
 	var letter;
-	//alert('działa');
-	//var preprocessedString = document.getElementById('caesarString');
-	//var check = preprocessedString.valueOf();
+
 	var check = document.getElementById('caesarString').value;
 	for (var i = 0; i < check.length;  i++)
 	{
 		letter = String.fromCharCode(casearCharacter(check[i]));
 		newString = newString.concat(letter);
 	}
-	document.getElementById('caesarString').value = newString;	
+	document.getElementById("caesar_encrypted_3").value = newString;	
 	
 }
 
@@ -167,12 +165,12 @@ function ceasarString()
 function classic_caesar()
 {
 	var after;
-	var letter = document.getElementById('caesar_classic');
+	var letter = document.getElementById('caesarClassic');
 	var before = letter.value;
 	after = before.charCodeAt(0);
 	after = parseInt(after + parseInt(CAESAR_KEY));
 	//alert('letter ' + before + ' before encryption. Result of encryption: ' + after + ' with key ' + CAESAR_KEY);
-	document.getElementById('caesar_classic').value = String.fromCharCode(after);	
+	document.getElementById("caesar_encrypted_2").value = String.fromCharCode(after);	
 	
 }
 
