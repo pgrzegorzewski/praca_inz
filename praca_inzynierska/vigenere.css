@@ -1,0 +1,52 @@
+
+td{
+	width:168px;
+	height:70px;
+	text-align:left;
+	padding:10px;
+}
+
+tr{
+	padding:5px;
+}
+
+#caesar{
+	width:40px;
+	height:40px;	
+}
+
+#key, #key2{
+	width:160px;
+}
+
+#list, #list2{
+	width:160px;
+}
+
+
+#caesar_encrypted{
+	width:160px;
+}
+#caesar{
+	width:160px;
+}
+
+#keyButton, #encryptButton{
+	width: 150px;
+	text-align:center;
+	height:38px;
+}
+
+input, label {
+    display:block;
+}
+
+#caesar_encrypted_3, #caesar_encrypted_2, #caesar_encrypted
+{
+	width:160px;
+}
+
+#caesarString, #caesarClassic
+{
+	width:160px;	
+}

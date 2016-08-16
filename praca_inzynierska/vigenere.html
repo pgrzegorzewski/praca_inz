@@ -3,8 +3,8 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="StyleSheet" href="config.css" />
-<link rel="StyleSheet" href="caesar.css" />
-<script type="text/javascript" src="caesar.js"></script>
+<link rel="StyleSheet" href="vigenere.css" />
+<script type="text/javascript" src="vigenere.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 </head>
@@ -82,41 +82,40 @@
 
 		<div class="col-6 col-m-9">
 			<section class = "section">
-				<h3>Ceasar Cypher</h3>
-				Caesar Cypher is the first cypher wich appears in human history. Key is the number which means the number of shifted letters in alphabet.
-				<br> Let's say that our key is '6' shifted right. So our encrypted 'A' is now 'G'. 
+				<h3>Vigenere cipher</h3>
+				//Short description//
 				<br><br><br>
-				<div id="letter"><h3>Letter encryption:</h3></div>
+
+				<div id="letter"><h3>Classic Vigenere cipher - encryption:</h3></div>
 				<table>
 					<tr>
 						<td>
 							<label for "key">Key:</label>
-							<input type = "number" id = "key", placeholder = "key (number)" min="0" max="26" onblur = "setKey()" /> 
+							<input type = "text" id = "key", placeholder = "key" onblur = "readKey()" /> 
 							
 						</td>
-						<td></td>
-						<td>
-							<label for "list">Direction:</label>
-							<select name="shift direction" id="list" onblur="setShift()">
-								<option>right</option>
-								<option>left</option>
-							</select>
+						<td><input type = "button" id = "keyButton" value = "Create key" onclick = "setKey()" /></td>
+						<td>Key result
+						
+							<textarea id = "keyResult" rows="2" cols="15" disabled = "true" placeholder = "Key" onclick = "setKey()"></textarea>
+						
 						</td>
+
 					</tr>
 					
 					<tr>
 						<td>
-							<input type = "text" id = "caesar" placeholder = "Letter before encryption" maxlength = "1"  disabled = "true" />
+							<input type = "text" id = "vigenere" placeholder = "Text before encryption" onblur = "readText()"/>
 						</td>
-						<td><input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "caesar()" />
+						<td><input type = "button" id = "encryptButton" value = "Encrypt" onclick = "vigenere()" />
 						<td>
-							<textarea id = "caesar_encrypted" rows="2" cols="15" disabled = "true" placeholder = "letter after encryption"></textarea>
+							<textarea id = "vigenere_encrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after encryption"></textarea>
 						</td>
 					</tr>
 				</table>
 			</section>
 			<section class ="section">
-								
+			<!--					
 				<br><br><br><h3>Classic Caesar cypher:</h3>
 				<table>				
 					<tr>
@@ -164,7 +163,7 @@
 				</table>
 					
 			</section>
-			
+			-->
 			<section class = "section">
 			
 				<h3>Safety</h3>
