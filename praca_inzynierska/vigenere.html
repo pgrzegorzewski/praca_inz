@@ -5,8 +5,10 @@
 <link rel="StyleSheet" href="config.css" />
 <link rel="StyleSheet" href="vigenere.css" />
 <script type="text/javascript" src="vigenere.js"></script>
+<script type="text/javascript" src="dictionary.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
 </head>
 <body>
 <div class="page">
@@ -83,7 +85,9 @@
 		<div class="col-6 col-m-9">
 			<section class = "section">
 				<h3>Vigenere cipher</h3>
-				//Short description//
+				Vigenere cipher belongs to an <b>poliaphabetic, subtitution</b> family of ciphers. To encrypt message we need key as long as the messasge which we would like to encrypt. If we give key which is shorter it is copied as many times as is needed to obtain lenght equall to the message length. 
+				<br><br>From mathematical point of view encryption process is based on the modular arythmetics. To obtais encrypted letter we are adding two indexes: of sign from the message and the other from the key. Result of the encryption is the modulo from the size of alphabet of this sum.
+				<br><br>Great visualization gives Tabula Recta which is described and shown in theoretical part.
 				<br><br><br>
 
 				<div id="letter"><h3>Classic Vigenere cipher - encryption:</h3></div>
@@ -110,6 +114,36 @@
 						<td><input type = "button" id = "encryptButton" value = "Encrypt" onclick = "vigenere()" />
 						<td>
 							<textarea id = "vigenere_encrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after encryption"></textarea>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section class = "section">
+
+				<div id="letter"><h3>Vigenere cipher with autokey - encryption:</h3></div>
+				<table>
+					<tr>
+						<td>
+							<label for "key">Key:</label>
+							<input type = "text" id = "key2", placeholder = "key" maxlength = "1" onblur = "readKey2()" /> 
+							
+						</td>
+						<td><input type = "button" id = "keyButton" value = "Create key" onclick = "setKey2()" /></td>
+						<td>Key result
+						
+							<textarea id = "keyResult2" rows="2" cols="15" disabled = "true" placeholder = "Key"></textarea>
+						
+						</td>
+
+					</tr>
+					
+					<tr>
+						<td>
+							<input type = "text" id = "vigenere_autokey" placeholder = "Text before encryption" onblur = "readText2()"/>
+						</td>
+						<td><input type = "button" id = "encryptButton" value = "Encrypt" onclick = "vigenereWithAutokey()" />
+						<td>
+							<textarea id = "vigenere_with_autokey_encrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after encryption"></textarea>
 						</td>
 					</tr>
 				</table>
@@ -164,13 +198,13 @@
 					
 			</section>
 			-->
-			<section class = "section">
 			
+			<section class = "section">
 				<h3>Safety</h3>
-				Unfortunately Caesar cipher does not provide any safety nowadays. Every message can be made up with a piece of paper and a pencil by everyone in more less 10 minutes. In many cases brute force is even faster than using statistics. Decryption of the message by the computer even not the fastest one lasts split os second.
-				<br><br>Widenning the alphabet by next characters increases the decryption time but very very slightly. In practice that manner can increase this time if we are using piece of paper. For example finding the plain text of a sentence encrypted with English alphabet lasts statistically 10 minutes and sentence encrypted in Polish alphabet (6 characters longer) lasts statistically only one minute loger.
-				<br><br>Cipher can be only used for educational purposes.
+				<p id = "nothing_encrypted">Make Your first encryption to get information about safety</p>
+				<p id = "encryption" style = "display:none">Test</p>
 			</section>
+		
 		</div>
 
 		<div class="col-3 col-m-12">

@@ -143,6 +143,9 @@ function casearCharacter(character)
 			after = CAPITAL_Z - (CAPITAL_A - after - 1);
 		}
 	}
+	blankCharFlag = 0;
+	capitalLetterFlag = 0;
+	smallLetterFlag = 0;
 	return after;
 }
 

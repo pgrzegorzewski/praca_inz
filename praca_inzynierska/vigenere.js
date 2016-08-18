@@ -12,22 +12,11 @@ var SMALL_A = 97
 var CAPITAL_Z = 90;
 var SMALL_Z = 122;
 
-var shift;
-var direction;
-
-var shift2;
-var direction2;
-
-/* FLAGS */
-
-var smallLetterFlag;
-var capitalLetterFlag;
-var blankCharFlag;
-
 var keySet = 0;
 var textSet = 0;
-var directionSet = 0;
-var directionSet2 = 0;
+
+var key2Set = 0;
+var text2Set = 0;
 
 var keyLength = 0;
 var textMessageLength = 0;
@@ -35,13 +24,29 @@ var keyMessageLenghtDifference = 0;
 var key;
 var newKey = "";
 var textMessage;
-/* -----*/
+
+//var keyLength = 0;
+var textMessage2Length = 0;
+var keyMessage2LenghtDifference = 0;
+var key2;
+var newKey2 = "";
+var textMessage2;
+
+
+/* FLAGS */
+var SHORTER_PASSWORD;
 
 function readKey()
 {
 	keySet = 1;
 	key = document.getElementById('key').value;
 	keyLength = key.length;
+}
+
+function readKey2()
+{
+	key2Set = 1;
+	key2 = document.getElementById('key2').value;
 }
 
 function readText()
@@ -52,15 +57,31 @@ function readText()
 	compareTextKey();
 }
 
+
+function readText2()
+{
+	text2Set = 1;
+	textMessage2  = document.getElementById('vigenere_autokey').value;
+	textMessage2Length = textMessage2.length;
+	compareTextKey2();
+}
+
 function compareTextKey()
 {
 	keyMessageLenghtDifference = textMessageLength - keyLength;
 	//alert('róznica' + keyMessageLenghtDifference);
 }
 
+function compareTextKey2()
+{
+	keyMessage2LenghtDifference = textMessage2Length - 1;
+	//alert('róznica' + keyMessageLenghtDifference);
+}
+
 function setKey()
 {
 	//alert('test');
+	newKey = ''
 	var letter;
 		for (var i = 0; i < (keyLength + keyMessageLenghtDifference);  i++)
 		{
@@ -72,6 +93,49 @@ function setKey()
 	
 }
 
+function setKey2()
+{
+	newKey2 = '';
+	var letter;
+		for (var i = 0; i < (1 + keyMessage2LenghtDifference);  i++)
+		{
+			if(i == 0)
+				letter = key2;
+			else
+				letter = textMessage2[i - 1];
+			alert(letter);
+			newKey2 = newKey2.concat(letter);
+		}
+	document.getElementById("keyResult2").value = newKey2;	
+	
+}
+
+function vigenereWithAutokey()
+{
+	alert('tets');
+	var encryptedMessage = "";
+	var letter;
+	for (var i = 0; i < (textMessage2Length); i++)
+	{
+		if(isSmallLetter(newKey2[i]) && isSmallLetter(textMessage2[i]))
+			letter = String.fromCharCode(((textMessage2[i].charCodeAt(0) + newKey2[i].charCodeAt(0) - 2* SMALL_A)%26)+SMALL_A);
+		else if(isCapitalLetter(newKey2[i]) && isSmallLetter(textMessage2[i]))
+			letter = String.fromCharCode(((textMessage2[i].charCodeAt(0) + newKey2[i].charCodeAt(0) - SMALL_A - CAPITAL_A)%26)+SMALL_A);
+		else if (isSmallLetter(newKey2[i]) && isCapitalLetter(textMessage2[i]))
+			letter = String.fromCharCode(((textMessage2[i].charCodeAt(0) + newKey2[i].charCodeAt(0) - SMALL_A - CAPITAL_A)%26)+CAPITAL_A);
+		else if(isCapitalLetter(newKey2[i]) && isCapitalLetter(textMessage2[i]))
+			letter = String.fromCharCode(((textMessage2[i].charCodeAt(0) + newKey2[i].charCodeAt(0) - 2*CAPITAL_A)%26)+CAPITAL_A);
+		else
+			letter = String.fromCharCode(textMessage2[i].charCodeAt(0));
+		alert(letter);
+		encryptedMessage = encryptedMessage.concat(letter);
+	}
+	document.getElementById('vigenere_with_autokey_encrypted').value = encryptedMessage;
+	
+	
+}
+
+
 function vigenere()
 {
 	alert('tets');
@@ -79,16 +143,23 @@ function vigenere()
 	var letter;
 	for (var i = 0; i < (keyLength + keyMessageLenghtDifference); i++)
 	{
-		if(isSmallLetter(key[i % keyLength]))
+		if(isSmallLetter(key[i % keyLength]) && isSmallLetter(textMessage[i]))
 			letter = String.fromCharCode(((textMessage[i].charCodeAt(0) + key[i % keyLength].charCodeAt(0) - 2* SMALL_A)%26)+SMALL_A);
-		else if(isCapitalLetter(key[i % keyLength]))
+		else if(isCapitalLetter(key[i % keyLength]) && isSmallLetter(textMessage[i]))
+			letter = String.fromCharCode(((textMessage[i].charCodeAt(0) + key[i % keyLength].charCodeAt(0) - SMALL_A - CAPITAL_A)%26)+SMALL_A);
+		else if (isSmallLetter(key[i % keyLength]) && isCapitalLetter(textMessage[i]))
 			letter = String.fromCharCode(((textMessage[i].charCodeAt(0) + key[i % keyLength].charCodeAt(0) - SMALL_A - CAPITAL_A)%26)+CAPITAL_A);
-		
+		else if(isCapitalLetter(key[i % keyLength]) && isCapitalLetter(textMessage[i]))
+			letter = String.fromCharCode(((textMessage[i].charCodeAt(0) + key[i % keyLength].charCodeAt(0) - 2*CAPITAL_A)%26)+CAPITAL_A);
+		else
+			letter = String.fromCharCode(textMessage[i].charCodeAt(0));
 		alert(letter);
 		encryptedMessage = encryptedMessage.concat(letter);
 	}
 	document.getElementById('vigenere_encrypted').value = encryptedMessage;
-	
+	//toggleVisibility('safety'); 
+	textHide('nothing_encrypted');
+	textShow('encryption');
 	
 }
 
@@ -104,127 +175,22 @@ function isCapitalLetter(letter)
 		return true;
 }
 
-if(textSet == 1 && keySet == 1)
-{
-	compareTextKey();
-	//setKeyResult();
-}
 
-function caesar()
-{
-	var after;
-	var beforeASCII;
-	var letter = document.getElementById('caesar');
-	var before = letter.value;
-	beforeASCII = before.charCodeAt(0);
-	if(beforeASCII >= CAPITAL_A && beforeASCII <= CAPITAL_Z)
-		capitalLetterFlag = 1;
-	if(beforeASCII >= SMALL_A && beforeASCII <= SMALL_Z)
-		smallLetterFlag = 1;
-	if((direction == "right" && smallLetterFlag == 1) || (direction == "right" && capitalLetterFlag == 1)){
-		after = parseInt(beforeASCII + parseInt(shift));
-		if(smallLetterFlag == 1 && after > SMALL_Z){
-			after = (after % SMALL_Z) + SMALL_A - 1; 
-		}
-		if(capitalLetterFlag == 1 && after > CAPITAL_Z)
-		{
-			after = (after % CAPITAL_Z) + CAPITAL_A - 1;
-		}
-	}
-	if((direction == "left" && smallLetterFlag == 1) || (direction == "left" && capitalLetterFlag == 1)){
-		after = parseInt(beforeASCII - parseInt(shift));
-		if(smallLetterFlag == 1 && after < SMALL_A){
-			after = SMALL_Z - (SMALL_A - after - 1); 
-		}
-		if(capitalLetterFlag == 1 && after < CAPITAL_A)
-		{
-			after = CAPITAL_Z - (CAPITAL_A - after - 1);
-		}
-	}
-	alert('letter ' + before + ' before encryption. Result of encryption: ' + after + ' with key ' + shift);
-	document.getElementById('caesar_encrypted').value = String.fromCharCode(after);	
-}
-
-function caesarWhitCharIgnore(character)
-{
-	return character;
-}
-
-function casearCharacter(character)
-{	
-	var after;
-	var beforeASCII = character.charCodeAt(0);
-		
-	if(beforeASCII >= CAPITAL_A && beforeASCII <= CAPITAL_Z)
-		capitalLetterFlag = 1;
-	else if(beforeASCII >= SMALL_A && beforeASCII <= SMALL_Z)
-		smallLetterFlag = 1;
+function toggleVisibility(id) {
+	var object = document.getElementById(id);
+	if(object.style.display == 'block')
+		object.style.display = 'none';
 	else
-		blankCharFlag = 1;
-	if(direction2 == "right"){
-		after = parseInt(beforeASCII + parseInt(shift2));
-		if(smallLetterFlag == 1 && after > SMALL_Z){
-			after = (after % SMALL_Z) + SMALL_A - 1; 
-		}
-		else if(capitalLetterFlag == 1 && after > CAPITAL_Z)
-		{
-			after = (after % CAPITAL_Z) + CAPITAL_A - 1;
-		}
-		else if(blankCharFlag == 1)
-		{
-			after = after - parseInt(shift2);
-		}
-	}
-	else if((direction2 == "left" && smallLetterFlag == 1) || (direction2 == "left" && capitalLetterFlag == 1)){
-		after = parseInt(beforeASCII - parseInt(shift2));
-		if(smallLetterFlag == 1 && after < SMALL_A){
-			after = SMALL_Z - (SMALL_A - after - 1); 
-		}
-		if(capitalLetterFlag == 1 && after < CAPITAL_A)
-		{
-			after = CAPITAL_Z - (CAPITAL_A - after - 1);
-		}
-	}
-	return after;
+		object.style.display = 'block';
 }
 
-function ceasarString()
-{
-	var newString = "";
-	var letter;
+function textShow(name) {
+    $('#' + name).show(300)
+};
 
-	var check = document.getElementById('caesarString').value;
-	for (var i = 0; i < check.length;  i++)
-	{
-		letter = String.fromCharCode(casearCharacter(check[i]));
-		newString = newString.concat(letter);
-	}
-	document.getElementById("caesar_encrypted_3").value = newString;	
-	
-}
+function textHide(name) {
+    $('#' + name).hide(300)
+};
 
 
-function classic_caesar()
-{
-	var after;
-	var letter = document.getElementById('caesarClassic');
-	var before = letter.value;
-	after = before.charCodeAt(0);
-	after = parseInt(after + parseInt(CAESAR_KEY));
-	//alert('letter ' + before + ' before encryption. Result of encryption: ' + after + ' with key ' + CAESAR_KEY);
-	document.getElementById("caesar_encrypted_2").value = String.fromCharCode(after);	
-	
-}
 
-function enable_input()
-{
-	if(shiftSet == 1 && directionSet == 1)
-		document.getElementById('caesar').disabled = false;
-}
-
-function enable_input2()
-{
-	
-	if(shiftSet2 == 1 && directionSet2 == 1)
-		document.getElementById('caesarString').disabled = false;
-}
