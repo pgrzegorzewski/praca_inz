@@ -6,7 +6,7 @@
 <link rel="StyleSheet" href="vigenere.css" />
 <script type="text/javascript" src="vigenere.js"></script>
 <script type="text/javascript" src="dictionary.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 </head>
@@ -95,7 +95,7 @@
 					<tr>
 						<td>
 							<label for "key">Key:</label>
-							<input type = "text" id = "key", placeholder = "key" onblur = "readKey()" /> 
+							<a class = "suggestion"><input type = "text" id = "key", placeholder = "key" onblur = "readKey()" /><span>Enter the key, letter or text</span><a/> 
 							
 						</td>
 						<td><input type = "button" id = "keyButton" value = "Create key" onclick = "setKey()" /></td>
@@ -202,7 +202,8 @@
 			<section class = "section">
 				<h3>Safety</h3>
 				<p id = "nothing_encrypted">Make Your first encryption to get information about safety</p>
-				<p id = "encryption" style = "display:none">Test</p>
+				<p id = "encryption_less_than_half" style = "display:none">Your key is shorter than a half of message lenght. Because of that breaking the cipher with Kasinski method is relatively easy.<br>To improve encryption create longer key.</p>
+				<p id = "encryption_more_than_half" style = "display:none">Your key is longer than a half of message lenght. However you can still improve the cipher strenght by creating longer key.</p>
 			</section>
 		
 		</div>

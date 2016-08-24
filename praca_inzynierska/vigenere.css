@@ -1,3 +1,20 @@
+a.suggestion:hover span{
+    display: inline;
+    position: absolute;
+	margin: 15px 0 0 5px;
+    background: #dddddd;
+    border: 1px solid #b30000;
+    color: #000000;
+	-moz-opacity: 0.8;
+	opacity:.80;
+	filter: alpha(opacity=80);
+	text-align: center;
+}
+
+a.suggestion span{
+	display:none;
+}
+
 
 td{
 	width:168px;
@@ -40,6 +57,7 @@ tr{
 input, label {
     display:block;
 }
+
 
 #caesar_encrypted_3, #caesar_encrypted_2, #caesar_encrypted
 {

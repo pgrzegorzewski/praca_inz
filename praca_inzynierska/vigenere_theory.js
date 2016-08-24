@@ -28,3 +28,11 @@ function change_img2()
 	if(img.width() < 200)
 		document.getElementById("tabula_recta").src= "resources/tabula_recta.png";
 };
+
+function toggleVisibility(id) {
+	var object = document.getElementById(id);
+	if(object.style.display == 'block')
+		object.style.display = 'none';
+	else
+		object.style.display = 'block';
+}

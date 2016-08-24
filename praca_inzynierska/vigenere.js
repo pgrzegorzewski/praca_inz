@@ -54,7 +54,7 @@ function readText()
 	textSet = 1;
 	textMessage  = document.getElementById('vigenere').value;
 	textMessageLength = textMessage.length;
-	compareTextKey();
+	//compareTextKey();
 }
 
 
@@ -80,6 +80,7 @@ function compareTextKey2()
 
 function setKey()
 {
+	compareTextKey();
 	//alert('test');
 	newKey = ''
 	var letter;
@@ -138,6 +139,7 @@ function vigenereWithAutokey()
 
 function vigenere()
 {
+	//compareTextKey();
 	alert('tets');
 	var encryptedMessage = "";
 	var letter;
@@ -157,11 +159,18 @@ function vigenere()
 		encryptedMessage = encryptedMessage.concat(letter);
 	}
 	document.getElementById('vigenere_encrypted').value = encryptedMessage;
-	//toggleVisibility('safety'); 
-	textHide('nothing_encrypted');
-	textShow('encryption');
+	if(keyLength < textMessageLength / 2){	
+		textHide('nothing_encrypted');
+		textShow('encryption_more_than_half');
+	}
+	else{
+		textHide('nothing_encrypted');
+		textShow('encryption_less_than_half');
+	}
 	
 }
+
+
 
 function isSmallLetter(letter)
 {
@@ -191,6 +200,3 @@ function textShow(name) {
 function textHide(name) {
     $('#' + name).hide(300)
 };
-
-
-

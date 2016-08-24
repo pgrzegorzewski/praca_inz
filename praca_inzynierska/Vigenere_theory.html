@@ -101,10 +101,15 @@
 				<br><br>
 				<h2>Cipher description</h2>
 				Vigenere cipher belongs to an <b>poliaphabetic, subtitution</b> family of ciphers. If we want to encrypt a message using one of three ciphers described above we can use tabula recta. If we are encrypting a word using firss - Trithemius method we are looking at positions of plain text and we are exchanging them by letters read from following rows of tabula.
-				<br> <gif>
-				<br>In case of Bellaso or Vigenere version we are cancentrating on pair of letters: the letter from plain text and the letter from the key. We are looking at row with one of them and column with other one. Encrypted letter is at the cell where our column and row are crossing together.
-				<br> <gif>
 				<br>
+				<br><b>Encryption</b><br>In case of Bellaso or Vigenere version we are cancentrating on pair of letters: the letter from plain text and the letter from the key. We are looking at row with one of them and column with other one. Encrypted letter is at the cell where our column and row are crossing together.
+				<br><br>
+				<br><img src="resources/vigenere_encryption.png" id = "tabula_encryption"  align = "middle" alt = "tabula recta encryption"/>
+				If you want to watch how the process of encryption looks like click on "info" <img src = "resources/info.png" alt = "info" width = "40px" height = "40px" align = "right" onclick = "toggleVisibility('gif')">
+				<img src="resources/vigenere_encryption.gif" id = "gif" style="width:520px; display : none;" alt = "Vigenere encryption">
+				<br><b>Decryption</b><br>
+				There are two ways of decrypting: similar to the encryption or key reversing.
+				<br><br><br>
 				<h2>Mathematical description</h2>
 				<br>Processes of encryption and decryption look almost identically like in the Caesar cipher. 
 				<br><br>For changing text into cryptogram we are using following formula:
@@ -140,7 +145,7 @@
 				</ul>
 			</section>
 			<section class = "section">
-				<br>If You want to try Caesar cipher in practice click<a href = "vigenere.html"><img src = "resources/key.png" style ="width:60px; height:60px" align = "middle"></a> 
+				<br>If You want to try Vigenere cipher in practice click<a href = "vigenere.html"><img src = "resources/key.png" style ="width:60px; height:60px" align = "middle"></a> 
 			</section>
 		</div>
 
