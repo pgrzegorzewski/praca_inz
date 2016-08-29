@@ -94,7 +94,10 @@
 							<input type = "number" id = "key", placeholder = "key (number)" min="0" max="26" onblur = "setKey()" /> 
 							
 						</td>
-						<td></td>
+						<td>
+							<label for "key">Key:</label>
+							<input type = "text" id = "key_letter", placeholder = "key (letter)" maxlength = "1" onblur = "setKeyLetter()" /> 
+						</td>
 						<td>
 							<label for "list">Direction:</label>
 							<select name="shift direction" id="list" onblur="setShift()">

@@ -52,12 +52,31 @@ function setKey()
 {
 	var keyValue = document.getElementById('key');
 	shift = Math.abs(keyValue.value);
-	//alert(shift);
 	document.getElementById('key').value = shift;
+	document.getElementById('key_letter').value = String.fromCharCode(shift+SMALL_A);
 	shiftSet = 1;
 	enable_input();
 }
 
+function setKeyLetter()
+{
+	var keyLetter = document.getElementById('key_letter');
+	var keyLetterValue = keyLetter.value.charCodeAt();
+	enable_input();
+	shiftSet = 1;
+	if(keyLetterValue < SMALL_A || keyLetterValue > SMALL_Z)
+	{
+		document.getElementById('key_letter').value = "a";
+		document.getElementById('key').value = 0;
+		shift = 0;
+	}
+	else
+	{	
+		document.getElementById('key').value = keyLetterValue - SMALL_A;
+		shift = keyLetterValue - SMALL_A;
+	}
+	
+}
 
 function setKey2()
 {
@@ -103,11 +122,6 @@ function caesar()
 	document.getElementById('caesar_encrypted').value = String.fromCharCode(after);	
 }
 
-function caesarWhitCharIgnore(character)
-{
-	return character;
-}
-
 function casearCharacter(character)
 {	
 	var after;
@@ -133,7 +147,7 @@ function casearCharacter(character)
 			after = after - parseInt(shift2);
 		}
 	}
-	else if((direction2 == "left" && smallLetterFlag == 1) || (direction2 == "left" && capitalLetterFlag == 1)){
+	else if(direction2 == "left"){
 		after = parseInt(beforeASCII - parseInt(shift2));
 		if(smallLetterFlag == 1 && after < SMALL_A){
 			after = SMALL_Z - (SMALL_A - after - 1); 
@@ -141,6 +155,10 @@ function casearCharacter(character)
 		if(capitalLetterFlag == 1 && after < CAPITAL_A)
 		{
 			after = CAPITAL_Z - (CAPITAL_A - after - 1);
+		}
+		else if(blankCharFlag == 1)
+		{
+			after = after + parseInt(shift2);
 		}
 	}
 	blankCharFlag = 0;
@@ -170,11 +188,23 @@ function classic_caesar()
 	var after;
 	var letter = document.getElementById('caesarClassic');
 	var before = letter.value;
-	after = before.charCodeAt(0);
-	after = parseInt(after + parseInt(CAESAR_KEY));
-	//alert('letter ' + before + ' before encryption. Result of encryption: ' + after + ' with key ' + CAESAR_KEY);
-	document.getElementById("caesar_encrypted_2").value = String.fromCharCode(after);	
-	
+	before = before.charCodeAt(0);
+	after = parseInt(before + parseInt(CAESAR_KEY));
+	if((before < CAPITAL_A) || (before > SMALL_Z) || (before > CAPITAL_Z && before < SMALL_A))
+	{
+		document.getElementById("caesar_encrypted_2").value = String.fromCharCode(before);
+	}
+	else
+	{	
+		if((before >= SMALL_A && before <= SMALL_Z) && after > SMALL_Z){
+			after = (after % SMALL_Z) + SMALL_A - 1; 
+		}
+		else if((before >= CAPITAL_A && before <= CAPITAL_Z) && after > CAPITAL_Z)
+		{
+			after = (after % CAPITAL_Z) + CAPITAL_A - 1;
+		}
+		document.getElementById("caesar_encrypted_2").value = String.fromCharCode(after);
+	}
 }
 
 function enable_input()
