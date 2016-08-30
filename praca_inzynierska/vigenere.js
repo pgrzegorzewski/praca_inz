@@ -23,6 +23,7 @@ var textMessageLength = 0;
 var keyMessageLenghtDifference = 0;
 var key;
 var newKey = "";
+var keyLenght = 0;
 var textMessage;
 
 //var keyLength = 0;
@@ -162,10 +163,14 @@ function vigenere()
 	if(keyLength < textMessageLength / 2){	
 		textHide('nothing_encrypted');
 		textShow('encryption_more_than_half');
+		keySpacePrint();
+		textShow('key_space');
 	}
 	else{
 		textHide('nothing_encrypted');
 		textShow('encryption_less_than_half');
+		keySpacePrint();
+		textShow('key_space');
 	}
 	
 }
@@ -184,6 +189,15 @@ function isCapitalLetter(letter)
 		return true;
 }
 
+function keySpacePrint()
+{
+	alert(keyLength);
+	var keySpace;
+	keySpace = Math.pow(26, keyLength);
+	alert(keySpace);
+	document.getElementById('key_space').innerHTML = "Key space for the given key is equal: " + keySpace;
+	
+}
 
 function toggleVisibility(id) {
 	var object = document.getElementById(id);

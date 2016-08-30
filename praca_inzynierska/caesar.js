@@ -78,11 +78,32 @@ function setKeyLetter()
 	
 }
 
+function setKeyLetter2()
+{
+	var keyLetter = document.getElementById('key_letter2');
+	var keyLetterValue = keyLetter.value.charCodeAt();
+	enable_input2();
+	shiftSet2 = 1;
+	if(keyLetterValue < SMALL_A || keyLetterValue > SMALL_Z)
+	{
+		document.getElementById('key_letter2').value = "a";
+		document.getElementById('key2').value = 0;
+		shift2 = 0;
+	}
+	else
+	{	
+		document.getElementById('key2').value = keyLetterValue - SMALL_A;
+		shift2 = keyLetterValue - SMALL_A;
+	}
+	
+}
+
 function setKey2()
 {
 	var keyValue2 = document.getElementById('key2');
 	shift2 = Math.abs(keyValue2.value);
 	document.getElementById('key2').value = shift2;
+	document.getElementById('key_letter2').value = String.fromCharCode(shift2+SMALL_A);
 	shiftSet2 = 1;
 	enable_input2();
 }
