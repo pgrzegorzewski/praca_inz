@@ -1,29 +1,28 @@
-function toggle_visibility(id) {
-	var object = document.getElementById(id);
-	if(object.style.display == 'block')
-		object.style.display = 'none';
-	else
-		object.style.display = 'block';
-}
-
 var CAESAR_KEY = 13;
 var CAPITAL_A = 65;
 var SMALL_A = 97
 var CAPITAL_Z = 90;
 var SMALL_Z = 122;
 
-var keySet = 0;
-var textSet = 0;
+var ENGLISH_ALPHABET_LENGTH = 26;
 
+var keyDecryption = "";
+var newKeyDecryption ="";
+var textEncrypted = "";
+var keyDecryptionSet = 0;
+var textEncryptedSet = 0;
+
+var keyDecryptionLength = 0;
+var textEncryptedLength = 0;
+var keyTextEncryptedLenghtDifference = 0;
+var newDecryptionKey = "";
+
+var reversedKey = "";
+/*
 var key2Set = 0;
 var text2Set = 0;
 
-var keyLength = 0;
-var textMessageLength = 0;
-var keyMessageLenghtDifference = 0;
-var key;
-var newKey = "";
-var keyLenght = 0;
+
 var textMessage;
 
 //var keyLength = 0;
@@ -33,32 +32,117 @@ var key2;
 var newKey2 = "";
 var textMessage2;
 
-
+*/
 /* FLAGS */
-var SHORTER_PASSWORD;
+//var SHORTER_PASSWORD;
 
-function readKey()
+
+function readKeyDecryption()
 {
-	keySet = 1;
-	key = document.getElementById('key').value;
-	keyLength = key.length;
+	keDecryptionySet = 1;
+	keyDecryption= document.getElementById('key_decryption').value;
+	keyDecryptionLength = keyDecryption.length;
+	//alert(keyDecryption + '' + keyDecryptionLength);
+	
+	setKeyDecryption();
 }
-
+/*
 function readKey2()
 {
 	key2Set = 1;
 	key2 = document.getElementById('key2').value;
 }
+*/
 
-function readText()
+function readEncryptedText()
 {
-	textSet = 1;
-	textMessage  = document.getElementById('vigenere').value;
-	textMessageLength = textMessage.length;
+	textEncryptedSet = 1;
+	textEncrypted  = document.getElementById('encrypted_text').value;
+	textEncryptedLength = textEncrypted.length;
 	//compareTextKey();
+	//alert(textEncrypted + '' + textEncryptedLength);
 }
 
 
+function compareTextKeyLenght()
+{
+	keyTextEncryptedLenghtDifference = textEncryptedLength - keyDecryptionLength;
+}
+
+function setKeyDecryption()
+{
+	compareTextKeyLenght();
+	//alert('test');
+	newKeyDecryption = "";
+	var letter;
+		for (var i = 0; i < (keyDecryptionLength + keyTextEncryptedLenghtDifference);  i++)
+		{
+			letter = keyDecryption[i % keyDecryptionLength];
+			//alert(letter);
+			newKeyDecryption = newKeyDecryption.concat(letter);
+		}
+		reverseKey();
+	//alert(newKeyDecryption);
+}
+
+function reverseKey()
+{
+	reversedKey="";
+	var letter;
+	for( i = 0; i < newKeyDecryptionLength; i++)
+	{
+		if(isSmallLetter(newKeyDecryption[i]))
+		{
+			letter = String.fromCharCode(((ENGLISH_ALPHABET_LENGTH - (newKeyDecryption - SMALL_A)%ENGLISH_ALPHABET_LENGTH)+SMALL_A);
+		}
+		else if(isCapitalLetter(newKeyDecryption[i]))
+		{
+			letter = String.fromCharCode(((ENGLISH_ALPHABET_LENGTH - (newKeyDecryption - CAPITAL_A)%ENGLISH_ALPHABET_LENGTH)+CAPITAL_A);
+		}
+		else
+		{
+			letter = String.fromCharCode(newKeyDecryption[i])
+		}
+		reversedKey = reversedKey.concat(letter);
+	}
+}
+function vigenereDecrypt()
+{
+	//compareTextKey();
+	alert('tets');
+	var decryptedMessage = "";
+	var letter;
+	for (var i = 0; i < (keyDecryptionLength + keyTextEncryptedLenghtDifference); i++)
+	{
+		if(isSmallLetter(keyDecryption[i % keyDecryptionLength]) && isSmallLetter(textEncrypted[i]))
+			letter = String.fromCharCode(((textEncrypted[i].charCodeAt(0) + keyDecryption[i % keyDecryptionLength].charCodeAt(0) - 2* SMALL_A)%26)+SMALL_A);
+		else if(isCapitalLetter(keyDecryption[i % keyDecryptionLength]) && isSmallLetter(textEncrypted[i]))
+			letter = String.fromCharCode(((textEncrypted[i].charCodeAt(0) + keyDecryption[i % keyDecryptionLength].charCodeAt(0) - SMALL_A - CAPITAL_A)%26)+SMALL_A);
+		else if (isSmallLetter(keyDecryption[i % keyDecryptionLength]) && isCapitalLetter(textEncrypted[i]))
+			letter = String.fromCharCode(((textEncrypted[i].charCodeAt(0) + keyDecryption[i % keyDecryptionLength].charCodeAt(0) - SMALL_A - CAPITAL_A)%26)+CAPITAL_A);
+		else if(isCapitalLetter(keyDecryption[i % keyDecryptionLength]) && isCapitalLetter(textEncrypted[i]))
+			letter = String.fromCharCode(((textEncrypted[i].charCodeAt(0) + keyDecryption[i % keyDecryptionLength].charCodeAt(0) - 2*CAPITAL_A)%26)+CAPITAL_A);
+		else
+			letter = String.fromCharCode(textEncrypted[i].charCodeAt(0));
+		alert(letter);
+		decryptedMessage = decryptedMessage.concat(letter);
+	}
+	document.getElementById('vigenere_decrypted').value = decryptedMessage;
+	
+}
+/*
+function isSmallLetter(letter)
+{
+	if(letter.charCodeAt(0) >= SMALL_A && letter.charCodeAt(0) <= SMALL_Z)
+		return true;
+}
+
+function isCapitalLetter(letter)
+{
+		if(letter.charCodeAt(0) >= CAPITAL_A && letter.charCodeAt(0) <= CAPITAL_Z)
+		return true;
+}*/
+/*
 function readText2()
 {
 	text2Set = 1;
@@ -70,13 +154,13 @@ function readText2()
 function compareTextKey()
 {
 	keyMessageLenghtDifference = textMessageLength - keyLength;
-	//alert('rÃ³znica' + keyMessageLenghtDifference);
+	//alert('róznica' + keyMessageLenghtDifference);
 }
 
 function compareTextKey2()
 {
 	keyMessage2LenghtDifference = textMessage2Length - 1;
-	//alert('rÃ³znica' + keyMessageLenghtDifference);
+	//alert('róznica' + keyMessageLenghtDifference);
 }
 
 function setKey()
@@ -181,16 +265,12 @@ function isSmallLetter(letter)
 {
 	if(letter.charCodeAt(0) >= SMALL_A && letter.charCodeAt(0) <= SMALL_Z)
 		return true;
-	else
-		return false;
 }
 
 function isCapitalLetter(letter)
 {
 		if(letter.charCodeAt(0) >= CAPITAL_A && letter.charCodeAt(0) <= CAPITAL_Z)
-			return true;
-		else
-			return false;
+		return true;
 }
 
 function keySpacePrint()
@@ -222,3 +302,4 @@ function divShow(name) {
 function textHide(name) {
     $('#' + name).hide(300)
 };
+*/

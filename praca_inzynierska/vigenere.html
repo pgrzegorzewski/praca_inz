@@ -5,7 +5,7 @@
 <link rel="StyleSheet" href="config.css" />
 <link rel="StyleSheet" href="vigenere.css" />
 <script type="text/javascript" src="vigenere.js"></script>
-<script type="text/javascript" src="dictionary.js"></script>
+<script type="text/javascript" src="vigenere_decryption.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -89,13 +89,17 @@
 				<br><br>From mathematical point of view encryption process is based on the modular arythmetics. To obtais encrypted letter we are adding two indexes: of sign from the message and the other from the key. Result of the encryption is the modulo from the size of alphabet of this sum.
 				<br><br>Great visualization gives Tabula Recta which is described and shown in theoretical part.
 				<br><br><br>
-
+			<button id ="button_show_hide_encryption" onclick = "divShow('encryption_part')">Encryption</button><button id ="button_show_hide_encryption" onclick = "divShow('decryption_part')">Decryption</button>
+			</section>
+			
+			<div id = "encryption_part" style = "display:none">
+			<section class = "section">
 				<div id="letter"><h3>Classic Vigenere cipher - encryption:</h3></div>
 				<table>
 					<tr>
 						<td>
 							<label for "key">Key:</label>
-							<a class = "suggestion"><input type = "text" id = "key", placeholder = "key" onblur = "readKey()" /><span>Enter the key, letter or text</span><a/> 
+							<a class = "suggestion"><input type = "text" id = "key", placeholder = "key" onblur = 'readKey()' /><span>Enter the key, letter or text</span><a/> 
 							
 						</td>
 						<td><input type = "button" id = "keyButton" value = "Create key" onclick = "setKey()" /></td>
@@ -149,56 +153,6 @@
 				</table>
 			</section>
 			<section class ="section">
-			<!--					
-				<br><br><br><h3>Classic Caesar cypher:</h3>
-				<table>				
-					<tr>
-						<td>
-							<input type = "text" id = "caesarClassic" placeholder = "Letter before encryption" />
-						</td>
-						<td><input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "classic_caesar()" />
-						<td>
-							<textarea id = "caesar_encrypted_2" rows="2" cols="15" disabled = "true" placeholder = "letter after encryption"></textarea>
-						</td>
-					</tr>
-				</table>
-				
-			</section>
-			<section class = "section">
-			
-				<br><br><br>
-				<h3>Text:</h3>
-				<table>
-					<tr>
-						<td>
-							<label for "key2">Key:</label>
-							<input type = "number" id = "key2", placeholder = "key (number)"  min="0" max="26" onblur = "setKey2()" />
-						</td>
-						<td></td>
-						<td>
-							<label for "list2">Direction:</label>
-							<select name="shift direction" id="list2" onblur="setShift2()">
-								<option>right</option>
-								<option>left</option>
-								</select>
-						<td>
-					</tr>
-					<tr>
-						<td>
-							<input type = "text" id = "caesarString" placeholder = "String before encryption" disabled = "true"  />
-						</td>
-						<td>
-							<input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "ceasarString()" />
-						</td>
-						<td>
-							<textarea id = "caesar_encrypted_3" rows="2" cols="15" disabled = "true" placeholder = "letter after encryption"></textarea>
-						</td>
-					</tr>
-				</table>
-					
-			</section>
-			-->
-			
 			<section class = "section">
 				<h3>Safety</h3>
 				<p id = "nothing_encrypted">Make Your first encryption to get information about safety</p>
@@ -206,7 +160,32 @@
 				<p id = "encryption_more_than_half" style = "display:none">Your key is longer than a half of message lenght. However you can still improve the cipher strenght by creating longer key.</p>
 				<p id = "key_space" style = "display:none"></p>
 			</section>
-		
+		</div>
+		<div id ="decryption_part" style = "display:none">
+			<section class = "section">
+				<div id="letter"><h3>Classic Vigenere cipher - decryption:</h3></div>
+				<table>
+					<tr>
+						<td>Encrypted text
+							<textarea id = "encrypted_text" rows="2" cols="15" placeholder = "Encrypted text" onblur = "readEncryptedText()"></textarea>
+						</td>
+						<td>
+							<label for "key_decryption">Key:</label>
+							<a class = "suggestion"><input type = "text" id = "key_decryption", placeholder = "key" onblur = 'readKeyDecryption()' /><span>Enter the key, letter or text</span><a/> 	
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<input type = "button" id = "decryptButton" value = "Decrypt" onclick = "vigenereDecrypt()" />
+						</td>
+						<td>
+							<textarea id = "vigenere_decrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after decryption"></textarea>
+						</td>
+					</tr>
+				</table>
+			</section>
+		</div>
 		</div>
 
 		<div class="col-3 col-m-12">
