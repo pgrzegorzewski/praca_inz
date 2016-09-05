@@ -80,17 +80,18 @@
 
 		<div class="col-6 col-m-9">
 			<section class = "section">
-			<h2>Cryptography</h2>
-			<br>Cryptography is branch of science describing techniques for secure information. It is strictly connected with mathematics. Cryptography ia about creating and improving cryptology methods which provide insurance that private messages could not be read by third parties. 
-			<br><br>Cryptography method or cipher in other words changes private message into the stream of letters which at first look does not have any sense. Thing which enables addressee to recreate original message is a key. The key is the set of parameters required cipher users to encrypt or decrypt the message. <br>We can distinguish two types of keys:
+			<h2>Cryptoanalysis</h2>
+			<br>Cryptoanalysis is the branch of science opposite to the cryptography. Cryptoanalysis is the study of analyzing the encrypted messages on order to find the true information. Like in the case of cryptography cryptoanalysis is strictly connected with the mathematics. 
+			<br>Despite using mathematical algoriths to break the cipher cryptoanalysis also uses side-channel-attacks. It means that cryptoanalysis finds the weeknesses of the encryption algorithms and exploits vices in the implementation.
+			<br><br>There exists four main situations - what kind of information cryptoanalyst can have:
+			<br>
 			<ul>
-				<li><b>symmetric key</b> - key used for encryption and decryption is exactly the same</li>
-				<li><b>assymetric key</b> - pair of keys, one for encryption and the second one for decryption</li>
+				<li>Cryptoanalyst owns only encrypted text. The most difficult inconvenient situation for the cryptoanalyst</li>
+				<li>Cryptoanalyst owns part of encrypted text with  coresponding encrypted text.</li>
+				<li>Cryptoanalyst has momentary access to the encrypting machine</li>
+				<li>Cryptoanalyst has momentary access to the decrypting machine</li>
 			</ul>
-			<br>We will look into that topic closer in next pages.
-			<br><br>So how everything looks like in practice. Lets assume that we have got two sisters Mary and Anna and one brother Kevin. Siters always have their own secrets and they do no want Kevin to know them. When Kevin left house both sisters figured out the key. 
-			<br>Now let's move to the most important part. Mary writes letter to Anna, to provide security she uses encrypting function involving the private key. Thanks to that, attacker - nosy Kevin if he steal the letter ho will not be able to read his siters secret. Anna gets the letter (through the safe channel) from her sister and uses decypting function involving key. 
-			<br>Piture below shows the described situation.
+			<br>The way of attack on the encrypted text changes respectively to the situation.
 			</section>
 		</div>
 
