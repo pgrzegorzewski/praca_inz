@@ -40,6 +40,11 @@ tr{
 	width:160px;
 }
 
+#buttons
+{
+	text-align:center;
+}
+
 
 #caesar_encrypted{
 	width:160px;

@@ -215,9 +215,6 @@ function textShow(name) {
     $('#' + name).show(300)
 };
 
-function divShow(name) {
-    $('#' + name).show(300)
-};
 
 function textHide(name) {
     $('#' + name).hide(300)

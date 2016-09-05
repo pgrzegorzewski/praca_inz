@@ -86,10 +86,14 @@
 			<section class = "section">
 				<h3>Vigenere cipher</h3>
 				Vigenere cipher belongs to an <b>poliaphabetic, subtitution</b> family of ciphers. To encrypt message we need key as long as the messasge which we would like to encrypt. If we give key which is shorter it is copied as many times as is needed to obtain lenght equall to the message length. 
-				<br><br>From mathematical point of view encryption process is based on the modular arythmetics. To obtais encrypted letter we are adding two indexes: of sign from the message and the other from the key. Result of the encryption is the modulo from the size of alphabet of this sum.
+				<br><br>From mathematical point of view encryption process is based on the modular arythmetics. To obtain encrypted letter we are adding two indexes: of sign from the message and the other from the key. Result of the encryption is the modulo from the size of alphabet of this sum.
 				<br><br>Great visualization gives Tabula Recta which is described and shown in theoretical part.
 				<br><br><br>
-			<button id ="button_show_hide_encryption" onclick = "divShow('encryption_part')">Encryption</button><button id ="button_show_hide_encryption" onclick = "divShow('decryption_part')">Decryption</button>
+				What would You like to do, encrypt Your secret or find the meaning of some message?
+				<br><br>
+			<div id = "buttons">	
+				<button id ="button_show_hide_encryption" onclick = "showHidePracticalPart('encryption_part')">Encryption</button>  <button id ="button_show_hide_decryption" onclick = "showHidePracticalPart('decryption_part')">Decryption</button>
+			</div>
 			</section>
 			
 			<div id = "encryption_part" style = "display:none">
@@ -163,7 +167,7 @@
 		</div>
 		<div id ="decryption_part" style = "display:none">
 			<section class = "section">
-				<div id="letter"><h3>Classic Vigenere cipher - decryption:</h3></div>
+				<div id="letter"><h3>Vigenere cipher - decryption:</h3></div>
 				<table>
 					<tr>
 						<td>Encrypted text
@@ -172,6 +176,9 @@
 						<td>
 							<label for "key_decryption">Key:</label>
 							<a class = "suggestion"><input type = "text" id = "key_decryption", placeholder = "key" onblur = 'readKeyDecryption()' /><span>Enter the key, letter or text</span><a/> 	
+						</td>
+						<td>
+							<textarea id = "reversed_key" rows="1" cols="15" placeholder = "Reversed key" disabled = "true"></textarea>
 						</td>
 					</tr>
 					
