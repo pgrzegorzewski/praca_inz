@@ -4,9 +4,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="StyleSheet" href="config.css" />
 <link rel="StyleSheet" href="vigenere.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="vigenere.js"></script>
 <script type="text/javascript" src="vigenere_decryption.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 </head>
@@ -88,7 +88,11 @@
 				Vigenere cipher belongs to an <b>poliaphabetic, subtitution</b> family of ciphers. To encrypt message we need key as long as the messasge which we would like to encrypt. If we give key which is shorter it is copied as many times as is needed to obtain lenght equall to the message length. 
 				<br><br>From mathematical point of view encryption process is based on the modular arythmetics. To obtain encrypted letter we are adding two indexes: of sign from the message and the other from the key. Result of the encryption is the modulo from the size of alphabet of this sum.
 				<br><br>Great visualization gives Tabula Recta which is described and shown in theoretical part.
-				<br><br><br>
+				<br>
+				<script>
+					generateTable();
+				</script>
+				<br><br>
 				What would You like to do, encrypt Your secret or find the meaning of some message?
 				<br><br>
 			<div id = "buttons">	
@@ -101,13 +105,13 @@
 				<div id="letter"><h3>Classic Vigenere cipher - encryption:</h3></div>
 				<table>
 					<tr>
-						<td>
+						<td id="td_grid">
 							<label for "key">Key:</label>
 							<a class = "suggestion"><input type = "text" id = "key", placeholder = "key" onblur = 'readKey()' /><span>Enter the key, letter or text</span><a/> 
 							
 						</td>
-						<td><input type = "button" id = "keyButton" value = "Create key" onclick = "setKey()" /></td>
-						<td>Key result
+						<td id="td_grid"><input type = "button" id = "keyButton" value = "Create key" onclick = "setKey()" /></td>
+						<td id="td_grid">Key result
 						
 							<textarea id = "keyResult" rows="2" cols="15" disabled = "true" placeholder = "Key" onclick = "setKey()"></textarea>
 						
@@ -116,11 +120,11 @@
 					</tr>
 					
 					<tr>
-						<td>
+						<td id="td_grid">
 							<input type = "text" id = "vigenere" placeholder = "Text before encryption" onblur = "readText()"/>
 						</td>
-						<td><input type = "button" id = "encryptButton" value = "Encrypt" onclick = "vigenere()" />
-						<td>
+						<td id="td_grid"><input type = "button" id = "encryptButton" value = "Encrypt" onclick = "vigenere()" />
+						<td id="td_grid">
 							<textarea id = "vigenere_encrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after encryption"></textarea>
 						</td>
 					</tr>
@@ -131,13 +135,13 @@
 				<div id="letter"><h3>Vigenere cipher with autokey - encryption:</h3></div>
 				<table>
 					<tr>
-						<td>
+						<td id="td_grid">
 							<label for "key">Key:</label>
 							<input type = "text" id = "key2", placeholder = "key" maxlength = "1" onblur = "readKey2()" /> 
 							
 						</td>
-						<td><input type = "button" id = "keyButton" value = "Create key" onclick = "setKey2()" /></td>
-						<td>Key result
+						<td id="td_grid"><input type = "button" id = "keyButton" value = "Create key" onclick = "setKey2()" /></td>
+						<td id="td_grid">Key result
 						
 							<textarea id = "keyResult2" rows="2" cols="15" disabled = "true" placeholder = "Key"></textarea>
 						
@@ -146,15 +150,18 @@
 					</tr>
 					
 					<tr>
-						<td>
+						<td id="td_grid">
 							<input type = "text" id = "vigenere_autokey" placeholder = "Text before encryption" onblur = "readText2()"/>
 						</td>
-						<td><input type = "button" id = "encryptButton" value = "Encrypt" onclick = "vigenereWithAutokey()" />
-						<td>
+						<td id="td_grid"><input type = "button" id = "encryptButton" value = "Encrypt" onclick = "vigenereWithAutokey()" />
+						<td id="td_grid">
 							<textarea id = "vigenere_with_autokey_encrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after encryption"></textarea>
 						</td>
 					</tr>
 				</table>
+				<script>
+					generateTable();
+				</script>
 			</section>
 			<section class ="section">
 			<section class = "section">
@@ -170,27 +177,28 @@
 				<div id="letter"><h3>Vigenere cipher - decryption:</h3></div>
 				<table>
 					<tr>
-						<td>Encrypted text
+						<td id="td_grid">Encrypted text
 							<textarea id = "encrypted_text" rows="2" cols="15" placeholder = "Encrypted text" onblur = "readEncryptedText()"></textarea>
 						</td>
-						<td>
+						<td id="td_grid">
 							<label for "key_decryption">Key:</label>
 							<a class = "suggestion"><input type = "text" id = "key_decryption", placeholder = "key" onblur = 'readKeyDecryption()' /><span>Enter the key, letter or text</span><a/> 	
 						</td>
-						<td>
+						<td id="td_grid">
 							<textarea id = "reversed_key" rows="1" cols="15" placeholder = "Reversed key" disabled = "true"></textarea>
 						</td>
 					</tr>
 					
 					<tr>
-						<td>
+						<td id="td_grid">
 							<input type = "button" id = "decryptButton" value = "Decrypt" onclick = "vigenereDecrypt()" />
 						</td>
-						<td>
+						<td id="td_grid">
 							<textarea id = "vigenere_decrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after decryption"></textarea>
 						</td>
 					</tr>
 				</table>
+				<br><br>
 			</section>
 		</div>
 		</div>

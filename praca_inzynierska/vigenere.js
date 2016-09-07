@@ -219,3 +219,113 @@ function textShow(name) {
 function textHide(name) {
     $('#' + name).hide(300)
 };
+
+
+function generateTable()
+{
+    document.write("<table id = 'test'>");
+    document.write("<th>" + " " + "</th>");
+    for(var i = 0; i < 26; i++)
+    {
+        document.write("<th>" +" <button id ='letter' onclick='getId(this)'>"  + String.fromCharCode(i + CAPITAL_A) + "</button></th>");
+    }
+    for(var i = 0; i < 26; i++)
+    {
+        document.write("<tr>");
+        document.write("<th>" + " <button id ='letter' onclick='getId(this) style='width:10px''>" + String.fromCharCode(i + CAPITAL_A) + "</button></th>");
+        for(var j = 0; j < 26; j++)
+        {    
+            document.write("<td >" +" <button id ='letter'>" + String.fromCharCode(((j + i)%26)+65) + "</button></td>");
+        }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+};
+
+var Y =0;
+var X =0;
+var el1 = 0;
+var el2 = 0;
+
+function  getId(element) {
+    var table = document.getElementById('test');
+    table.style.background = "white";
+    alert("row" + element.parentNode.parentNode.rowIndex + 
+    " - column" + element.parentNode.cellIndex);
+    x = element.parentNode.parentNode.rowIndex;
+    y = element.parentNode.cellIndex;
+    if(X == 1 && Y == 1)
+    {
+        el2.style.background = "white";
+        el1.style.background = "white";
+        eraseColor();
+        X =0;
+        Y =0;
+    }
+    if (y != 0 && Y != 1)
+    {
+        el1 = element;
+        changeColor(y);
+        Y = 1;
+    }
+    else if (x != 0 && X != 1)
+    {
+        el2 = element;
+        changeColor2(x);
+        X = 1;
+    }
+    else if(y != 0 && Y == 1){
+        el1.style.background = "white";
+        el1 = element;
+        
+        eraseColor();
+        changeColor(y);
+    }
+    else if (x != 0 && X == 1)
+    {
+        el2.style.background = "white";
+        el2 = element;
+        eraseColor();
+        changeColor2(x);
+    }
+    
+    element.style.background = "green"
+};
+
+function changeColor(y)
+{
+    var table = document.getElementById('test')
+    for (var i = 0, row; row = table.rows[i]; i++) {
+
+        for (var j = 0, col; col = row.cells[j]; j++) {
+            if(j == y)
+                col.style.background = "red"
+        }  
+    }
+
+};
+
+function changeColor2(y)
+{
+    var table = document.getElementById('test')
+    for (var i = 0, row; row = table.rows[i]; i++) {
+
+        for (var j = 0, col; col = row.cells[j]; j++) {
+            if(i == x)
+                col.style.background = "red"
+        }  
+    }
+
+};
+
+function eraseColor()
+{
+    var table = document.getElementById('test')
+    for (var i = 0, row; row = table.rows[i]; i++) {
+
+        for (var j = 0, col; col = row.cells[j]; j++) {
+                col.style.background = "white"
+        }  
+    }
+
+}

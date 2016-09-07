@@ -36,3 +36,4 @@ function toggleVisibility(id) {
 	else
 		object.style.display = 'block';
 }
+
