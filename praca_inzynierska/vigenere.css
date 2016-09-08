@@ -83,7 +83,21 @@ input, label {
 	width:160px;	
 }
 
-button{
-	width = 9px;
-	height = 9px;
+table.test td button{
+	width:16px;
+	height:16px;
+	font-size:10;
+	padding:0px;
+	background-color:#CCCCCC;
+}
+table.test td{
+	padding:0px;
+}
+table.test th button{
+	background-color:white;
+	width:16px;
+	height:16px;
+	font-size:10;
+	text-align:middle;
+	padding:0px;
 }

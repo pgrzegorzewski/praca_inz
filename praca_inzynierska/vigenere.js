@@ -223,16 +223,16 @@ function textHide(name) {
 
 function generateTable()
 {
-    document.write("<table id = 'test'>");
+    document.write("<table class ='test' id = 'test'>");
     document.write("<th>" + " " + "</th>");
     for(var i = 0; i < 26; i++)
     {
-        document.write("<th>" +" <button id ='letter' onclick='getId(this)'>"  + String.fromCharCode(i + CAPITAL_A) + "</button></th>");
+        document.write("<th>" + "<button id ='letter' onclick='getId(this)'>"  + String.fromCharCode(i + CAPITAL_A) + "</button></th>");
     }
     for(var i = 0; i < 26; i++)
     {
         document.write("<tr>");
-        document.write("<th>" + " <button id ='letter' onclick='getId(this) style='width:10px''>" + String.fromCharCode(i + CAPITAL_A) + "</button></th>");
+        document.write("<th>" + " <button id ='letter' onclick='getId(this)'>" + String.fromCharCode(i + CAPITAL_A) + "</button></th>");
         for(var j = 0; j < 26; j++)
         {    
             document.write("<td >" +" <button id ='letter'>" + String.fromCharCode(((j + i)%26)+65) + "</button></td>");

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="StyleSheet" href="config.css" />
+<link rel="StyleSheet" href="vigenere.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="vigenere.js"></script>
+<script type="text/javascript" src="vigenere_decryption.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+</head>
+<body>
+<div class="page">
+	<header class="header">
+	<h1>Magic of Cryptography</h1>
+	</header>
+
+	<div class="row">
+		<div class = "col-3 col-m-3">	
+			<nav class= "menu_theory">
+				<br>Menu Theory<br>
+					<ul>	
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptology');">Cryptology</a>
+						</li>	
+						<div class = "submenu" id ="submenu_cryptology">
+							<ul>	
+								<br><li>
+										<a href ="Cryptography_theory.html">Cryptography</a>
+									</li>
+								<br><li>
+										<a href = "Cryptoanalysis_theory.html">Cryptoanalysis</a>
+									</li>
+							</ul>	
+						</div>
+							<br><li>
+								<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems');">Cryptosystem Types</a>
+							</li>
+						<div class = "submenu" id ="submenu_cryptosystems">
+							<ul>
+								<br><li>
+										<a href = "Cryptosystems_types.html">Basic Information</a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_symmetric_keys.html"> Symmetric Cryptosystems </a>
+									</li>
+								<br><li>
+										Asymetric Cryptosystems
+									</li>
+							</ul>	
+						</div>
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems_examples');">Cryptosystem Examples</a>
+						</li>
+						<div class = "submenu" id ="submenu_cryptosystems_examples">
+							<ul>
+								<br><li>
+										<a href = "Caesar_theory.html">Caesar Cipher</a>
+									</li>
+								<br><li>
+										<a href = "Vigenere_theory.html">Vigenere Cipher</a>
+									</li>
+								<br><li>
+										<a href = "RSA_theory.html">RSA Cipher</a>
+									</li>
+								<br><li>
+									working on (DSA?)
+									</li>
+							</ul>
+						</div>
+						<br><li>
+								Digital Signature
+							</li>
+						<br><li>
+								Electronic Signature
+							</li>
+						<br><li>
+								CrypTool
+							</li>
+					</ul>
+			</nav>
+		</div>
+
+		<div class="col-6 col-m-9">
+			<section class = "section">
+				<h3>A bit of theory and history</h3>
+				RSA is the belongs to the family of <b>asymetric cryptography system with public keys</b>. It is one of the first ciphers of that kind and one of the most popular nowadays.. The authors of RSA cipher are Ron Rivesta, Adi Szamira and Leonard Adleman <img src = "resources/rsa.jpg" alt = "RSA authors" align = "left" height ="200px">(it can be easily noticed that name RSA come from the first letters of surnames fo authors), they invented it in 1977. That universal cipher despite the message encryption found also usage in generating signatures. RSA provides confidentiality, integrity, authenticity and non-reputability of electronic communication and data storage.
+				<br>RSA is using assymetric keys which means that we have got pair of different keys which are however strictly linked with each other. You can find more information about theory about crygraphy sytems with assymetric keys there.<a href ="">there</a>  
+				<h3>Perfect cipher?</h3>
+				<br>What is the reaseon of the popularity of RSA system. RSA cryptosystem's security is conneted with difficulty od factoring really large integers which are product of two large prime numbers. Multipying such a numbers is quite easy task however determining the original prime numbers from factoring is really difficult even for today's super computers. The largest broken key til now was the 768 bit key. To broke the key it was used computer cluster. Nowadays the most popular keys are with 1024 or 2048 bit lenght. As the computional power of computers is growing year over year it is predicted that 1024 may be broke in the near future. That is why we are using 2048bit key the most often.
+				<br>In the RSA key is always a pair numbers:
+				<br><ul>
+					<li>(n, e) - for public key</li>
+					<li>(n, d) - for private key</li>
+					</ul>
+				<br>So how to generate both keys? At the beginning we need to choose two high primary numbers <b>p</b> and <b>q</b> The higher the numbers are the safer the encryptin become. It will be explained how lenght of these factors increases the safety in a moment. 
+				<br>The result of multiplication of p and q gives us the "<b>n</b>" factor. Now we have to only determine <b>e</b> and <b>d</b>. To make that we have to have result of Euler function of n:
+				omega(n) = (p-1)(q-1)
+				<br>Now we are choosing e which have to be <b>coprime</b> number with n.
+				<br>At at the end we are looking for d. To determine it we nee to use Extended Euclidean algorithm.
+				<br> Example:
+
+
+				<br><h3>Where is used?</h3>
+			</section>
+		</div>
+
+		<div class="col-3 col-m-12">
+		<aside class="menu_practical">
+			Cryptography in practice
+			<ul>
+				<br><li>
+						<a href = "Cryptosystems_types.html">Basic information</a>
+					</li>
+			</ul>
+		</aside>
+		</div>
+
+	</div>
+
+	<div class="footer">
+	<p>Done by Pawel Grzegorzewski 190116</p>
+	</div>
+
+</body>
+</html>
+
+
+
+
+	
