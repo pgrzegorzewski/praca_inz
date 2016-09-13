@@ -107,7 +107,7 @@
 							
 						</td>
 						<td id="td_grid"><input type = "button" id = "keyButton" value = "Create key" onclick = "setKey()" /></td>
-						<td id="td_grid">Key result
+						<td id="td_grid">Key result:
 						
 							<textarea id = "keyResult" rows="2" cols="15" disabled = "true" placeholder = "Key" onclick = "setKey()"></textarea>
 						
@@ -116,11 +116,11 @@
 					</tr>
 					
 					<tr>
-						<td id="td_grid">
+						<td id="td_grid">Plain text:
 							<input type = "text" id = "vigenere" placeholder = "Text before encryption" onblur = "readText()"/>
 						</td>
 						<td id="td_grid"><input type = "button" id = "encryptButton" value = "Encrypt" onclick = "vigenere()" />
-						<td id="td_grid">
+						<td id="td_grid">Cryptogram:
 							<textarea id = "vigenere_encrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after encryption"></textarea>
 						</td>
 					</tr>
@@ -137,7 +137,7 @@
 							
 						</td>
 						<td id="td_grid"><input type = "button" id = "keyButton" value = "Create key" onclick = "setKey2()" /></td>
-						<td id="td_grid">Key result
+						<td id="td_grid">Key result:
 						
 							<textarea id = "keyResult2" rows="2" cols="15" disabled = "true" placeholder = "Key"></textarea>
 						
@@ -146,11 +146,11 @@
 					</tr>
 					
 					<tr>
-						<td id="td_grid">
+						<td id="td_grid">Plain text:
 							<input type = "text" id = "vigenere_autokey" placeholder = "Text before encryption" onblur = "readText2()"/>
 						</td>
 						<td id="td_grid"><input type = "button" id = "encryptButton" value = "Encrypt" onclick = "vigenereWithAutokey()" />
-						<td id="td_grid">
+						<td id="td_grid">Cryptogram:
 							<textarea id = "vigenere_with_autokey_encrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after encryption"></textarea>
 						</td>
 					</tr>
@@ -162,15 +162,16 @@
 				<script>
 					generateTable();
 				</script>
+				<br>
 				<table>
 					<tr>
-						<td id="td_grid">
+						<td id="td_grid">Key:
 							<textarea id = "tabula_key" rows="2" cols="15" disabled = "true" placeholder = "key"></textarea>
 						</td>
-						<td id="td_grid">
+						<td id="td_grid">Plain text:
 							<textarea id = "tabula_text" rows="2" cols="15" disabled = "true" placeholder = "Text before encryption"></textarea>
 						</td>
-						<td id="td_grid">
+						<td id="td_grid">Cryptogram:
 							<textarea id = "tabula_encrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after encryption"></textarea>
 						</td>
 					</tr>
@@ -190,14 +191,14 @@
 				<div id="letter"><h3>Vigenere cipher - decryption:</h3></div>
 				<table>
 					<tr>
-						<td id="td_grid">Encrypted text
+						<td id="td_grid">Cryptogram:
 							<textarea id = "encrypted_text" rows="2" cols="15" placeholder = "Encrypted text" onblur = "readEncryptedText()"></textarea>
 						</td>
 						<td id="td_grid">
 							<label for "key_decryption">Key:</label>
 							<a class = "suggestion"><input type = "text" id = "key_decryption", placeholder = "key" onblur = 'readKeyDecryption()' /><span>Enter the key, letter or text</span><a/> 	
 						</td>
-						<td id="td_grid">
+						<td id="td_grid">Reversed key:
 							<textarea id = "reversed_key" rows="1" cols="15" placeholder = "Reversed key" disabled = "true"></textarea>
 						</td>
 					</tr>
@@ -206,7 +207,7 @@
 						<td id="td_grid">
 							<input type = "button" id = "decryptButton" value = "Decrypt" onclick = "vigenereDecrypt()" />
 						</td>
-						<td id="td_grid">
+						<td id="td_grid">Plain text:
 							<textarea id = "vigenere_decrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after decryption"></textarea>
 						</td>
 					</tr>

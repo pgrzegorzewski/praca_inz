@@ -93,10 +93,24 @@
 			</ul>
 			<br>The way of attack on the encrypted text changes respectively to the situation however the aim is always the same - find the key which was used to encrypt the message and then use it to break the cryptogram. 
 			<br>There are three main resources which we have to in mind when we are attacking cryptosystem:
-			<br>	1. Time - whih is required to perform all computation steps, tests to find the key. The less time we need to find the key the more effecting is our attack.
-			<br>	2. Memory - computer's memory required to perform all the computations and cut their time. The more memory we have the less time we spend on breaking the key.
-			<br>	3. Data - amount of intercepted data, not only encrypted text but also fragments of key or original message. The more data we have the easier become the attack to perform.
+			<ol type="1">
+				<li>Time - whih is required to perform all computation steps, tests to find the key. The less time we need to find the key the more effecting is our attack.</li>
+				<li>Memory - computer's memory required to perform all the computations and cut their time. The more memory we have the less time we spend on breaking the key.</li>
+				<li>Data - amount of intercepted data, not only encrypted text but also fragments of key or original message. The more data we have the easier become the attack to perform.</li>
+			</ol>
+			<br>
+			<h3>Way of wiretapes</h3>
+			There are two vulerabilities concerning exchanging of messages:
+			<ul>
+				<li>Active wiretape</li>
+				<img src = "resources/active_wiretape.png" alt = "active wiretape" width="500px">
+				<li>Passive wiretape</li>
+				<img src = "resources/passive_wiretape.png" alt = "passive wiretape" width="500px">
+			</ul>
+			<br>Active wiretape is the vulerabilty agianst the authenticity of the message. The attacker impersonates the sender of the message. The action which prevents spoofing is using the electonical signature.
+			<br><br>Passive wiretape is the vulnerability against the confidentiality of the message. The attacker tries to steal the prvite message. The action which prevents that is using the cipher.
 			</section>
+			
 		</div>
 
 		<div class="col-3 col-m-12">

@@ -81,7 +81,7 @@
 		<div class="col-6 col-m-9">
 			<section class = "section">
 			<h2>Cryptography</h2>
-			<br>Cryptography is branch of science describing techniques for secure information. It is strictly connected with mathematics. Cryptography ia about creating and improving cryptology methods which provide insurance that private messages could not be read by third parties. 
+			<br>Cryptography is branch of science describing techniques for secure information. It is strictly connected with mathematics. Cryptography ia about creating and improving cryptology methods which provide insurance that private messages could not be read by third parties. The aim of cryptography is to create cryptogram which is conditionally (with key) easy - the time and amount of arythmetical operations are low to retrive plain text, and unconditionally (without key) as difficult as possible.
 			<br><br>Cryptography method or cipher in other words changes private message into the stream of letters which at first look does not have any sense. Thing which enables addressee to recreate original message is a key. The key is the set of parameters required cipher users to encrypt or decrypt the message. <br>We can distinguish two types of keys:
 			<ul>
 				<li><b>symmetric key</b> - key used for encryption and decryption is exactly the same</li>
@@ -92,6 +92,10 @@
 			<br>Now let's move to the most important part. Mary writes letter to Anna, to provide security she uses encrypting function involving the private key. Thanks to that, attacker - nosy Kevin if he steal the letter ho will not be able to read his siters secret. Anna gets the letter (through the safe channel) from her sister and uses decypting function involving key. 
 			<br>Piture below shows the described situation.
 			<br><br><img src = "resources/encryption.png" alt = "encryption" width="500px">
+			<br><br><h3>Safety of the cryptosystem</h3>
+			<br>One the most important aspects of cryptography system is safety. We have to distinguish naive and true safety of the cryptosystem.
+			<br>Naive safety of the cipher tells as about total amount of possible keys. The more possible keys the higher naibe safety is. However high naive safety of cryptosystem does not always provide true safety. 
+			<br>High naive safety of the cipher is effective against brute force attack.
 			</section>
 		</div>
 
