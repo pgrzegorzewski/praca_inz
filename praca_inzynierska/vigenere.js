@@ -244,8 +244,15 @@ function generateTable()
 
 var Y =0;
 var X =0;
+var xcoord;
+var ycoord;
+var x;
+var y;
 var el1 = 0;
 var el2 = 0;
+var stringTabulaKey = "";
+var stringTabulaText = "";
+var stringTabulaEncrypted = "";
 
 function  getId(element) {
     var table = document.getElementById('test');
@@ -253,26 +260,54 @@ function  getId(element) {
     alert("row" + element.parentNode.parentNode.rowIndex + 
     " - column" + element.parentNode.cellIndex);
     x = element.parentNode.parentNode.rowIndex;
+	if(x != 0)
+		xcoord = x;
+
     y = element.parentNode.cellIndex;
+	if(y != 0)
+		ycoord = y;
+
     if(X == 1 && Y == 1)
     {
         el2.style.background = "white";
         el1.style.background = "white";
         eraseColor();
-        X =0;
-        Y =0;
+        X = 0;
+        Y = 0;
+		xcoord = 0;
+		ycoord = 0;
     }
     if (y != 0 && Y != 1)
     {
         el1 = element;
         changeColor(y);
         Y = 1;
+		ycoord = y;
+		if(X == 1){
+			changeColorCell(xcoord, ycoord);
+			stringTabulaKey = stringTabulaKey.concat(String.fromCharCode(xcoord - 1 + CAPITAL_A));
+			stringTabulaText = stringTabulaText.concat(String.fromCharCode(ycoord - 1 + CAPITAL_A));
+			stringTabulaEncrypted = stringTabulaEncrypted.concat(String.fromCharCode((xcoord - 1 + ycoord - 1)%26 + CAPITAL_A));
+			document.getElementById('tabula_key').value =  stringTabulaKey;
+			document.getElementById('tabula_text').value =  stringTabulaText;
+			document.getElementById('tabula_encrypted').value = stringTabulaEncrypted;
+		}
     }
     else if (x != 0 && X != 1)
     {
         el2 = element;
         changeColor2(x);
-        X = 1;
+		X = 1;
+		xcoord = x;
+		if(Y == 1){
+			changeColorCell(xcoord, ycoord);
+			stringTabulaKey = stringTabulaKey.concat(String.fromCharCode(xcoord - 1 + CAPITAL_A));
+			stringTabulaText = stringTabulaText.concat(String.fromCharCode(ycoord - 1 + CAPITAL_A));
+			stringTabulaEncrypted = stringTabulaEncrypted.concat(String.fromCharCode((xcoord - 1 + ycoord - 1)%26 + CAPITAL_A));
+			document.getElementById('tabula_key').value =  stringTabulaKey;
+			document.getElementById('tabula_text').value =  stringTabulaText;
+			document.getElementById('tabula_encrypted').value = stringTabulaEncrypted;
+		}
     }
     else if(y != 0 && Y == 1){
         el1.style.background = "white";
@@ -313,6 +348,21 @@ function changeColor2(y)
         for (var j = 0, col; col = row.cells[j]; j++) {
             if(i == x)
                 col.style.background = "red"
+        }  
+    }
+
+};
+
+
+
+function changeColorCell(x, y)
+{
+    var table = document.getElementById('test')
+    for (var i = 0, row; row = table.rows[i]; i++) {
+
+        for (var j = 0, col; col = row.cells[j]; j++) {
+            if(i == x && j == y)
+                col.style.background = "green"
         }  
     }
 

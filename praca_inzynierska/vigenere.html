@@ -87,11 +87,7 @@
 				<h3>Vigenere cipher</h3>
 				Vigenere cipher belongs to an <b>poliaphabetic, subtitution</b> family of ciphers. To encrypt message we need key as long as the messasge which we would like to encrypt. If we give key which is shorter it is copied as many times as is needed to obtain lenght equall to the message length. 
 				<br><br>From mathematical point of view encryption process is based on the modular arythmetics. To obtain encrypted letter we are adding two indexes: of sign from the message and the other from the key. Result of the encryption is the modulo from the size of alphabet of this sum.
-				<br><br>Great visualization gives Tabula Recta which is described and shown in theoretical part.
-				<br><br>
-				<script>
-					generateTable();
-				</script>
+				<br><br>Great visualization gives Tabula Recta which is described and shown in theoretical part. You can also use it below in the encryption part.
 				<br><br>
 				What would You like to do, encrypt Your secret or find the meaning of some message?
 				<br><br>
@@ -159,9 +155,26 @@
 						</td>
 					</tr>
 				</table>
+				<br><br>
+				You can try to encrypt message using Tabula Recta. Because of the fact that table is symmetric it does not matter where you put key vertically or horizontally.
+				<br>In this example let's say that we are putting key letters vertically and text letters horizontally.
+				<br><br><br>
 				<script>
 					generateTable();
 				</script>
+				<table>
+					<tr>
+						<td id="td_grid">
+							<textarea id = "tabula_key" rows="2" cols="15" disabled = "true" placeholder = "key"></textarea>
+						</td>
+						<td id="td_grid">
+							<textarea id = "tabula_text" rows="2" cols="15" disabled = "true" placeholder = "Text before encryption"></textarea>
+						</td>
+						<td id="td_grid">
+							<textarea id = "tabula_encrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after encryption"></textarea>
+						</td>
+					</tr>
+				</table>	
 			</section>
 			<section class ="section">
 			<section class = "section">
