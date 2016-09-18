@@ -3,7 +3,6 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="StyleSheet" href="config.css" />
-<link rel="StyleSheet" href="caesar.css" />
 <script type="text/javascript" src="caesar.js"></script>
 
 <script language="JavaScript" type="text/javascript" src="lib/cryptico/jsbn.js"></script>
@@ -107,6 +106,7 @@
 							<td>
 									<textarea id = "message" rows="3" cols="70" placeholder = "Message" onblur = "setMessage()"></textarea>
 							</td>
+							<td></td>
 						</tr>
 						<tr>
 							<td>
@@ -114,7 +114,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td>
+							<td style="width:300px">
 								<label for "Key_lenght">Key lenght (bits):</label>
 								<select name="Key lenght (bits)" id="Key_lenght" onblur="setKeyLenght()">
 									<option>512</option>
@@ -132,16 +132,19 @@
 							<td>
 									<textarea id = "keyText" rows="3" cols="70" disabled = "true" placeholder = "Key Text"></textarea>
 							</td>
+							<td></td>
 						</tr>
 						<tr>
 							<td>
-								<button onclick = "encrypt()">Encrypt</button>
+								<button onclick = "encrypt()" align="left">Encrypt</button>
 							</td>
+							<td></td>
 						</tr>
 						<tr>
 							<td>
-									<textarea id = "encryptedText" rows="2" cols="50" disabled = "true" placeholder = "Encrypted message"></textarea>
+									<textarea id = "encryptedText" rows="3" cols="70" disabled = "true" placeholder = "Encrypted message"></textarea>
 							</td>
+							<td></td>
 						</tr>
 					</table>
 				
@@ -152,7 +155,10 @@
 			<section class = "section">
 			
 				<h3>Safety</h3>
-
+				<br>512 bit key lenght is enought to provide high safety, it is almost impossible to braeak this king of cipher by normal computer.
+				<br>1024 bit key. There are no official publication that this kind of key can be broken in relative short period of time. However looking at the speed of technological development that keys con be broken in few years if (they are not already broken).
+				<br>2048 bit key. That and 1024 bit keys are in common use. They provide huge safety nowadays. 
+				<br>4096 bit key. Impossible to break. Key provides 99.9999% of safety.
 			</section>
 		</div>
 
