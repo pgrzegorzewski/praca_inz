@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="StyleSheet" href="config.css" />
+<link rel="StyleSheet" href="caesar.css" />
+<script type="text/javascript" src="caesar.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="lib/cryptico/jsbn.js"></script>
+<script language="JavaScript" type="text/javascript" src="lib/cryptico/random.js"></script>
+<script language="JavaScript" type="text/javascript" src="lib/cryptico/hash.js"></script>
+<script language="JavaScript" type="text/javascript" src="lib/cryptico/rsa.js"></script>
+<script language="JavaScript" type="text/javascript" src="lib/cryptico/aes.js"></script>
+<script language="JavaScript" type="text/javascript" src="lib/cryptico/api.js"></script>
+<script language="JavaScript" type="text/javascript" src="rsa_data.js"></script>
+<script language="JavaScript" type="text/javascript" src="lib/cryptico/cryptico.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="page">
+	<header class="header">
+	<h1>Magic of Cryptography</h1>
+	</header>
+
+	<div class="row">
+		<div class = "col-3 col-m-3">	
+			<nav class= "menu_theory">
+				<br>Menu Theory<br>
+					<ul>	
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptology');">Cryptology</a>
+						</li>	
+						<div class = "submenu" id ="submenu_cryptology">
+							<ul>	
+								<br><li>
+										<a href = "Cryptosystem_types.html">Basic Information</a>
+									</li>							
+								<br><li>
+										<a href = "Cryptography_theory.html">Cryptography</a>
+									</li>
+								<br><li>
+										<a href = "Cryptoanalysis_theory.html">Cryptoanalysis</a>
+									</li>
+							</ul>	
+						</div>
+							<br><li>
+								<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems');">Cryptosystem Types</a>
+							</li>
+						<div class = "submenu" id ="submenu_cryptosystems">
+							<ul>
+								<br><li>
+										<a href = "Cryptosystems_types.html">Basic Information</a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_symmetric_keys.html"> Symmetric Cryptosystems </a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_asymmetric_keys.html">Asymmetric Cryptosystems</a>
+									</li>
+							</ul>	
+						</div>
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems_examples');">Cryptosystem Examples</a>
+						</li>
+						<div class = "submenu" id ="submenu_cryptosystems_examples">
+							<ul>
+								<br><li>
+										<a href = "Caesar_theory.html">Caesar Cipher</a>
+									</li>
+								<br><li>
+										<a href = "Vigenere_theory.html">Vigenere Cipher</a>
+									</li>
+								<br><li>
+										RSA Cipher
+									</li>
+								<br><li>
+									working on (DSA?)
+									</li>
+							</ul>
+						</div>
+						<br><li>
+								Digital Signature
+							</li>
+						<br><li>
+								Electronic Signature
+							</li>
+						<br><li>
+								CrypTool
+							</li>
+					</ul>
+			</nav>
+		</div>
+
+		<div class="col-6 col-m-9">
+			<section class = "section">
+				<h3>RSA Cypher</h3>
+				<br>RSA cipher - cipher created by Ron <b>R</b>ivest, <b>A</b>di Szamir and Leonard <b>A</b>dleman. One of the most popular and widely used cipher. It belongs to the asymmetric cryptography system's family with public keys. 
+				<br><br>RSA algorithm can used for encrypting messages and also for creating digital signatures. The cipher is based on the factorizing huge complex numbers.
+				<br><br>To find more information about the cipher go to the theory part by clicking <a href = "RSA_theory.html">here</a>.
+			</section>
+			<section class ="section">
+				<h3>Encryption</h3>
+					<table>
+						<tr>
+							<td>
+									<textarea id = "message" rows="3" cols="70" placeholder = "Message" onblur = "setMessage()"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+									<textarea id = "Key_pharse" rows="3" cols="70" placeholder = "Key pharse" onblur = "setKeyPharse()"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for "Key_lenght">Key lenght (bits):</label>
+								<select name="Key lenght (bits)" id="Key_lenght" onblur="setKeyLenght()">
+									<option>512</option>
+									<option>1024</option>
+									<option>2048</option>
+									<option>4096</option>
+									<option>8192</option>
+								</select>
+							</td>
+							<td>
+								<button onclick = "setKeyText()">Generate key</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+									<textarea id = "keyText" rows="3" cols="70" disabled = "true" placeholder = "Key Text"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button onclick = "encrypt()">Encrypt</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+									<textarea id = "encryptedText" rows="2" cols="50" disabled = "true" placeholder = "Encrypted message"></textarea>
+							</td>
+						</tr>
+					</table>
+				
+			</section>
+			
+							
+			
+			<section class = "section">
+			
+				<h3>Safety</h3>
+
+			</section>
+		</div>
+
+		<div class="col-3 col-m-12">
+		<aside class="menu_practical">
+			Cryptography in practice
+			<ul>
+				<br><li>
+						<a href = "Cryptosystems_types.html">Basic information</a>
+					</li>
+				<br><li>
+						<a href = "caesar.html">Caesar Cipher</a>
+					</li>
+				<br><li>
+						<a href = "vigenere.html">Vigenere Cipher</a>
+					</li>
+				<br><li>
+						<a href = "rsa.html">RSA Cipher</a>
+					</li>
+			</ul>
+		</aside>
+		</div>
+
+	</div>
+
+	<div class="footer">
+	<p>Done by Pawel Grzegorzewski 190116</p>
+	</div>
+
+</body>
+</html>
+
+
+
+
+	
