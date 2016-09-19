@@ -95,7 +95,7 @@
 		<div class="col-6 col-m-9">
 			<section class = "section">
 				<h3>RSA Cypher</h3>
-				<br>RSA cipher - cipher created by Ron <b>R</b>ivest, <b>A</b>di Szamir and Leonard <b>A</b>dleman. One of the most popular and widely used cipher. It belongs to the asymmetric cryptography system's family with public keys. 
+				<br>RSA cipher - cipher created by Ron <b>R</b>ivest, Adi <b>S</b>zamir and Leonard <b>A</b>dleman. One of the most popular and widely used cipher. It belongs to the asymmetric cryptography system's family with public keys. 
 				<br><br>RSA algorithm can used for encrypting messages and also for creating digital signatures. The cipher is based on the factorizing huge complex numbers.
 				<br><br>To find more information about the cipher go to the theory part by clicking <a href = "RSA_theory.html">here</a>.
 			</section>
@@ -104,15 +104,17 @@
 					<table>
 						<tr>
 							<td>
-									<textarea id = "message" rows="3" cols="70" placeholder = "Message" onblur = "setMessage()"></textarea>
+									<textarea id = "message" rows="3" cols="72" placeholder = "Message" onblur = "setMessage()"></textarea>
 							</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td>
-									<textarea id = "Key_pharse" rows="3" cols="70" placeholder = "Key pharse" onblur = "setKeyPharse()"></textarea>
+									<textarea id = "Key_pharse" rows="3" cols="72" placeholder = "Key pharse" onblur = "setKeyPharse()"></textarea>
 							</td>
 						</tr>
+					</table>
+					<table>
 						<tr>
 							<td style="width:300px">
 								<label for "Key_lenght">Key lenght (bits):</label>
@@ -128,9 +130,11 @@
 								<button onclick = "setKeyText()">Generate key</button>
 							</td>
 						</tr>
+					</table>
+					<table>
 						<tr>
 							<td>
-									<textarea id = "keyText" rows="3" cols="70" disabled = "true" placeholder = "Key Text"></textarea>
+									<textarea id = "keyText" rows="3" cols="72" disabled = "true" placeholder = "Key Text"></textarea>
 							</td>
 							<td></td>
 						</tr>
@@ -142,16 +146,27 @@
 						</tr>
 						<tr>
 							<td>
-									<textarea id = "encryptedText" rows="3" cols="70" disabled = "true" placeholder = "Encrypted message"></textarea>
+									<textarea id = "encryptedText" rows="3" cols="72" disabled = "true" placeholder = "Encrypted message"></textarea>
 							</td>
 							<td></td>
 						</tr>
 					</table>
 				
 			</section>
-			
-							
-			
+			<section class = "section">
+				<h3>Decryption<h3>
+				In this section we are using key from the encryption part.
+				<table>
+					<tr>
+						<td><textarea id = "messageEncrypted" rows="3" cols="72" placeholder = "Encrypted essage" onblur = "setMessageEncrypted()"></textarea></td>
+					</tr>
+					<tr>
+						<td><button onclick = "decrypt()">Decrypt</button></td>
+					</tr>
+					<tr>
+						<td><textarea id = "messageDecrypted" rows="3" cols="72" placeholder = "Original message" onblur = "setMessage()"></textarea></td>
+					</tr>
+				</table>
 			<section class = "section">
 			
 				<h3>Safety</h3>

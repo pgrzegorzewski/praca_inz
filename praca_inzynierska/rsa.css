@@ -6,3 +6,7 @@ td{
 	display:block;
 	text-align:left;
 }
+
+table{
+	width:500px;
+}

@@ -2,17 +2,20 @@ var messageText = '';
 var keyPharseKeyText = '';
 var keyText = '';
 var encryptedMessageText = '';
+var encryptedMessageText2 = '';
+var decryptedMessageText = '';
 var keyLenght;
 
 var publicKey;
 var publicKeyString;
 
-var encryptedMessageText = '';
+//var encryptedMessageText = '';
 //var EncryptionResult = cryptico.encrypt(PlainText, MattsPublicKeyString);
 
 // Flags 
 var keyPharseSet = 0;
 var messageSet = 0;
+var encryptedMessageSet = 0;
 var keySet = 0;
 
 
@@ -67,6 +70,22 @@ function encrypt()
 	else
 	{
 		alert("please generate key and write the message You would like to encrypt");
+	}
+}
+
+function setMessageEncrypted()
+{
+	encryptedMessageText2 = document.getElementById('messageEncrypted');
+	encryptedMessageSet = 1;
+	
+}
+
+function decrypt()
+{
+	if(encryptedMessageSet == 1 && keySet == 1)
+	{
+		decryptedMessageText = cryptico.decrypt(encryptedMessageText.cipher, publicKey)
+		document.getElementById('messageDecrypted').value = decryptedMessageText.plaintext; 
 	}
 }
 
