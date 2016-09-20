@@ -9,8 +9,6 @@ var keyLenght;
 var publicKey;
 var publicKeyString;
 
-//var encryptedMessageText = '';
-//var EncryptionResult = cryptico.encrypt(PlainText, MattsPublicKeyString);
 
 // Flags 
 var keyPharseSet = 0;
@@ -71,6 +69,7 @@ function encrypt()
 	{
 		alert("please generate key and write the message You would like to encrypt");
 	}
+	showSafety();
 }
 
 function setMessageEncrypted()
@@ -89,7 +88,23 @@ function decrypt()
 	}
 }
 
+function textShow(name) {
+    $('#' + name).show(300)
+};
+
+function textHide(name) {
+    $('#' + name).hide(300)
+};
+
 function showSafety()
 {
-	
+	textHide('nothing_encrypted');
+	if(keyLenght == 512)
+		textShow('512');
+	else if(keyLenght == 1024)
+		textShow('1024');
+	else if(keyLenght == 2048)
+		textShow('2048');
+	else if (keyLenght == 4096)
+		textShow('4096');
 }
