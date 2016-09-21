@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="StyleSheet" href="config.css" />
+<link rel="StyleSheet" href="vigenere.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="vigenere.js"></script>
+<script type="text/javascript" src="vigenere_decryption.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+</head>
+<body>
+<div class="page">
+	<header class="header">
+	<h1>Magic of Cryptography</h1>
+	</header>
+
+	<div class="row">
+		<div class = "col-3 col-m-3">	
+			<nav class= "menu_theory">
+				<br>Menu Theory<br>
+					<ul>	
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptology');">Cryptology</a>
+						</li>	
+						<div class = "submenu" id ="submenu_cryptology">
+							<ul>	
+								<br><li>
+										<a href = "Cryptosystem_types.html">Basic Information</a>
+									</li>							
+								<br><li>
+										<a href = "Cryptography_theory.html">Cryptography</a>
+									</li>
+								<br><li>
+										<a href = "Cryptoanalysis_theory.html">Cryptoanalysis</a>
+									</li>
+							</ul>	
+						</div>
+							<br><li>
+								<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems');">Cryptosystem Types</a>
+							</li>
+						<div class = "submenu" id ="submenu_cryptosystems">
+							<ul>
+								<br><li>
+										<a href = "Cryptosystems_types.html">Basic Information</a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_symmetric_keys.html"> Symmetric Cryptosystems </a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_asymmetric_keys.html">Asymmetric Cryptosystems</a>
+									</li>
+							</ul>	
+						</div>
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems_examples');">Cryptosystem Examples</a>
+						</li>
+						<div class = "submenu" id ="submenu_cryptosystems_examples">
+							<ul>
+								<br><li>
+										<a href = "Caesar_theory.html">Caesar Cipher</a>
+									</li>
+								<br><li>
+										<a href = "Vigenere_theory.html">Vigenere Cipher</a>
+									</li>
+								<br><li>
+										<a href = "RSA_theory.html">RSA Cipher</a>
+									</li>
+								<br><li>
+									working on (DSA?)
+									</li>
+							</ul>
+						</div>
+						<br><li>
+								Digital Signature
+							</li>
+						<br><li>
+								Electronic Signature
+							</li>
+						<br><li>
+								CrypTool
+							</li>
+					</ul>
+			</nav>
+		</div>
+
+		<div class="col-6 col-m-9">
+			<section class = "section">
+				<h3>Knapsack cipher</h3>
+				Knapsack cipher or rather Merkle-Hellman cipher was invented in 1978 by Ralph Merkle and Martin Hellman. It is assymetric cryptosystem with public key. At the beginning it was considered as the perfect cipher. One of the authors announced that person how will break knapsack cryptosystem will win special prize. Unfortunately four years later Merkle was forced to give Adi Shamir 100 dollars in cash who found weakness in the cipher. Moreover Adi Shamir is one of the inventors more complicated assymetric cryptosystem which provides under few conditions 100% of safety... that must be so embarassing for Merkle.
+				<br>Let's move to the cryptosytem, it is based on kanpsack problem, to be more precise a special case of this algebraic problem - subset sum problem. The problem is defined as follows: we have got a set of numbers X and a number n. Our goal is to find the a subset of X whoch is equall to our number n. 
+				<br>In many cases there are more than one subsets which sum gives us n so we have to add special condition to our A set - it has to be superincreasing. Superincreasing  set of numbers is the set in which every next number is higher than the sum of previous numbers.
+				<br>Ok, we have coped with many results but now our problem became really easy to solve... because to find our subset we are starting from the highest elemnt of A set and checking if it is smaller than sum n. If yes we are subtracking that element from the n and repeat these steps with the result of subtraction and next element of the set.
+				<br>Problem is solvable in polynominal time.
+				<br>
+				<h3>Keys</h3>
+				Pair of keys consists of two different set of numbers: hard and easy one. The private key is the easy - superincreasing set of numbers, modulus m and w multiplier. The public key is the 'hard' set of numbers generated from the private key. 
+				<br><br><br>click here to go to practical part <a href = #>click</a>
+			</section>
+		</div>
+
+		<div class="col-3 col-m-12">
+		<aside class="menu_practical">
+			Cryptography in practice
+			<ul>
+				<br><li>
+						<a href = "Cryptosystems_types.html">Basic information</a>
+					</li>
+				<br><li>
+						<a href = "caesar.html">Caesar Cipher</a>
+					</li>
+				<br><li>
+						<a href = "vigenere.html">Vigenere Cipher</a>
+					</li>
+				<br><li>
+						<a href = "rsa.html">RSA Cipher</a>
+					</li>
+			</ul>
+		</aside>
+		</div>
+
+	</div>
+
+	<div class="footer">
+	<p>Done by Pawel Grzegorzewski 190116</p>
+	</div>
+
+</body>
+</html>
+
+
+
+
+	
