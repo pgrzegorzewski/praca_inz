@@ -1,6 +1,8 @@
 var keyLenght = 0;
 var array_A = [];
 var randomSum = 0;
+var plainText = '';
+var plainTextBits ='';
 
 function setKeyLenght()
 {
@@ -36,4 +38,19 @@ function getRandomSum()
 		}
 	}
 	document.getElementById('key_setA_random_sum').value = randomSum;
+}
+
+function convert(plainText) {  
+
+    for (i = 0; i < plainText.length; i++) {
+     	plainTextBits += plainText[i].charCodeAt(0).toString(2) + " ";
+    }
+}
+
+function setPlainText()
+{
+	plainText = document.getElementById('plain_text').value;
+	convert(plainText);
+	document.getElementById('plain_text_bits').value = plainTextBits;
+	
 }
