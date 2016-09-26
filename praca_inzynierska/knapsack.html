@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="StyleSheet" href="config.css" />
+<link rel="StyleSheet" href="caesar.css" />
+<script type="text/javascript" src="knapsack.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="page">
+	<header class="header">
+	<h1>Magic of Cryptography</h1>
+	</header>
+
+	<div class="row">
+		<div class = "col-3 col-m-3">	
+			<nav class= "menu_theory">
+				<br>Menu Theory<br>
+					<ul>	
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptology');">Cryptology</a>
+						</li>	
+						<div class = "submenu" id ="submenu_cryptology">
+							<ul>	
+								<br><li>
+										<a href = "Cryptosystem_types.html">Basic Information</a>
+									</li>							
+								<br><li>
+										<a href = "Cryptography_theory.html">Cryptography</a>
+									</li>
+								<br><li>
+										<a href = "Cryptoanalysis_theory.html">Cryptoanalysis</a>
+									</li>
+							</ul>	
+						</div>
+							<br><li>
+								<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems');">Cryptosystem Types</a>
+							</li>
+						<div class = "submenu" id ="submenu_cryptosystems">
+							<ul>
+								<br><li>
+										<a href = "Cryptosystems_types.html">Basic Information</a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_symmetric_keys.html"> Symmetric Cryptosystems </a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_asymmetric_keys.html">Asymmetric Cryptosystems</a>
+									</li>
+							</ul>	
+						</div>
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems_examples');">Cryptosystem Examples</a>
+						</li>
+						<div class = "submenu" id ="submenu_cryptosystems_examples">
+							<ul>
+								<br><li>
+										<a href = "Caesar_theory.html">Caesar Cipher</a>
+									</li>
+								<br><li>
+										<a href = "Vigenere_theory.html">Vigenere Cipher</a>
+									</li>
+								<br><li>
+										RSA Cipher
+									</li>
+								<br><li>
+									working on (DSA?)
+									</li>
+							</ul>
+						</div>
+						<br><li>
+								Digital Signature
+							</li>
+						<br><li>
+								Electronic Signature
+							</li>
+						<br><li>
+								CrypTool
+							</li>
+					</ul>
+			</nav>
+		</div>
+
+		<div class="col-6 col-m-9">
+			<section class = "section">
+				<h3>Merkle Hellman Cypher</h3>
+				Because of the fact that one of the forst assymetric cryptosystems - Merkle-hellman Cryptosystem does not provide any safety nowadays. It will be shown for easy examples. 
+				<br><br><br>
+				<div id="letter"><h3>Random key generation:</h3></div>
+				<table>
+					<tr>
+						<td>
+							<label for "key">Number of A set elements:</label>
+							<input type = "number" id = "keyLenght", placeholder = "key (number)" min="0" onblur = "setKeyLenght()"/> 
+							
+						</td>
+						<td>
+							<label for "key">Key:</label>
+							<input type = "text" id = "key_setA", placeholder = "key" disabled = "true" /> 
+						</td>
+						<td>
+							<label for "key">Random sum</label>
+							<input type = "text" id = "key_setA_random_sum", placeholder = "key" disabled = "true" /> 
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							
+						</td>
+						<td></td>
+						<td>
+							
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section class ="section">
+								
+				<br><br><br><h3>Classic Caesar cypher:</h3>
+				<table>				
+					<tr>
+						<td>
+							<input type = "text" id = "caesarClassic" placeholder = "Letter before encryption" />
+						</td>
+						<td><input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "classic_caesar()" />
+						<td>
+							<textarea id = "caesar_encrypted_2" rows="2" cols="15" disabled = "true" placeholder = "letter after encryption"></textarea>
+						</td>
+					</tr>
+				</table>
+				
+			</section>
+			<section class = "section">
+			
+				<br><br><br>
+				<h3>Text:</h3>
+				<table>
+					<tr>
+						<td>
+							<label for "key2">Key:</label>
+							<input type = "number" id = "key2", placeholder = "key (number)"  min="0" max="26" onblur = "setKey2()" />
+						</td>
+						<td>
+							<label for "key">Key:</label>
+							<input type = "text" id = "key_letter2", placeholder = "key (letter)" maxlength = "1" onblur = "setKeyLetter2()" /> 
+						</td>
+						<td>
+							<label for "list2">Direction:</label>
+							<select name="shift direction" id="list2" onblur="setShift2()">
+								<option>right</option>
+								<option>left</option>
+								</select>
+						<td>
+					</tr>
+					<tr>
+						<td>
+							<input type = "text" id = "caesarString" placeholder = "String before encryption" disabled = "true"  />
+						</td>
+						<td>
+							<input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "ceasarString()" />
+						</td>
+						<td>
+							<textarea id = "caesar_encrypted_3" rows="2" cols="15" disabled = "true" placeholder = "letter after encryption"></textarea>
+						</td>
+					</tr>
+				</table>
+					
+			</section>
+			
+			<section class = "section">
+			
+				<h3>Safety</h3>
+				Unfortunately Caesar cipher does not provide any safety nowadays. Every message can be made up with a piece of paper and a pencil by everyone in more less 10 minutes. In many cases brute force is even faster than using statistics. Decryption of the message by the computer even not the fastest one lasts split os second.
+				<br>The entire space of keys is exactly 26 which means there are only 26 possible keys. Longer alphabet like polish increases the key space to 32.
+				<br><br>Widenning the alphabet by next characters increases the decryption time but very very slightly. In practice that manner can increase this time if we are using piece of paper. For example finding the plain text of a sentence encrypted with English alphabet lasts statistically 10 minutes and sentence encrypted in Polish alphabet (6 characters longer) lasts statistically only one minute loger.
+				<br><br>Cipher can be only used for educational purposes.
+			</section>
+		</div>
+
+		<div class="col-3 col-m-12">
+		<aside class="menu_practical">
+			Cryptography in practice
+			<ul>
+				<br><li>
+						<a href = "Cryptosystems_types.html">Basic information</a>
+					</li>
+				<br><li>
+						<a href = "caesar.html">Caesar Cipher</a>
+					</li>
+				<br><li>
+						<a href = "vigenere.html">Vigenere Cipher</a>
+					</li>
+				<br><li>
+						<a href = "rsa.html">RSA Cipher</a>
+					</li>
+			</ul>
+		</aside>
+		</div>
+
+	</div>
+
+	<div class="footer">
+	<p>Done by Pawel Grzegorzewski 190116</p>
+	</div>
+
+</body>
+</html>
+
+
+
+
+	

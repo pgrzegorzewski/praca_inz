@@ -87,16 +87,62 @@
 
 		<div class="col-6 col-m-9">
 			<section class = "section">
-				<h3>Knapsack cipher</h3>
+				<h3>Small piece of history</h3>
 				Knapsack cipher or rather Merkle-Hellman cipher was invented in 1978 by Ralph Merkle and Martin Hellman. It is assymetric cryptosystem with public key. At the beginning it was considered as the perfect cipher. One of the authors announced that person how will break knapsack cryptosystem will win special prize. Unfortunately four years later Merkle was forced to give Adi Shamir 100 dollars in cash who found weakness in the cipher. Moreover Adi Shamir is one of the inventors more complicated assymetric cryptosystem which provides under few conditions 100% of safety... that must be so embarassing for Merkle.
-				<br>Let's move to the cryptosytem, it is based on kanpsack problem, to be more precise a special case of this algebraic problem - subset sum problem. The problem is defined as follows: we have got a set of numbers X and a number n. Our goal is to find the a subset of X whoch is equall to our number n. 
+				<br>Let's move to the cryptosytem, it is based on kanpsack problem, <img src = "resources/knapsack.png" alt = "encryption" align = "left" width="300px">to be more precise a special case of this algebraic problem - subset sum problem. The problem is defined as follows: we have got a set of numbers X and a number n. Our goal is to find the a subset of X whoch is equall to our number n. 
 				<br>In many cases there are more than one subsets which sum gives us n so we have to add special condition to our A set - it has to be superincreasing. Superincreasing  set of numbers is the set in which every next number is higher than the sum of previous numbers.
 				<br>Ok, we have coped with many results but now our problem became really easy to solve... because to find our subset we are starting from the highest elemnt of A set and checking if it is smaller than sum n. If yes we are subtracking that element from the n and repeat these steps with the result of subtraction and next element of the set.
 				<br>Problem is solvable in polynominal time.
 				<br>
 				<h3>Keys</h3>
 				Pair of keys consists of two different set of numbers: hard and easy one. The private key is the easy - superincreasing set of numbers, modulus m and w multiplier. The public key is the 'hard' set of numbers generated from the private key. 
+				<br><br>
+			</section>
+			<section class = "section">
+				<h3>Encryption</h3>
+				During encryption sender chages the message into binary and performs multiplication of all consecutive bits by the elements of the public key. If the key lenght is longer or the same size as the message, sender crates sum of all results of multiplications which gives the ciphertext. If the key is smaller sender has to create sums of x multiplications where x is the lenght of the key. In that case cipher text becomes group of numbers.  
+			</section>
+			<section class = "section">
+				<h3>Decryption</h3>
+				Decryption is as easy as the encryption but it needs one more step.
+				<br>At the beginning receiver, finds modulo of m of message multiplied by the inverse of multiplier w. Then he needs to find subset of his A' set which sum gives the result of the modulo operation.
+				<br>Each element which belongs to the subset gives 'true' - bit '1' of plain text, and other elements of A' gives false - '0' bit of plain text.
+				<br>Then the last step is just to change string of bits into more readable text. 
+			</section>
+			<section class = "section">
+				<h3>Example</h3>
+				Lets look at the practical example which will clarify everything. 
+				<br>Mary wants to encrypt the hour of secret meeting with Ann (5pm). To get message from mary Ann has to prepare pair of keys which will be used in the cipher.
+				<br>First step is to choose key private key. Let's start with choosing superincreasing set A'.
+				<br> A' = {2, 5, 8, 17} (as You can observe every next number is higer than a sum of previous numbers). m (modulus) as we said before is the sum of all elements of the A' set.
+				<br> m = 32
+				<br> Now we have to choose multiplier w which has to be coprime with modulus and 1 < w < m
+				<br> w = 11
+				<br><br>The private key is ready, it is composed of these three elements A', m and w. Now Anna can generate public key for Mary. To do that Mary needs to perform modulo of m operation of each A' element multiplied by the w multiplier.
+				<br>2 * 11 mod 32 = 22
+				<br>5 * 11 mod 32 = 23
+				<br>8 * 11 mod 32 = 24
+				<br>17 * 11 mod 32 = 27
+				<br> The private key is teh set A = {22, 23, 24, 27}
+				<br><br>As we mentioned before Mary want to encrypt "5". First of all, she needs to change the 5 into binary form.
+				<br><b>5</b> in binary is <b>0101</b>
+				<br>Now Mary is multipling all consecutive numbers o Anna's publick key by the bits of the message.
+				<br>22 * 0 = 0
+				<br>23 * 1 = 23
+				<br>24 * 0 = 0
+				<br>27 * 1 = 27
+				<br><br>Cipher text is the sum of all pruducts of above multiplications (0 + 23 + 0 + 27) which is 50.  So that is Mary's message looks like.
+				<br><br>Now Anna has to decrypt the message. She has to perform one operation - she has to find result of operaion modulo m of Marys message multiplier by inverse of w (which is 3).
+				<br>50 * 3 mod 32 = 22
+				<br>Next-to-last step is to find subset od A' which sum gives 22. Anna is checkig all consecutives to find the subset in that way:
+				<br><br>22 - 17 = 5 > 0 	<b>1</b>	Anna subtracts from 22 the highest element of A'. Result is higher than 0 so she get bit '1' of the plain text. If the subtraction at each step gives positive result Anna gets '1' as bit of plain text, if the result is negative she gets '0'. 
+				<br><br>5 - 8 < 0 		<b>0</b>	Now she takes result of previous subtraction, and subtracts from it next element of A'. This time result is smaller than 0 so we are not performin subtraction so Anna obtains bit '0' of plain text.  
+				<br><br>5 - 5 = 0		<b>1</b>	Anna subtracts next elements which gives her result which is not smaller than 0 (she gets 0) which again gives her bit one '1' of plain text.
+				<br><br>0 - 2 < 0		<b>0</b>	Anna subtracts the last element of A' from the result of prevoius subtraction which gives her negative result so last bit of plain text is '0'. 
+				<br><br>The last step is to read all bits and change them into the decimal system - 0101 gives 5.
+				<br>For this time Anna knows when to go to to the secret place to meet Mary.
 				<br><br><br>click here to go to practical part <a href = #>click</a>
+				<br>If You want to try Vigenere cipher in practice click<a href = "knapsack.html"><img src = "resources/key.png" style ="width:60px; height:60px" align = "middle"></a> 
 			</section>
 		</div>
 
