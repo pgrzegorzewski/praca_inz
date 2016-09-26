@@ -3,6 +3,8 @@ var array_A = [];
 var randomSum = 0;
 var plainText = '';
 var plainTextBits ='';
+var sum = 0;
+var multiplier = 0;
 
 function setKeyLenght()
 {
@@ -19,7 +21,7 @@ function getRandomArbitrary(min, max) {
 
 function generateRandomArrayA(keyLenght)
 {
-	var sum = 0;
+
 	for(var i = 0; i < keyLenght; i++)
 	{
 		array_A[i] = parseInt(getRandomArbitrary(1, 100) + sum);
@@ -53,4 +55,25 @@ function setPlainText()
 	convert(plainText);
 	document.getElementById('plain_text_bits').value = plainTextBits;
 	
+}
+
+function setMultiplier()
+{
+		document.getElementById('multiplier').value = multiplier;
+		if(coprimeTest(sum, multiplier) == 1)
+		{
+			multiplier = document.getElementById('multiplier').value;
+		}
+		else
+		{
+			alert("not coprime");
+		}
+}
+
+function coprimeTest(a, b)
+{
+    if (b == 0)
+       return a; 
+    else
+       return coprimeTest(b, a % b);
 }
