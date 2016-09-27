@@ -92,34 +92,48 @@
 				<table>
 					<tr>
 						<td>
-							<label for "key">Number of A set elements:</label>
+							<label for "keyLenght">Number of A set elements:</label>
 							<input type = "number" id = "keyLenght", placeholder = "key (number)" min="0" onblur = "setKeyLenght()"/> 
 							
 						</td>
 						<td>
-							<label for "key">Key:</label>
+							<label for "key_setA">Key:</label>
 							<input type = "text" id = "key_setA", placeholder = "key" disabled = "true" /> 
 						</td>
 						<td>
-							<label for "key">Random sum</label>
+							<label for "key_setA_random_sum">Random sum</label>
 							<input type = "text" id = "key_setA_random_sum", placeholder = "key" disabled = "true" /> 
 						</td>
 					</tr>
 					
 					<tr>
 						<td>
-							<label for "key">Plain text:</label>
+							<label for "plain_text">Plain text:</label>
 							<input type = "text" id = "plain_text", placeholder = "Plain text"  onblur = "setPlainText()"/> 
 							
 						</td>
 						<td>
-							<label for "key">Plain text (bits):</label>
+							<label for "plain_text_bits">Plain text (bits):</label>
 							<input type = "text" id = "plain_text_bits", placeholder = "Plain text"  disabled = "true"/> 
 							
 						</td>
 						<td>
 							<label for "multipier">Multiplier:</label>
 							<input type = "number" id = "multiplier", placeholder = "multipier" min="1" onblur = "setMultiplier()"/> 
+						</td>
+					</tr>
+					<tr>
+						<td>
+
+						</td>
+						<td>
+							<label for "key_setB">Public key:</label>
+							<input type = "text" id = "key_setB", placeholder = "key" disabled = "true" /> 
+						</td>
+						<td>
+							<label for "cipehr">Cipher:</label>
+							<input type = "text" id = "cipher", placeholder = "key" /> 
+					 
 						</td>
 					</tr>
 				</table>
