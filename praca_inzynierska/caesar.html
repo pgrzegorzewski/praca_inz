@@ -87,10 +87,10 @@
 			<section class = "section">
 				<h3>Caesar Cypher</h3>
 				Caesar cipher is the first cipher which appears in human history. Key is the number which means the number of shifted letters in alphabet.
-				<br> Let's say that our key is '6' shifted right. So our encrypted 'A' is now 'G'. 
-				<br><br><br>
-				<div id="letter"><h3>Letter encryption:</h3></div>
-				<table>
+				<br>Let's say that our key is '6' shifted right. So our encrypted 'A' is now 'G'. 
+				<br><br>Decryption looks exactly the same like in the ecnryption, the only thing we change is the opposite direction. Going back to the example - we have got "G" as a encrypted text, if we want to decrypt we take again key '6' but we change direction to the left. Making that transformation we get again 'A' as a plain text.
+				<br><br>
+				<!--<table>
 					<tr>
 						<td>
 							<label for "key">Numerical key:</label>
@@ -119,17 +119,26 @@
 							<textarea id = "caesar_encrypted" rows="2" cols="15" disabled = "true" placeholder = "letter after encryption"></textarea>
 						</td>
 					</tr>
-				</table>
+				</table>-->
 			</section>
 			<section class ="section">
 								
-				<br><br><br><h3>Classic Caesar cipher (right shift of 3):</h3>
+				<br><br><br><h3>Classic Caesar cipher (right shift of 3 or 13):</h3>
 				<table>				
 					<tr>
 						<td>
 							<input type = "text" id = "caesarClassic" placeholder = "Letter before encryption" />
 						</td>
-						<td><input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "classic_caesar()" />
+						<td><input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "classic_caesar()" /></td>
+						<td>
+							<label for "list">ROT type:</label>
+							<select name="rot type" id="classic_cipher_list" onblur="setRotType()">
+								<option>historical</option>
+								<option>todays</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
 						<td>
 							<textarea id = "caesar_encrypted_2" rows="2" cols="15" disabled = "true" placeholder = "letter after encryption"></textarea>
 						</td>
