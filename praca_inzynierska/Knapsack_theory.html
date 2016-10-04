@@ -123,7 +123,7 @@
 				<br>5 * 11 mod 32 = 23
 				<br>8 * 11 mod 32 = 24
 				<br>17 * 11 mod 32 = 27
-				<br> The private key is the set A = {22, 23, 24, 27}
+				<br> The public key is the set A = {22, 23, 24, 27}
 				<br><br>As we mentioned before Mary want to encrypt "5". First of all, she needs to change the 5 into binary form.
 				<br><b>5</b> in binary is <b>0101</b>
 				<br>Now Mary is multipling all consecutive numbers o Anna's publick key by the bits of the message.
@@ -132,7 +132,7 @@
 				<br>24 * 0 = 0
 				<br>27 * 1 = 27
 				<br><br>Cipher text is the sum of all pruducts of above multiplications (0 + 23 + 0 + 27) which is 50.  So that is Mary's message looks like.
-				<br><br>Now Anna has to decrypt the message. She has to perform one operation - she has to find result of operaion modulo m of Marys message multiplier by inverse of w (which is 3).
+				<br><br>Now Anna has to decrypt the message. She has to perform one operation - she has to find result of operation modulo m of Marys message multiplier by inverse of w (which is 3).
 				<br>50 * 3 mod 32 = 22
 				<br>Next-to-last step is to find subset od A' which sum gives 22. Anna is checkig all consecutives to find the subset in that way:
 				<br><br>22 - 17 = 5 > 0 	<b>1</b>	Anna subtracts from 22 the highest element of A'. Result is higher than 0 so she get bit '1' of the plain text. If the subtraction at each step gives positive result Anna gets '1' as bit of plain text, if the result is negative she gets '0'. 

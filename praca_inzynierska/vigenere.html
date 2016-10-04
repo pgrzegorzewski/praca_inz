@@ -88,7 +88,7 @@
 		<div class="col-6 col-m-9">
 			<section class = "section">
 				<h3>Vigenere cipher</h3>
-				Vigenere cipher belongs to an <b>poliaphabetic, subtitution</b> family of ciphers. To encrypt message we need key as long as the messasge which we would like to encrypt. If we give key which is shorter it is copied as many times as is needed to obtain lenght equall to the message length. 
+				Vigenere cipher belongs to a <b>poliaphabetic, subtitution</b> family of ciphers. To encrypt message we need key as long as the message which we would like to encrypt. If we give key which is shorter it is copied as many times as it is needed to obtain lenght equall to the message length. 
 				<br><br>From mathematical point of view encryption process is based on the modular arythmetics. To obtain encrypted letter we are adding two indexes: of sign from the message and the other from the key. Result of the encryption is the modulo from the size of alphabet of this sum.
 				<br><br>Great visualization gives Tabula Recta which is described and shown in theoretical part. You can also use it below in the encryption part.
 				<br><br>
@@ -101,7 +101,7 @@
 			
 			<div id = "encryption_part" style = "display:none">
 			<section class = "section">
-				<div id="letter"><h3>Classic Vigenere cipher - encryption:</h3></div>
+				<div id="letter"><h3>Vigenere cipher with key - encryption:</h3></div>
 				<table>
 					<tr>
 						<td id="td_grid">
@@ -183,7 +183,7 @@
 			<section class ="section">
 			<section class = "section">
 				<h3>Safety</h3>
-				<p id = "nothing_encrypted">Make Your first encryption to get information about safety</p>
+				<p id = "nothing_encrypted">Make Your first encryption to get information about safety.</p>
 				<p id = "encryption_less_than_half" style = "display:none">Your key is shorter than a half of message lenght. Because of that breaking the cipher with Kasinski method is relatively easy.<br>To improve encryption create longer key.</p>
 				<p id = "encryption_more_than_half" style = "display:none">Your key is longer than a half of message lenght. However you can still improve the cipher strenght by creating longer key.</p>
 				<p id = "key_space" style = "display:none"></p>

@@ -183,59 +183,36 @@ function decrypt()
 	//alert(inverse); 
 	for(var i = 0; i < cipherArray.length; i++)
 	{
-		decryptedArray[i] = (inverse * cipherArray[cipherArray.length - i - 1]) % sum;
-		//alert(decryptedArray[i]); 
+		decryptedArray[i] = (inverse * cipherArray[i]) % sum;
+		alert(decryptedArray[i]); 
 	}
 	//var decryptedArrayCopy = decryptedArray;
 	var test = document.getElementById('plain_text').value;
 	test.toString();
-	/*for(var k = 0; k < decryptedArray.length; k++)
+	alert(test.length*8);
+	for(var k = 0; k < test.length*8; k++)
 	{
-		for(var j = 0; j < 8; j++)				//for(var j = 0; j < array_A.length; j++)
+		for(j = 0; j < array_A.lenght; j++)
 		{
-			alert('1' + decryptedArray[k] + ' '+ array_A[(array_A.length - j - 1)%keyLenght] + ' ' + j)
-			if(decryptedArray[k] >= array_A[(array_A.length - j - 1)%keyLenght])
+			alert('test');
+			if(decryptedArray[j] > array_A[(array_B.length - j - 1)])
 			{
-				alert('1' + j);
-				decryptedArray[k] = decryptedArray[k] - array_A[(array_A.length - j - 1)%keyLenght];
+				alert('1');
+				decryptedArray[j] = decryptedArray[j] - array_A[array_A.length - j - 1];
 				decryptedArrayBits[(k + 1) * j] = 1;
 				decryptedArrayBitsText = '1'.concat(decryptedArrayBitsText);
 			}
 			else
 			{
-				alert('0' + j);
+				alert('0');
 				decryptedArrayBits[(k + 1) * j] = 0;
-				decryptedArrayBitsText = '0'.concat(decryptedArrayBitsText);
+				decryptedArrayBitsText += '0'.concat(decryptedArrayBitsText);
 			}
-			alert(decryptedArrayBitsText[(k + 1) * j]);
+			//alert(decryptedArrayBitsText[(k + 1) * j]);
 		}
 		
-	}*/
-	var j = 0;
-	var z = 0;
-	for(var k = 0; k < plainTextBitsNoSpace.length; k++)
-	{
-			//alert('1' + decryptedArray[k] + ' '+ array_A[(array_A.length - j - 1)%keyLenght] + ' ' + j)
-			alert(array_A[(array_A.length - z - 1)%keyLenght]);
-			if(decryptedArray[j] >= array_A[(array_A.length - z - 1)%keyLenght])
-			{
-				
-				decryptedArray[j] = decryptedArray[j] - array_A[(array_A.length - z - 1)%keyLenght];
-				decryptedArrayBits[k] = 1;
-				decryptedArrayBitsText = '1'.concat(decryptedArrayBitsText);
-			}
-			else
-			{
-				//alert('0' + j);
-				decryptedArrayBits[k] = 0;
-				decryptedArrayBitsText = '0'.concat(decryptedArrayBitsText);
-			}
-			//alert(decryptedArrayBitsText[k]);
-			if(z == array_A.length - 1)
-				z = 0;
-			else
-				z++;
 	}
+
 
 	document.getElementById('decrypted_text').value = decryptedArrayBitsText;
 

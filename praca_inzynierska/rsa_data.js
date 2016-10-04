@@ -4,7 +4,7 @@ var keyText = '';
 var encryptedMessageText = '';
 var encryptedMessageText2 = '';
 var decryptedMessageText = '';
-var keyLenght;
+var keyLenght = 512;
 
 var publicKey;
 var publicKeyString;
@@ -25,8 +25,14 @@ function setMessage()		//zapisywanie wiadomości
 
 function setKeyLenght()
 {
-	keyLenght = document.getElementById('Key_lenght').value;
-	
+	if(document.getElementById('Key_lenght').value)
+	{
+		keyLenght = document.getElementById('Key_lenght').value;
+	}
+	else
+	{
+			keyLenght = 512;
+	}
 }
 
 function setKeyPharse()		//zapisywanie klucza

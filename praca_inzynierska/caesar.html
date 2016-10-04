@@ -85,24 +85,24 @@
 
 		<div class="col-6 col-m-9">
 			<section class = "section">
-				<h3>Ceasar Cypher</h3>
-				Caesar Cypher is the first cypher wich appears in human history. Key is the number which means the number of shifted letters in alphabet.
+				<h3>Caesar Cypher</h3>
+				Caesar cipher is the first cipher which appears in human history. Key is the number which means the number of shifted letters in alphabet.
 				<br> Let's say that our key is '6' shifted right. So our encrypted 'A' is now 'G'. 
 				<br><br><br>
 				<div id="letter"><h3>Letter encryption:</h3></div>
 				<table>
 					<tr>
 						<td>
-							<label for "key">Key:</label>
+							<label for "key">Numerical key:</label>
 							<input type = "number" id = "key", placeholder = "key (number)" min="0" max="26" onblur = "setKey()" /> 
 							
 						</td>
 						<td>
-							<label for "key">Key:</label>
+							<label for "key">Alphabetical key:</label>
 							<input type = "text" id = "key_letter", placeholder = "key (letter)" maxlength = "1" onblur = "setKeyLetter()" /> 
 						</td>
 						<td>
-							<label for "list">Direction:</label>
+							<label for "list">Shift direction:</label>
 							<select name="shift direction" id="list" onblur="setShift()">
 								<option>right</option>
 								<option>left</option>
@@ -123,7 +123,7 @@
 			</section>
 			<section class ="section">
 								
-				<br><br><br><h3>Classic Caesar cypher:</h3>
+				<br><br><br><h3>Classic Caesar cipher (right shift of 3):</h3>
 				<table>				
 					<tr>
 						<td>
@@ -144,11 +144,11 @@
 				<table>
 					<tr>
 						<td>
-							<label for "key2">Key:</label>
+							<label for "key2">Numerical key:</label>
 							<input type = "number" id = "key2", placeholder = "key (number)"  min="0" max="26" onblur = "setKey2()" />
 						</td>
 						<td>
-							<label for "key">Key:</label>
+							<label for "key">Alphabetical key:</label>
 							<input type = "text" id = "key_letter2", placeholder = "key (letter)" maxlength = "1" onblur = "setKeyLetter2()" /> 
 						</td>
 						<td>
@@ -177,9 +177,9 @@
 			<section class = "section">
 			
 				<h3>Safety</h3>
-				Unfortunately Caesar cipher does not provide any safety nowadays. Every message can be made up with a piece of paper and a pencil by everyone in more less 10 minutes. In many cases brute force is even faster than using statistics. Decryption of the message by the computer even not the fastest one lasts split os second.
+				Unfortunately Caesar cipher does not provide any safety nowadays. Every message can be made up with a piece of paper and a pencil by everyone in more less 10 minutes. In many cases brute force is even faster than using statistics. Decryption of the message by the computer even not the fastest one lasts split of a second.
 				<br>The entire space of keys is exactly 26 which means there are only 26 possible keys. Longer alphabet like polish increases the key space to 32.
-				<br><br>Widenning the alphabet by next characters increases the decryption time but very very slightly. In practice that manner can increase this time if we are using piece of paper. For example finding the plain text of a sentence encrypted with English alphabet lasts statistically 10 minutes and sentence encrypted in Polish alphabet (6 characters longer) lasts statistically only one minute loger.
+				<br><br>Widenning the alphabet by next characters increases the decryption time but very very slightly. In practice that manner can increase this time if we are using piece of paper. For example finding the plain text of a sentence encrypted with English alphabet lasts statistically 10 minutes and sentence encrypted in Polish alphabet (6 characters longer) lasts statistically only one minute longer.
 				<br><br>Cipher can be only used for educational purposes.
 			</section>
 		</div>
