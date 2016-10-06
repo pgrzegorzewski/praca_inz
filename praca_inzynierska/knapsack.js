@@ -117,27 +117,35 @@ function setPublicKey()
 
 function createCipher()
 {
-	var iterator = 1;
+	var iterator = 0;
 	var iterator2 = 0;
 	var characterFlag = 0;
 	var sum = 0;
-	while(iterator < plainTextBitsNoSpace.length + 1)
+	var sumFlag = 0;
+	while(iterator < plainTextBitsNoSpace.length)
 	{
-		if(plainTextBitsNoSpace[iterator - 1] == '1')
+		sumFlag = 1;
+		if(plainTextBitsNoSpace[iterator] == '1')
 		{	
-			sum = sum + array_B[(iterator - 1) % keyLenght];
-			//alert(sum);
-			//cipherArray[iterator2] += array_B[iterator - 1];
+			sum = sum + array_B[(iterator) % keyLenght];
+			
 		}
-		if(iterator % keyLenght == 0)
+		if((iterator + 1) % keyLenght == 0)
 		{
+			alert('test2 ' + sum);
 			cipherArray[iterator2] = sum;
 			cipherArrayString += cipherArray[iterator2] + " ";
 			iterator2++;
 			sum = 0;
+			sumFlag = 0;
 		}
 		iterator++;
 	}	
+	/*if(sumFlag == 1)
+	{
+		cipherArray[iterator2] = sum;
+		cipherArrayString += cipherArray[iterator2] + " ";
+	}*/	
 	document.getElementById('cipher').value = cipherArrayString;
 	
 }
@@ -178,45 +186,24 @@ function moduloInverse(number, modulo)				//number nad modulo are coprime
 
 function decrypt()
 {
+	var test = '';
 	inverse = moduloInverse(multiplier, sum);
 	var decryptedArrayBitsText = '';
 	//alert(inverse); 
 	for(var i = 0; i < cipherArray.length; i++)
 	{
-		decryptedArray[i] = (inverse * cipherArray[cipherArray.length - i - 1]) % sum;
-		//alert(decryptedArray[i]); 
+		decryptedArray[i] = (inverse * cipherArray[cipherArray.length -1 - i]) % sum;
+		alert(decryptedArray[i]); 
+		test += decryptedArray[i] + " ";
 	}
-	//var decryptedArrayCopy = decryptedArray;
-	var test = document.getElementById('plain_text').value;
-	test.toString();
-	/*for(var k = 0; k < decryptedArray.length; k++)
-	{
-		for(var j = 0; j < 8; j++)				//for(var j = 0; j < array_A.length; j++)
-		{
-			alert('1' + decryptedArray[k] + ' '+ array_A[(array_A.length - j - 1)%keyLenght] + ' ' + j)
-			if(decryptedArray[k] >= array_A[(array_A.length - j - 1)%keyLenght])
-			{
-				alert('1' + j);
-				decryptedArray[k] = decryptedArray[k] - array_A[(array_A.length - j - 1)%keyLenght];
-				decryptedArrayBits[(k + 1) * j] = 1;
-				decryptedArrayBitsText = '1'.concat(decryptedArrayBitsText);
-			}
-			else
-			{
-				alert('0' + j);
-				decryptedArrayBits[(k + 1) * j] = 0;
-				decryptedArrayBitsText = '0'.concat(decryptedArrayBitsText);
-			}
-			alert(decryptedArrayBitsText[(k + 1) * j]);
-		}
-		
-	}*/
+	document.getElementById('decrypted_text_2').value = test;
 	var j = 0;
 	var z = 0;
 	for(var k = 0; k < plainTextBitsNoSpace.length; k++)
 	{
 			//alert('1' + decryptedArray[k] + ' '+ array_A[(array_A.length - j - 1)%keyLenght] + ' ' + j)
-			alert(array_A[(array_A.length - z - 1)%keyLenght]);
+			alert(array_A[(array_A.length - z - 1)%keyLenght] + ' ' + decryptedArray[j]);
+			
 			if(decryptedArray[j] >= array_A[(array_A.length - z - 1)%keyLenght])
 			{
 				
@@ -230,11 +217,19 @@ function decrypt()
 				decryptedArrayBits[k] = 0;
 				decryptedArrayBitsText = '0'.concat(decryptedArrayBitsText);
 			}
+			if((k + 1) % keyLenght == 0)
+				j++;
 			//alert(decryptedArrayBitsText[k]);
 			if(z == array_A.length - 1)
+			{
 				z = 0;
+				//j++;
+			}
 			else
+			{
 				z++;
+				
+			}
 	}
 
 	document.getElementById('decrypted_text').value = decryptedArrayBitsText;
