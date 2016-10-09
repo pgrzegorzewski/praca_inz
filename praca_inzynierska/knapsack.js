@@ -14,6 +14,9 @@ var cipherArrayString = '';
 var decryptedArray = [];
 var inverse;
 var decryptedArrayBits = [];
+var decryptedArrayBitsText = '';
+var decryptedArrayBitsBytes = [];
+
 
 function setKeyLenght()
 {
@@ -141,11 +144,11 @@ function createCipher()
 		}
 		iterator++;
 	}	
-	/*if(sumFlag == 1)
+	if(sumFlag == 1)
 	{
 		cipherArray[iterator2] = sum;
 		cipherArrayString += cipherArray[iterator2] + " ";
-	}*/	
+	}
 	document.getElementById('cipher').value = cipherArrayString;
 	
 }
@@ -186,54 +189,90 @@ function moduloInverse(number, modulo)				//number nad modulo are coprime
 
 function decrypt()
 {
-	var test = '';
+	var inversedEncryptedArray = '';
 	inverse = moduloInverse(multiplier, sum);
-	var decryptedArrayBitsText = '';
-	//alert(inverse); 
 	for(var i = 0; i < cipherArray.length; i++)
 	{
 		decryptedArray[i] = (inverse * cipherArray[cipherArray.length -1 - i]) % sum;
 		alert(decryptedArray[i]); 
-		test += decryptedArray[i] + " ";
+		inversedEncryptedArray += decryptedArray[i] + " ";
 	}
-	document.getElementById('decrypted_text_2').value = test;
-	var j = 0;
-	var z = 0;
+	document.getElementById('decrypted_text_2').value = inversedEncryptedArray;
+	var decryptedArrayElement = 0;
+	var loopCounter = 0;
+	var shift = array_A.length * decryptedArray.length - plainTextBitsNoSpace.length;
+	var shift2 = shift;
+	alert(shift + 'shift');
 	for(var k = 0; k < plainTextBitsNoSpace.length; k++)
 	{
-			//alert('1' + decryptedArray[k] + ' '+ array_A[(array_A.length - j - 1)%keyLenght] + ' ' + j)
-			alert(array_A[(array_A.length - z - 1)%keyLenght] + ' ' + decryptedArray[j]);
+			alert('indek' + (array_A.length - shift - loopCounter - 1) + ' wartosc '+ array_A[(array_A.length - shift - loopCounter - 1)%keyLenght] + ' ' + decryptedArray[j]);
 			
-			if(decryptedArray[j] >= array_A[(array_A.length - z - 1)%keyLenght])
+			if(decryptedArray[decryptedArrayElement] >= array_A[(array_A.length - shift - loopCounter - 1)%keyLenght])
 			{
-				
-				decryptedArray[j] = decryptedArray[j] - array_A[(array_A.length - z - 1)%keyLenght];
+				decryptedArray[decryptedArrayElement] = decryptedArray[decryptedArrayElement] -(array_A[(array_A.length - shift - loopCounter - 1)%keyLenght]);
 				decryptedArrayBits[k] = 1;
 				decryptedArrayBitsText = '1'.concat(decryptedArrayBitsText);
 			}
 			else
 			{
-				//alert('0' + j);
 				decryptedArrayBits[k] = 0;
 				decryptedArrayBitsText = '0'.concat(decryptedArrayBitsText);
 			}
-			if((k + 1) % keyLenght == 0)
-				j++;
-			//alert(decryptedArrayBitsText[k]);
-			if(z == array_A.length - 1)
-			{
-				z = 0;
-				//j++;
+			if((k + shift2 + 1) % keyLenght == 0)
+			{	
+				/*if(shift != 0)
+				{
+					shift = 0;
+					//z = (keyLenght - shift + 1)%keyLenght;
+				}	*/
+				alert('przeskok' + loopCounter);
+				decryptedArrayElement++;
+				//shift = 0;
+			}
+			if(loopCounter == array_A.length - 1 - shift)
+			{	
+				if(shift != 0){
+					shift =0;
+				}
+				alert('z ->0');
+				loopCounter = 0;
 			}
 			else
 			{
-				z++;
+				loopCounter++;
 				
 			}
 	}
 
 	document.getElementById('decrypted_text').value = decryptedArrayBitsText;
+	decryptedArrayBitsToByteArray();
 
 }
+
+function decryptedArrayBitsToByteArray()
+{
+	var i = 0;
+	decryptedArrayBitsBytes[i] = "";
+	for(var j = 0; j < decryptedArrayBitsText.length; j++)
+	{
+		decryptedArrayBitsBytes[i] += decryptedArrayBitsText[j];
+		if( (j + 1)%8 == 0 && (j+1) != decryptedArrayBitsText.length)
+		{
+			i++;
+			decryptedArrayBitsBytes[i] = "";
+		}
+	}
+	document.getElementById('decrypted_text_text').value = bin2String(decryptedArrayBitsBytes);
+}
+
+function bin2String(array) 
+{
+	var result = "";
+	for (var i = 0; i < array.length; i++) {
+		result += String.fromCharCode(parseInt(array[i], 2));
+	}
+	return result;
+}
+
 
 
