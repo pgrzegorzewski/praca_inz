@@ -15,7 +15,7 @@ tr{
 	height:40px;	
 }
 
-#key, #key2{
+#key{
 	width:160px;
 }
 
@@ -24,29 +24,77 @@ tr{
 }
 
 
-#caesar_encrypted{
-	width:160px;
-}
-#caesar{
-	width:160px;
-}
-
 #encrypt_button{
-	width: 150px;
+	width: 70px;
 	text-align:center;
-	height:38px;
+	height:25px;
 }
 
-input, label {
+#wide_td{
+	width:234px;
+}
+
+
+#encrypt_td
+{
+	width: 70px;
+	height:70px;
+	text-align:left;
+	padding-top:0px;
+	
+}
+#classic_cipher_list
+{
+	width:90px;
+}
+
+#horizontal_label {
     display:block;
+	padding:3px;
 }
 
+label{
+		display: inline-block;
+}
+
+input{
+		width:50px;
+		height:30px;
+		padding:3px;
+}
+#alphanumeric_key{
+	width:180px;
+	text-align:left;
+}
 #caesar_encrypted_3, #caesar_encrypted_2, #caesar_encrypted
 {
-	width:160px;
+	width:201px;
 }
+#list_label
+{
+	display:block;
+}
+#list2{
+	width:130px;
+}
+#list_td{
+	width:90px;
+	padding-top:0px;
+}
+
+#key2, #key_letter2
+{
+	padding:2px;
+	margin:2px;
+}
+
+textarea{
+	padding:4px;
+	resize: vertical;
+}
+
 
 #caesarString, #caesarClassic
 {
-	width:160px;	
+	width:201px;	
 }

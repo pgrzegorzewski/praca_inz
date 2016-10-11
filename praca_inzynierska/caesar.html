@@ -126,21 +126,24 @@
 				<br><br><br><h3>Classic Caesar cipher (right shift of 3 or 13):</h3>
 				<table>				
 					<tr>
-						<td>
-							<input type = "text" id = "caesarClassic" placeholder = "Letter before encryption" />
-						</td>
-						<td><input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "classic_caesar()" /></td>
-						<td>
-							<label for "list">ROT type:</label>
+						<td> <!-- colspan-->
+							<label for "list", id="horizontal_label">ROT type:</label>
 							<select name="rot type" id="classic_cipher_list" onblur="setRotType()">
 								<option>historical</option>
 								<option>todays</option>
 							</select>
 						</td>
+						<td colspan ="2"></td>
 					</tr>
 					<tr>
-						<td>
-							<textarea id = "caesar_encrypted_2" rows="2" cols="15" disabled = "true" placeholder = "letter after encryption"></textarea>
+						<td id ="wide_td">
+							<textarea id = "caesarClassic" placeholder = "Before encryption" ></textarea>
+						</td>
+						<td id = "encrypt_td">
+							<input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "classic_caesar()" />
+						</td>
+						<td id ="wide_td">
+							<textarea id = "caesar_encrypted_2" rows="2" cols="15" disabled = "true" placeholder = "After encryption"></textarea>
 						</td>
 					</tr>
 				</table>
@@ -152,31 +155,29 @@
 				<h3>Text:</h3>
 				<table>
 					<tr>
-						<td>
-							<label for "key2">Numerical key:</label>
-							<input type = "number" id = "key2", placeholder = "key (number)"  min="0" max="26" onblur = "setKey2()" />
+						<td id = "alphanumeric_key" colspan ="2">
+							
+							<input type = "number" id = "key2", min="0" max="26" onblur = "setKey2()"/> <label for "key2"> Numerical key</label><br>
+							
+							<input type = "text" id = "key_letter2",  maxlength = "1" onblur = "setKeyLetter2()" /> <label for "key"> Alphabetical key</label>
 						</td>
-						<td>
-							<label for "key">Alphabetical key:</label>
-							<input type = "text" id = "key_letter2", placeholder = "key (letter)" maxlength = "1" onblur = "setKeyLetter2()" /> 
-						</td>
-						<td>
-							<label for "list2">Direction:</label>
+						<td id = "list_td" >
+							<label for "list2", id = "list_label">Direction:</label>
 							<select name="shift direction" id="list2" onblur="setShift2()">
 								<option>right</option>
 								<option>left</option>
 								</select>
-						<td>
+						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type = "text" id = "caesarString" placeholder = "String before encryption" disabled = "true"  />
+							<textarea id = "caesarString" rows="2" cols="15" disabled = "true" placeholder = "Before encryption"></textarea>
 						</td>
-						<td>
+						<td id ="encrypt_td">
 							<input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "ceasarString()" />
 						</td>
 						<td>
-							<textarea id = "caesar_encrypted_3" rows="2" cols="15" disabled = "true" placeholder = "letter after encryption"></textarea>
+							<textarea id = "caesar_encrypted_3" rows="2" cols="15" disabled = "true" placeholder = "After encryption"></textarea>
 						</td>
 					</tr>
 				</table>
@@ -189,7 +190,7 @@
 				Unfortunately Caesar cipher does not provide any safety nowadays. Every message can be made up with a piece of paper and a pencil by everyone in more less 10 minutes. In many cases brute force is even faster than using statistics. Decryption of the message by the computer even not the fastest one lasts split of a second.
 				<br>The entire space of keys is exactly 26 which means there are only 26 possible keys. Longer alphabet like polish increases the key space to 32.
 				<br><br>Widenning the alphabet by next characters increases the decryption time but very very slightly. In practice that manner can increase this time if we are using piece of paper. For example finding the plain text of a sentence encrypted with English alphabet lasts statistically 10 minutes and sentence encrypted in Polish alphabet (6 characters longer) lasts statistically only one minute longer.
-				<br><br>Cipher can be only used for educational purposes.
+				<br><br>ROT13 is still used in online forums and in some messaging applications.
 			</section>
 		</div>
 
