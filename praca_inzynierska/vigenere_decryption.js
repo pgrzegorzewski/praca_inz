@@ -99,12 +99,12 @@ function reverseKey()
 	{
 		if(isSmallLetter(newKeyDecryption[i]))
 		{
-			letter = String.fromCharCode((ENGLISH_ALPHABET_LENGTH - (newKeyDecryption[i].charCodeAt(0) - SMALL_A)%ENGLISH_ALPHABET_LENGTH)+SMALL_A);
+			letter = String.fromCharCode(((ENGLISH_ALPHABET_LENGTH - (newKeyDecryption[i].charCodeAt(0) - SMALL_A))%ENGLISH_ALPHABET_LENGTH)+SMALL_A);
 			alert(letter);
 		}
 		else if(isCapitalLetter(newKeyDecryption[i]))
 		{
-			letter = String.fromCharCode((ENGLISH_ALPHABET_LENGTH - (newKeyDecryption[i].charCodeAt(0) - CAPITAL_A)%ENGLISH_ALPHABET_LENGTH)+CAPITAL_A);
+			letter = String.fromCharCode(((ENGLISH_ALPHABET_LENGTH - (newKeyDecryption[i].charCodeAt(0) - CAPITAL_A))%ENGLISH_ALPHABET_LENGTH)+CAPITAL_A);
 		}
 		else
 		{
