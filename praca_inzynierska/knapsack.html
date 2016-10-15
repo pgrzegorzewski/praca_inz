@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="StyleSheet" href="config.css" />
-<link rel="StyleSheet" href="caesar.css" />
+<link rel="StyleSheet" href="knapsack.css" />
 <script type="text/javascript" src="knapsack.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -88,24 +88,44 @@
 				<h3>Merkle Hellman Cypher</h3>
 				Because of the fact that one of the forst assymetric cryptosystems - Merkle-hellman Cryptosystem does not provide any safety nowadays. It will be shown for easy examples. 
 				<br><br><br>
-				<div id="letter"><h3>Random key generation:</h3></div>
+				<div id="letter">
+					<h3>Random key generation:</h3>
+				</div>
 				<table>
 					<tr>
-						<td>
-							<label for "keyLenght">Number of A set elements:</label>
-							<input type = "number" id = "keyLenght", placeholder = "key (number)" min="0" onblur = "setKeyLenght()"/> 
+						<td rowspan = "2" id="td_narrow">
+							<label for "keyLenght" >Number of A set elements:</label>
+							<input type = "number" id = "keyLenght", placeholder = "Key (number)" min="0" onblur = "setKeyLenght()"/> 
 							
 						</td>
-						<td>
-							<label for "key_setA">Key:</label>
-							<input type = "text" id = "key_setA", placeholder = "key" disabled = "true" /> 
-						</td>
-						<td>
-							<label for "key_setA_random_sum">Random sum</label>
-							<input type = "text" id = "key_setA_random_sum", placeholder = "key" disabled = "true" /> 
+						<td id ="td_key">
+							
+							<label for "key_setA" id = "label3">Key:</label>
+							<textarea id = "key_setA" rows="2" cols="40" disabled = "true" placeholder = "Key"></textarea>
 						</td>
 					</tr>
-					
+					<tr>
+						<td id = "td_key">
+							<label for "key_setA_random_sum" id = "label2">Sum:</label>
+							<input type = "text" id = "key_setA_random_sum", placeholder = "Modulus" disabled = "true" /> 
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for "multipier">Multiplier:</label>
+							<input type = "number" id = "multiplier", placeholder = "Multipier (w)" min="1" onblur = "setMultiplier()"/> 
+							
+						</td>
+						<td id = "td_key">
+							<label for "key_setB"  id="label4">Public key:</label>
+							<textarea id = "key_setB" rows="2" cols="40" disabled = "true" placeholder = "Public Key"></textarea>
+						</td>
+					</table>	
+					<div id="letter">
+						<h3>Encryption:</h3>
+					</div>	
+					<table>	
+					</tr>
 					<tr>
 						<td>
 							<label for "plain_text">Plain text:</label>
@@ -117,18 +137,11 @@
 							<input type = "text" id = "plain_text_bits", placeholder = "Plain text"  disabled = "true"/> 
 							
 						</td>
-						<td>
-							<label for "multipier">Multiplier:</label>
-							<input type = "number" id = "multiplier", placeholder = "multipier" min="1" onblur = "setMultiplier()"/> 
-						</td>
+						
 					</tr>
 					<tr>
 						<td>
 
-						</td>
-						<td>
-							<label for "key_setB">Public key:</label>
-							<input type = "text" id = "key_setB", placeholder = "key" disabled = "true" /> 
 						</td>
 						<td>
 							<label for "cipehr">Cipher:</label>
