@@ -63,7 +63,10 @@
 										<a href = "Vigenere_theory.html">Vigenere Cipher</a>
 									</li>
 								<br><li>
-										RSA Cipher
+										<a href = "Knapsack_theory.html">Merkle Hellman Cipher</a>
+									</li>	
+								<br><li>
+										<a href = "RSA_theory.html">RSA Cipher</a>
 									</li>
 								<br><li>
 									working on (DSA?)
@@ -178,9 +181,12 @@
 					</tr>
 				</table>
 			</section>
-			<section class ="section">
-								
-				
+			<section class = "section">
+				<h3>Safety</h3>
+				Knapsack cipher is a great option against brute force attack, especially if the key consists of very high numbers. The size os the key is also very important, the loger the key set the higher the safety of the encryption.
+				<br>However Merkle Helmann cipher is very weak against dynamic programming. There exists an algorithm which breaks the cryptosystem in pseudo-polynominal time. That is why knapsack cipher is no longer used and lose the place with the more complex RSA cipher.
+				<br>
+				<p id = "key_space" style = "display:none"></p>
 			</section>
 		</div>
 
@@ -198,7 +204,7 @@
 						<a href = "vigenere.html">Vigenere Cipher</a>
 					</li>
 				<br><li>
-						<a href = "knapsack.html">Knapsack Cipher</a>
+						<a href = "knapsack.html">Merkle Hellman Cipher</a>
 					</li>
 				<br><li>
 						<a href = "rsa.html">RSA Cipher</a>

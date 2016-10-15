@@ -101,7 +101,7 @@ function setMultiplier()
 		{
 			alert("not coprime");
 		}
-		
+		safety();
 }
 
 function coprimeTest(a, b)
@@ -279,5 +279,16 @@ function bin2String(array)
 	return result;
 }
 
+
+function safety()
+{
+	var keySpace = Math.pow(2,keyLenght);
+	document.getElementById('key_space').innerHTML = "Key space for the given key is equal: " + keySpace;
+	textShow('key_space');
+}
+
+function textShow(name) {
+    $('#' + name).show(300)
+};
 
 
