@@ -1,3 +1,11 @@
+function toggle_visibility(id) {
+	var object = document.getElementById(id);
+	if(object.style.display == 'block')
+		object.style.display = 'none';
+	else
+		object.style.display = 'block';
+}
+
 var keyLenght = 0;
 var array_A = [];
 var array_B = [];
@@ -46,10 +54,7 @@ function getRandomSum()
 {
 	for(var i = 0; i < keyLenght; i++)
 	{
-		if(parseInt(getRandomArbitrary(0 ,2)) == 0)
-		{
 			randomSum  = randomSum + array_A[i];
-		}
 	}
 	document.getElementById('key_setA_random_sum').value = randomSum;
 }
@@ -90,7 +95,7 @@ function setMultiplier()
 			multiplier = document.getElementById('multiplier').value;
 			alert('coprime');
 			setPublicKey();
-			createCipher();
+			//createCipher();
 		}
 		else
 		{
