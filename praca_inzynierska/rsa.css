@@ -1,12 +1,45 @@
-td{
-	width:200px;
-	height:90px;
-	text-align:left;
-	padding:20px;
-	display:block;
-	text-align:left;
+
+
+tr{
+	padding:5px;
 }
 
-table{
-	width:500px;
+
+
+
+#message, #Key_pharse, #keyText, #encryptedText, #public_key_n, #public_key_e, #private_key_d, #messageEncrypted, #messageDecrypted
+{
+	width:250px;
+}
+
+#td_half_lenght_2
+{
+	width:270px;
+	padding:10px;
+	padding-left:7px;
+}
+
+#td_one_third
+{
+	width:98px;
+	padding:7px;
+	padding-left;
+}
+
+button
+{
+	text-align:center;
+	width:80px;
+	height:40px;
+}
+
+textarea{
+	padding:4px;
+	resize: vertical;
+	
+}
+
+label {
+    display:inline-block;
+	
 }

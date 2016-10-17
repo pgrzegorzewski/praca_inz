@@ -12,12 +12,6 @@ var SMALL_A = 97
 var CAPITAL_Z = 90;
 var SMALL_Z = 122;
 
-var keySet = 0;
-var textSet = 0;
-
-var key2Set = 0;
-var text2Set = 0;
-
 var keyLength = 0;
 var textMessageLength = 0;
 var keyMessageLenghtDifference = 0;
@@ -26,45 +20,137 @@ var newKey = "";
 var keyLenght = 0;
 var textMessage;
 
-//var keyLength = 0;
 var textMessage2Length = 0;
 var keyMessage2LenghtDifference = 0;
 var key2;
 var newKey2 = "";
 var textMessage2;
 
+var SHORTER_PASSWORD;
+
 
 /* FLAGS */
-var SHORTER_PASSWORD;
+var keySet = 0;
+var textSet = 0;
+var isTextChanged = 0;
+var isTextChanged = 0;
+var isKeyCreated = 0;
+
+var key2Set = 0;
+var text2Set = 0;
+var isText2Changed = 0;
+var isText2Changed = 0;
+var isKey2Created = 0;
+
+/*       */
 
 function readKey()
 {
+	if(keySet == 1 && textSet == 1 && isKeyCreated == 1)
+	{
+		
+		clearTextarea('keyResult');
+		clearTextarea('vigenere_encrypted');
+		key = document.getElementById('key').value;
+		keyLength = key.length;
+		isKeyChanged = 1;
+		isKeyCreated = 0;
+		//setKey();
+		return;
+	}
+	else if (keySet == 1 && textSet == 0)
+	{
+		clearTextarea('vigenere_encrypted');
+		isKeyChanged = 1;
+	}
+	alert('tets');
 	keySet = 1;
 	key = document.getElementById('key').value;
 	keyLength = key.length;
+	enableButton('keyButton');
 }
 
-function readKey2()
+function clearTextarea(name)
 {
-	key2Set = 1;
-	key2 = document.getElementById('key2').value;
+	 document.getElementById(name).value = '';
 }
 
 function readText()
 {
+	if(keySet == 1 && textSet == 1 && isKeyCreated == 1)
+	{
+		clearTextarea('vigenere_encrypted');
+		clearTextarea('keyResult');
+		textMessage  = document.getElementById('vigenere').value;
+		textMessageLength = textMessage.length;
+		isTextChanged = 1;
+		isKeyCreated = 0;
+		//setKey();
+		return;
+	}
+	else if(textSet == 1 && keySet == 0)
+	{
+		clearTextarea('vigenere_encrypted');
+		isTextChanged = 1;
+	}
 	textSet = 1;
 	textMessage  = document.getElementById('vigenere').value;
 	textMessageLength = textMessage.length;
-	//compareTextKey();
+	enableButton('keyButton');
 }
 
+function enableButton(name)
+{
+	if(textSet == 1 && keySet == 1)
+	{
+		document.getElementById(name).disabled = false;
+	}
+}
+
+function readKey2()
+{
+	if(key2Set == 1 && text2Set == 1 && isKey2Created == 1)
+	{
+		clearTextarea('vigenere_with_autokey_encrypted');
+		clearTextarea('keyResult2');
+		key2 = document.getElementById('key2').value;
+		setKey2();
+		isKey2Created = 0;
+		return;
+	}
+	else if (key2Set == 1 && text2Set == 0)
+	{
+		clearTextarea('vigenere_encrypted');
+		isKeyChanged = 1;
+	}
+	key2Set = 1;
+	key2 = document.getElementById('key2').value;
+	enableButton('keyButton2');
+}
 
 function readText2()
 {
+	if(key2Set == 1 && text2Set == 1 && isKey2Created == 1)
+	{
+		clearTextarea('vigenere_with_autokey_encrypted');
+		clearTextarea('keyResult2');
+		textMessage2  = document.getElementById('vigenere_autokey').value;
+		textMessage2Length = textMessage2.length;
+		isText2Changed = 1;
+		isKey2Created = 0;
+		setKey2();
+		return;
+	}
+	else if(textSet == 1 && keySet == 0)
+	{
+		clearTextarea('vigenere_encrypted');
+		isTextChanged = 1;
+	}
 	text2Set = 1;
 	textMessage2  = document.getElementById('vigenere_autokey').value;
 	textMessage2Length = textMessage2.length;
 	compareTextKey2();
+	enableButton('keyButton2');
 }
 
 function compareTextKey()
@@ -91,23 +177,27 @@ function setKey()
 			alert(letter);
 			newKey = newKey.concat(letter);
 		}
-	document.getElementById("keyResult").value = newKey;	
+	isKeyCreated = 1;
+	document.getElementById("keyResult").value = newKey;
+	enableButton('encryptButton');
 	
 }
 
 function setKey2()
 {
+	compareTextKey2()
 	newKey2 = '';
 	var letter;
 		for (var i = 0; i < (1 + keyMessage2LenghtDifference);  i++)
 		{
 			if(i == 0)
-				letter = key2;
+				letter = key2[0];
 			else
 				letter = textMessage2[i - 1];
 			alert(letter);
 			newKey2 = newKey2.concat(letter);
 		}
+	isKey2Created = 1;
 	document.getElementById("keyResult2").value = newKey2;	
 	
 }

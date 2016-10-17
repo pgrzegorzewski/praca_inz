@@ -3,6 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="StyleSheet" href="config.css" />
+<link rel="StyleSheet" href="rsa.css" />
 <script type="text/javascript" src="caesar.js"></script>
 
 <script language="JavaScript" type="text/javascript" src="lib/cryptico/jsbn.js"></script>
@@ -106,20 +107,18 @@
 				<h3>Encryption</h3>
 					<table>
 						<tr>
-							<td>
-									<textarea id = "message" rows="3" cols="72" placeholder = "Message" onblur = "setMessage()"></textarea>
+							<td id ="td_half_lenght_2" >
+									<label for "message">Plain Text:</label>
+									<textarea id = "message" rows="3" cols="40" placeholder = "Plain Text" onblur = "setMessage()"></textarea>
 							</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>
-									<textarea id = "Key_pharse" rows="3" cols="72" placeholder = "Key phrase" onblur = "setKeyPharse()"></textarea>
+							<td id ="td_half_lenght_2">
+									<label for "Key_pharse">Key Pharse:</label>
+									<textarea id = "Key_pharse" rows="3" cols="40" placeholder = "Key phrase" onblur = "setKeyPharse()"></textarea>
 							</td>
 						</tr>
-					</table>
-					<table>
+	
 						<tr>
-							<td style="width:300px">
+							<td id ="td_one_third">
 								<label for "Key_lenght">Key lenght (bits):</label>
 								<select name="Key lenght (bits)" id="Key_lenght" onblur="setKeyLenght()">
 									<option>512</option>
@@ -128,30 +127,41 @@
 									<option>4096</option>
 									<option>8192</option>
 								</select>
+								<br><br><button onclick = "setKeyText()">Generate key</button>
 							</td>
-							<td>
+							<!--<td id ="td_one_third">
 								<button onclick = "setKeyText()">Generate key</button>
-							</td>
-						</tr>
-					</table>
-					<table>
-						<tr>
-							<td>
-									<textarea id = "keyText" rows="3" cols="72" disabled = "true" placeholder = "Key Text"></textarea>
-							</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>
+							</td> -->
+							<td id ="td_one_third">
+								<br><br>
 								<button onclick = "encrypt()" align="left">Encrypt</button>
 							</td>
-							<td></td>
 						</tr>
 						<tr>
-							<td>
-									<textarea id = "encryptedText" rows="3" cols="72" disabled = "true" placeholder = "Encrypted message"></textarea>
+							<td id = "td_half_lenght_2">
+								<label for "public_key_n">Key n:</label>
+								<textarea id = "public_key_n" rows="3" cols="40" disabled = "true" placeholder = "Public Key n"></textarea>
 							</td>
-							<td></td>
+							<td  id = "td_half_lenght_2">
+								<label for "public_key_e">Key e:</label>
+								<textarea id = "public_key_e" rows="3" cols="40" disabled = "true" placeholder = "Public Key e"></textarea>
+							
+							</td>
+						</tr>
+							
+						<tr>
+							<td id = "td_half_lenght_2">
+								<label for "keyText">Key Hashed:</label>
+								<textarea id = "keyText" rows="3" cols="40" disabled = "true" placeholder = "Key Text"></textarea>
+							</td>
+							<td  id = "td_half_lenght_2">
+								<label for "encryptedText">Encrypted Message:</label>
+								<textarea id = "encryptedText" rows="3" cols="40" disabled = "true" placeholder = "Encrypted message"></textarea>
+							
+							</td>
+						</tr>
+						<tr>
+							
 						</tr>
 					</table>
 				
@@ -161,13 +171,31 @@
 				In this section we are using key from the encryption part.
 				<table>
 					<tr>
-						<td><textarea id = "messageEncrypted" rows="3" cols="72" placeholder = "Encrypted message" onblur = "setMessageEncrypted()"></textarea></td>
+						<td id = "td_half_lenght_2">
+							<label for "public_key_n">Key n:</label>
+							<textarea id = "public_key_n" rows="3" cols="40" disabled = "true" placeholder = "Private key n"></textarea>
+						</td>
+						<td  id = "td_half_lenght_2">
+							<label for "private_key_d">Key d:</label>
+							<textarea id = "private_key_d" rows="3" cols="40" disabled = "true" placeholder = "Encrypted message"></textarea>
+						
+						</td>
 					</tr>
 					<tr>
-						<td><button onclick = "decrypt()">Decrypt</button></td>
+						<td id = "td_half_lenght_2">
+							<button onclick = "decrypt()">Decrypt</button>
+						</td>
 					</tr>
 					<tr>
-						<td><textarea id = "messageDecrypted" rows="3" cols="72" placeholder = "Original message" onblur = "setMessage()"></textarea></td>
+						<td id = "td_half_lenght_2">
+							<label for "messageEncrypted">Cryptogram:</label>
+							<textarea id = "messageEncrypted" rows="3" cols="40" placeholder = "Encrypted message" onblur = "setMessageEncrypted()"></textarea>
+						</td>
+					
+						<td id = "td_half_lenght_2">
+							<label for "messageDecrypted">Plain Text::</label>
+							<textarea id = "messageDecrypted" rows="3" cols="40" placeholder = "Original message" onblur = "setMessage()"></textarea>
+						</td>
 					</tr>
 				</table>
 			</section>

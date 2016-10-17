@@ -86,7 +86,7 @@ tr{
 }
 
 
-#plain_text_bits, #plain_text, #cipher, #decrypted_text, #decrypted_text_2, #decrypted_text_text
+#message, #Key_pharse
 {
 	width:250px;
 }
@@ -131,6 +131,11 @@ label {
 	width:42px;
 	padding-top:10px;
 	vertical-align:6px;;
+}
+
+#plain_text_bits, #plain_text, #cipher, #decrypted_text, #decrypted_text_2, #decrypted_text_text
+{
+	width:250px;
 }
 
 table.test td button{

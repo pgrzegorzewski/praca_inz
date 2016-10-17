@@ -51,7 +51,7 @@ tr{
 	padding-right:15px;
 }
 
-#encryptButton, #keyButton
+#encryptButton, #encryptButton2  #keyButton, #keyButton2
 {
 	width: 90px;
 	text-align:center;

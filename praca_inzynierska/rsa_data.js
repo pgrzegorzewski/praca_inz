@@ -76,6 +76,29 @@ function encrypt()
 		alert("please generate key and write the message You would like to encrypt");
 	}
 	showSafety();
+	document.getElementById('public_key_n').value = keyNSplitString();
+	document.getElementById('private_key_d').value = keyDSplitString();
+	document.getElementById('public_key_e').value = 65537;
+}
+
+function keyNSplitString()
+{
+	var keyN = '';
+	for(var i = 0; i < ((Object.keys(publicKey.n).length) - 2); i++)
+	{
+		keyN += publicKey.n[i] + " ";
+	}
+	return keyN;
+}
+
+function keyDSplitString()
+{
+	var keyN = '';
+	for(var i = 0; i < (Object.keys(publicKey.d).length); i++)
+	{
+		keyN += publicKey.n[i] + " ";
+	}
+	return keyN;
 }
 
 function setMessageEncrypted()
