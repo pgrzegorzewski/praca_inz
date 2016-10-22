@@ -7,7 +7,7 @@ tr{
 
 
 
-#message, #Key_pharse, #keyText, #encryptedText, #public_key_n, #public_key_e, #private_key_d, #messageEncrypted, #messageDecrypted
+#message, #Key_pharse, #keyText, #encryptedText, #public_key_n, #public_key_n_2, #public_key_e, #private_key_d, #messageEncrypted, #messageDecrypted
 {
 	width:250px;
 }
@@ -29,8 +29,8 @@ tr{
 button
 {
 	text-align:center;
-	width:80px;
-	height:40px;
+	width:90px;
+	height:36px;
 }
 
 textarea{

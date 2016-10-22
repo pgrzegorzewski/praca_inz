@@ -127,14 +127,14 @@
 									<option>4096</option>
 									<option>8192</option>
 								</select>
-								<br><br><button onclick = "setKeyText()">Generate key</button>
+								<br><br><button id = "generateKeyButton" disabled = "true" onclick = "setKeyText()">Generate key</button>
 							</td>
 							<!--<td id ="td_one_third">
 								<button onclick = "setKeyText()">Generate key</button>
 							</td> -->
 							<td id ="td_one_third">
 								<br><br>
-								<button onclick = "encrypt()" align="left">Encrypt</button>
+								<button id = "encrypt_button" onclick = "encrypt()" align="left">Encrypt</button>
 							</td>
 						</tr>
 						<tr>
@@ -172,8 +172,8 @@
 				<table>
 					<tr>
 						<td id = "td_half_lenght_2">
-							<label for "public_key_n">Key n:</label>
-							<textarea id = "public_key_n" rows="3" cols="40" disabled = "true" placeholder = "Private key n"></textarea>
+							<label for "public_key_n_2">Key n:</label>
+							<textarea id = "public_key_n_2" rows="3" cols="40" disabled = "true" placeholder = "Private key n"></textarea>
 						</td>
 						<td  id = "td_half_lenght_2">
 							<label for "private_key_d">Key d:</label>

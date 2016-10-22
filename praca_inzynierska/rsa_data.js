@@ -1,5 +1,5 @@
 var messageText = '';
-var keyPharseKeyText = '';
+var keyPhraseKeyText = '';
 var keyText = '';
 var encryptedMessageText = '';
 var encryptedMessageText2 = '';
@@ -11,20 +11,60 @@ var publicKeyString;
 
 
 // Flags 
-var keyPharseSet = 0;
+var keyPhraseSet = 0;
 var messageSet = 0;
 var encryptedMessageSet = 0;
 var keySet = 0;
+var keyLenghtSet = 0;
 
+var isMessageChanged = 0;
+var isKeyPhraseChanged = 0;
+var isKeyLenghtChanged = 0;
+var isEncryptedMessageChanged = 0;
 
-function setMessage()		//zapisywanie wiadomości
+function clearTextarea(name)
 {
+	 document.getElementById(name).value = '';
+}
+
+function enableGenerateKeyButton()
+{
+	if(keyPhraseSet == 1)
+	{
+		document.getElementById('generateKeyButton').disabled = false;
+	}
+}
+
+function enableEncryptButton()
+{
+	if(keySet == 1 &&  messageSet == 1)
+	{
+		document.getElementById('encrypt_button').disabled = false;
+	}
+}
+
+function setMessage()
+{
+	if(messageSet == 1)
+	{
+		isMessageChanged = 1;
+		//messageText = document.getElementById('message').value;
+		clearTextarea('encryptedText');
+	}
 	messageText = document.getElementById('message').value;
 	messageSet = 1;
+	enableEncryptButton();
 }
 
 function setKeyLenght()
 {
+	if(keyLenghtSet == 1)
+	{
+		keyLenght = document.getElementById('Key_lenght').value;
+		isKeyLenghtChanged = 1;
+		clearKeyTextAreas();
+	}
+	
 	if(document.getElementById('Key_lenght').value)
 	{
 		keyLenght = document.getElementById('Key_lenght').value;
@@ -33,17 +73,38 @@ function setKeyLenght()
 	{
 			keyLenght = 512;
 	}
+	keyLenghtSet = 1;
+	enableGenerateKeyButton();
+}
+
+function clearKeyTextAreas()
+{
+	clearTextarea('encryptedText');
+	clearTextarea('keyText');
+	clearTextarea('public_key_e');
+	clearTextarea('public_key_n_2');
+	clearTextarea('public_key_n');
+	clearTextarea('private_key_d');
+	clearTextarea('messageDecrypted');
+	hideSafety();
 }
 
 function setKeyPharse()		//zapisywanie klucza
 {
-	keyPharseKeyText  = document.getElementById('Key_pharse').value;
-	keyPharseSet = 1;
+	if(keyPhraseSet = 1)
+	{
+		//keyPhraseKeyText  = document.getElementById('Key_pharse').value;
+		isKeyPhraseChanged = 1;
+		clearKeyTextAreas();
+	}
+	keyPhraseKeyText  = document.getElementById('Key_pharse').value;
+	keyPhraseSet = 1;
+	enableGenerateKeyButton();
 }
 
 function setKeyText() 		//wpisanie klucza do pola tekstowego
 {
-	if(keyPharseSet == 1)
+	if(keyPhraseSet == 1)
 	{	
 		publicKey = cryptico.generateRSAKey(messageText, keyLenght);
 		publicKeyString = cryptico.publicKeyString(publicKey);
@@ -54,6 +115,11 @@ function setKeyText() 		//wpisanie klucza do pola tekstowego
 	{
 		alert("Please put in you key pharse");
 	}
+	document.getElementById('public_key_n').value = keyNSplitString();
+	document.getElementById('private_key_d').value = keyDSplitString();
+	document.getElementById('public_key_n_2').value = keyNSplitString();
+	document.getElementById('public_key_e').value = 65537;
+	enableEncryptButton();
 }
 
 function encrypt()
@@ -69,16 +135,14 @@ function encrypt()
 	}
 	else if(messageSet == 1 && keySet == 0)
 	{
-		alert("plaese generate key");
+		alert("please generate key");
 	}
 	else
 	{
 		alert("please generate key and write the message You would like to encrypt");
 	}
+	hideSafety();
 	showSafety();
-	document.getElementById('public_key_n').value = keyNSplitString();
-	document.getElementById('private_key_d').value = keyDSplitString();
-	document.getElementById('public_key_e').value = 65537;
 }
 
 function keyNSplitString()
@@ -103,6 +167,11 @@ function keyDSplitString()
 
 function setMessageEncrypted()
 {
+	if(encryptedMessageSet == 1)
+	{
+		isEncryptedMessageChanged = 1;
+		clearTextarea('messageDecrypted');
+	}
 	encryptedMessageText2 = document.getElementById('messageEncrypted');
 	encryptedMessageSet = 1;
 	
@@ -136,4 +205,14 @@ function showSafety()
 		textShow('2048');
 	else if (keyLenght == 4096)
 		textShow('4096');
+}
+
+function hideSafety()
+{
+	textHide('nothing_encrypted');
+	textHide('512');
+	textHide('1024');
+	textHide('2048');
+	textHide('4096');
+	
 }
