@@ -6,7 +6,6 @@ function toggle_visibility(id) {
 		object.style.display = 'block';
 }
 
-var CAESAR_KEY = 13;
 var CAPITAL_A = 65;
 var SMALL_A = 97
 var CAPITAL_Z = 90;
@@ -33,14 +32,15 @@ var SHORTER_PASSWORD;
 var keySet = 0;
 var textSet = 0;
 var isTextChanged = 0;
-var isTextChanged = 0;
 var isKeyCreated = 0;
 
 var key2Set = 0;
 var text2Set = 0;
 var isText2Changed = 0;
-var isText2Changed = 0;
 var isKey2Created = 0;
+
+var isEncryptionHidden = 1;
+var isDecryptionHidden = 1;
 
 /*       */
 
@@ -63,7 +63,6 @@ function readKey()
 		clearTextarea('vigenere_encrypted');
 		isKeyChanged = 1;
 	}
-	alert('tets');
 	keySet = 1;
 	key = document.getElementById('key').value;
 	keyLength = key.length;
@@ -114,7 +113,7 @@ function readKey2()
 		clearTextarea('vigenere_with_autokey_encrypted');
 		clearTextarea('keyResult2');
 		key2 = document.getElementById('key2').value;
-		setKey2();
+		//setKey2();
 		isKey2Created = 0;
 		return;
 	}
@@ -138,7 +137,7 @@ function readText2()
 		textMessage2Length = textMessage2.length;
 		isText2Changed = 1;
 		isKey2Created = 0;
-		setKey2();
+		//setKey2();
 		return;
 	}
 	else if(textSet == 1 && keySet == 0)
@@ -227,6 +226,14 @@ function vigenereWithAutokey()
 	
 }
 
+function hideSafetyPhrases()
+{
+	textHide('nothing_encrypted');
+	textHide('encryption_less_than_half');
+	textHide('encryption_more_than_half');
+	textHide('encryption_as_long_as_key');
+	textHide('key_space');
+}
 
 function vigenere()
 {
@@ -250,19 +257,26 @@ function vigenere()
 		encryptedMessage = encryptedMessage.concat(letter);
 	}
 	document.getElementById('vigenere_encrypted').value = encryptedMessage;
+	hideSafetyPhrases();
 	if(keyLength < textMessageLength / 2){	
-		textHide('nothing_encrypted');
-		textShow('encryption_more_than_half');
-		keySpacePrint();
-		textShow('key_space');
-	}
-	else{
 		textHide('nothing_encrypted');
 		textShow('encryption_less_than_half');
 		keySpacePrint();
 		textShow('key_space');
 	}
-	
+	else if((keyLength >= (textMessageLength / 2)) && (keyLenght < textMessageLength))
+	{
+		textHide('nothing_encrypted');
+		textShow('encryption_more_than_half');
+		keySpacePrint();
+		textShow('key_space');
+	}
+	else
+	{
+		textShow('encryption_as_long_as_key');
+		keySpacePrint();
+		textShow('key_space');
+	}
 }
 
 
@@ -287,7 +301,10 @@ function keySpacePrint()
 {
 	alert(keyLength);
 	var keySpace;
-	keySpace = Math.pow(26, keyLength);
+	if(keyLenght < textMessageLength)
+		keySpace = Math.pow(26, keyLength);
+	else
+		keySpace = Math.pow(26, textMessageLength);
 	alert(keySpace);
 	document.getElementById('key_space').innerHTML = "Key space for the given key is equal: " + keySpace;
 	
@@ -468,4 +485,63 @@ function eraseColor()
         }  
     }
 
+}
+
+function resetFlagsAndValues()
+{
+	
+	if(isEncryptionHidden == 1)
+	{
+		keySet = 0;
+		textSet = 0;
+		isTextChanged = 0;
+		isKeyCreated = 0;
+		key = '';
+		
+		key2Set = 0;
+		text2Set = 0;
+		isText2Changed = 0;
+		isKey2Created = 0;
+		key2 = '';
+		
+		keyLength = 0;
+		textMessageLength = 0;
+		keyMessageLenghtDifference = 0;
+		newKey = "";
+		keyLenght = 0;
+
+		textMessage2Length = 0;
+		keyMessage2LenghtDifference = 0;
+		newKey2 = "";
+	}
+	if(isDecryptionHidden == 1)
+	{
+		keyDecryption = "";
+		newKeyDecryption ="";
+
+		textEncrypted = "";
+		keyDecryptionSet = 0;
+		textEncryptedSet = 0;
+
+		keyDecryptionLength = 0;
+		newKeyDecryptionLength = 0;
+		
+		textEncryptedLength = 0;
+		keyTextEncryptedLenghtDifference = 0;
+	}
+} 
+
+function clearEncryptionTextBoxes()
+{
+	clearTextarea('vigenere_encrypted');
+	clearTextarea('keyResult');
+	clearTextarea('key');
+	clearTextarea('vigenere');
+	clearTextarea('vigenere_with_autokey_encrypted');
+	clearTextarea('keyResult2');
+	clearTextarea('key2');
+	clearTextarea('vigenere_autokey');
+	clearTextarea('tabula_key');
+	clearTextarea('tabula_text');
+	clearTextarea('tabula_encrypted');
 }

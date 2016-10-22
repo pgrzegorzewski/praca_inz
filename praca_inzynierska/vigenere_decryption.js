@@ -19,52 +19,26 @@ var newKeyDecryptionLength = 0;
 var textEncryptedLength = 0;
 var keyTextEncryptedLenghtDifference = 0;
 
-
-
 var reversedKey = "";
-/*
-var key2Set = 0;
-var text2Set = 0;
-
-
-var textMessage;
-
-//var keyLength = 0;
-var textMessage2Length = 0;
-var keyMessage2LenghtDifference = 0;
-var key2;
-var newKey2 = "";
-var textMessage2;
-
-*/
-/* FLAGS */
-//var SHORTER_PASSWORD;
 
 
 function readKeyDecryption()
 {
-	keDecryptionySet = 1;
-	keyDecryption= document.getElementById('key_decryption').value;
-	keyDecryptionLength = keyDecryption.length;
-	//alert(keyDecryption + '' + keyDecryptionLength);
-	
-	setKeyDecryption();
+
+		isKeyDecryptionChanged = 1;
+		keyDecryptionSet = 1;
+		keyDecryption= document.getElementById('key_decryption').value;
+		keyDecryptionLength = keyDecryption.length;
+		setKeyDecryption();
 }
-/*
-function readKey2()
-{
-	key2Set = 1;
-	key2 = document.getElementById('key2').value;
-}
-*/
+
 
 function readEncryptedText()
 {
 	textEncryptedSet = 1;
 	textEncrypted  = document.getElementById('encrypted_text').value;
 	textEncryptedLength = textEncrypted.length;
-	//compareTextKey();
-	//alert(textEncrypted + '' + textEncryptedLength);
+
 }
 
 
@@ -76,13 +50,11 @@ function compareTextKeyLenght()
 function setKeyDecryption()
 {
 	compareTextKeyLenght();
-	//alert('test');
 	newKeyDecryption = "";
 	var letter;
 		for (var i = 0; i < (keyDecryptionLength + keyTextEncryptedLenghtDifference);  i++)
 		{
 			letter = keyDecryption[i % keyDecryptionLength];
-			//alert(letter);
 			newKeyDecryption = newKeyDecryption.concat(letter);
 		}
 	newKeyDecryptionLength = newKeyDecryption.length;
@@ -156,7 +128,35 @@ function isHidden(name){
 function showHidePracticalPart(name)
 {
 	if(isHidden(name))	
+	{
 		divShow(name);
+		if(name == 'encryption_part')
+		{
+			isEncryptionHidden = 0;
+			clearEncryptionTextBoxes();
+		}
+		if(name == 'decryption_part')
+		{
+			isDecryptionHidden = 0;
+			clearDecryptionTextBoxes();
+		}
+	}	
 	else
+	{
 		divHide(name);
+		if(name == 'encryption_part')
+			isEncryptionHidden = 1;
+		if(name == 'decryption_part')
+			isDecryptionHidden = 1;
+	}	
+	resetFlagsAndValues()
+}
+
+
+function clearDecryptionTextBoxes()
+{
+	clearTextarea('key_decryption');
+	clearTextarea('encrypted_text');
+	clearTextarea('reversed_key');
+	clearTextarea('vigenere_decrypted');
 }
