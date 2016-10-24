@@ -10,7 +10,7 @@ var keyLenght = 0;
 var array_A = [];
 var array_B = [];
 var arrayBString = '';
-var randomSum = 0;
+var totalSumModulus = 0;
 var plainText = '';
 var plainTextBits ='';
 var plainTextBitsNoSpace = '';
@@ -25,14 +25,36 @@ var decryptedArrayBits = [];
 var decryptedArrayBitsText = '';
 var decryptedArrayBitsBytes = [];
 
+/*		FLAGS		*/
+var isKeyLenght = 0;
+var isMultiplier = 0;
+var isPlaintText = 0;
+var isEncryptedText = 0;
+
+
+
+function clearTextarea(name)
+{
+	 document.getElementById(name).value = '';
+}
+
 
 function setKeyLenght()
 {
+	if(isKeyLenght == 1)
+	{
+		array_A.length = 0;
+		array_B.length = 0;
+		totalSumModulus = 0;
+		clearEncryptionTextAreas();
+		clearDecryptionTextAreas();
+	}
+	isKeyLenght = 1;
 	keyLenght = document.getElementById('keyLenght').value;
-	//alert(keyLenght);
 	generateRandomArrayA(keyLenght);
-	getRandomSum();
+	gettotalSumModulus();
 	document.getElementById('key_setA').value = array_A;
+	enableEncryptButton();
 }
 
 function getRandomArbitrary(min, max) {
@@ -50,13 +72,13 @@ function generateRandomArrayA(keyLenght)
 	}
 }
 
-function getRandomSum()
+function gettotalSumModulus()
 {
 	for(var i = 0; i < keyLenght; i++)
 	{
-			randomSum  = randomSum + array_A[i];
+			totalSumModulus  = totalSumModulus + array_A[i];
 	}
-	document.getElementById('key_setA_random_sum').value = randomSum;
+	document.getElementById('key_setA_random_sum').value = totalSumModulus;
 }
 
 function convert(plainText) 
@@ -79,29 +101,57 @@ function convert(plainText)
 
 function setPlainText()
 {
+	clearDecryptionTextAreas();
+	if(isPlaintText == 1)
+	{
+		plainTextBitsNoSpace = '';
+		plainText = '';
+		plainTextBits = '';
+		clearTextarea('cipher');
+		clearTextarea('plain_text_bits');
+		cipherArray.lenght = 0;
+	}
 	plainText = document.getElementById('plain_text').value;
 	convert(plainText);
 	document.getElementById('plain_text_bits').value = plainTextBits;
+	isPlaintText = 1;
+	enableEncryptButton();
+}
+
+function clearEncryptionTextAreas()
+{
+	clearTextarea('key_setA_random_sum');
+	clearTextarea('key_setA');
+	clearTextarea('multiplier');
+	clearTextarea('key_setB');
+	clearTextarea('cipher');
+	cipherArray.lenght = 0;
 	
 }
 
 function setMultiplier()
 {
+	if(isMultiplier == 1)
+	{
+		clearTextarea('key_setB');
+		clearDecryptionTextAreas();
+	}
+	isMultiplier = 1;
+	multiplier = document.getElementById('multiplier').value;
+	alert(sum + ' ' + multiplier);
+	if(coprimeTest(sum, multiplier) == 1)						//?
+	{
 		multiplier = document.getElementById('multiplier').value;
-		alert(sum + ' ' + multiplier);
-		
-		if(coprimeTest(sum, multiplier) == 1)						//?
-		{
-			multiplier = document.getElementById('multiplier').value;
-			alert('coprime');
-			setPublicKey();
-			//createCipher();
-		}
-		else
-		{
-			alert("not coprime");
-		}
-		safety();
+		alert('coprime');
+		setPublicKey();
+		//createCipher();
+	}
+	else
+	{
+		alert("not coprime");
+	}
+	safety();
+	enableEncryptButton();
 }
 
 function coprimeTest(a, b)
@@ -114,6 +164,7 @@ function coprimeTest(a, b)
 
 function setPublicKey()
 {
+	array_B.length = 0;
 	arrayBString = '';
 	for (i = 0; i < keyLenght; i++) {
      	array_B[i] = (array_A[i] * multiplier) % sum;
@@ -122,6 +173,38 @@ function setPublicKey()
     }
 	document.getElementById('key_setB').value = arrayBString;	
 }
+
+function enableEncryptButton()
+{
+	if(isPlaintText == 1 && isKeyLenght == 1 && isMultiplier == 1)
+	{
+		document.getElementById('encryptButton').disabled = false;
+	}
+}
+
+function enableDecryptButton()
+{
+	if(isEncryptedText == 1)
+	{
+		document.getElementById('decryptButton').disabled = false;
+	}
+}
+
+function clearDecryptionTextAreas()
+{
+	clearTextarea('decrypted_text_2');
+	clearTextarea('decrypted_text');
+	clearTextarea('decrypted_text_text');
+	cipherArrayString = '';
+	cipherArray.length = 0;
+	decryptedArray.length = 0;
+	decryptedArrayBits.length = 0;
+	plainTextBitsNoSpace.length = 0;
+	decryptedArrayBitsText = '';
+	decryptedArrayBitsText.length = 0;
+
+}
+
 
 function createCipher()
 {
@@ -155,7 +238,8 @@ function createCipher()
 		cipherArrayString += cipherArray[iterator2] + " ";
 	}
 	document.getElementById('cipher').value = cipherArrayString;
-	
+	isEncryptedText = 1;
+	enableDecryptButton();
 }
 
 function moduloInverse(number, modulo)				//number nad modulo are coprime
@@ -194,6 +278,7 @@ function moduloInverse(number, modulo)				//number nad modulo are coprime
 
 function decrypt()
 {
+
 	var inversedEncryptedArray = '';
 	inverse = moduloInverse(multiplier, sum);
 	for(var i = 0; i < cipherArray.length; i++)
@@ -237,7 +322,7 @@ function decrypt()
 			if(loopCounter == array_A.length - 1 - shift)
 			{	
 				if(shift != 0){
-					shift =0;
+					shift = 0;
 				}
 				alert('z ->0');
 				loopCounter = 0;
@@ -257,6 +342,7 @@ function decrypt()
 function decryptedArrayBitsToByteArray()
 {
 	var i = 0;
+	decryptedArrayBitsBytes.length = 0;
 	decryptedArrayBitsBytes[i] = "";
 	for(var j = 0; j < decryptedArrayBitsText.length; j++)
 	{

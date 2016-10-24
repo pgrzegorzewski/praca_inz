@@ -113,6 +113,8 @@
 						<td id = "td_key">
 							<label for "key_setA_random_sum" id = "label2">Sum:</label>
 							<input type = "text" id = "key_setA_random_sum", placeholder = "Modulus" disabled = "true" /> 
+							<p id = "coprime" display = "none">Coprime</p>
+							<p id = "coprime" display = "none">Not coprime</p>
 						</td>
 					</tr>
 					<tr>
@@ -147,7 +149,7 @@
 					</tr>
 					<tr>
 						<td id= "td_half_lenght_2">
-							<button onclick = "createCipher()">Encrypt</button>
+							<button id = "encryptButton" disabled = "true" onclick = "createCipher()">Encrypt</button>
 						</td>
 						<td id ="td_half_lenght">
 							<label for "cipehr">Cipher:</label>
@@ -162,7 +164,7 @@
 				<table>
 					<tr>
 						<td id= "td_half_lenght_2">
-								<button onclick = "decrypt()">Decrypt</button>
+								<button  id = "decryptButton" disabled = "true" onclick = "decrypt()">Decrypt</button>
 						</td>
 						<td id= "td_half_lenght">
 							<label for "decrypted_text_2">Converted cryptogram:</label> 						

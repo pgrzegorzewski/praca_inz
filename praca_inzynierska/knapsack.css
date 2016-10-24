@@ -63,7 +63,7 @@ tr{
 	padding-right:15px;
 }
 
-#encryptButton, #keyButton
+#encryptButton, #decryptButton, #keyButton
 {
 	width: 90px;
 	text-align:center;
