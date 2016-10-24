@@ -89,7 +89,7 @@ function convert(plainText)
 		letterBinary = plainText[i].charCodeAt(0).toString(2);
 		if(letterBinary.length < 8)
 		{
-			for(j = 0; j < 8 - letterBinary.length; j++)
+			for(j = 0; j <= 8 - letterBinary.length; j++)
 				letterBinary = '0'.concat(letterBinary);
 		}
      	//plainTextBits += plainText[i].charCodeAt(0).toString(2) + " ";//
@@ -208,6 +208,8 @@ function clearDecryptionTextAreas()
 
 function createCipher()
 {
+	clearDecryptionTextAreas();
+	clearTextarea('cipher');
 	var iterator = 0;
 	var iterator2 = 0;
 	var characterFlag = 0;
@@ -278,7 +280,8 @@ function moduloInverse(number, modulo)				//number nad modulo are coprime
 
 function decrypt()
 {
-
+	clearTextarea('decrypted_text_2');
+	clearTextarea('decrypted_text');
 	var inversedEncryptedArray = '';
 	inverse = moduloInverse(multiplier, sum);
 	for(var i = 0; i < cipherArray.length; i++)
@@ -341,6 +344,7 @@ function decrypt()
 
 function decryptedArrayBitsToByteArray()
 {
+	clearTextarea('decrypted_text_text');
 	var i = 0;
 	decryptedArrayBitsBytes.length = 0;
 	decryptedArrayBitsBytes[i] = "";
