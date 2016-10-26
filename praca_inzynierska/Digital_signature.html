@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="StyleSheet" href="config.css" />
+<link rel="StyleSheet" href="vigenere.css" />
+<link rel="StyleSheet" href="knapsack_theory.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="vigenere.js"></script>
+<script type="text/javascript" src="vigenere_decryption.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+</head>
+<body>
+<div class="page">
+	<header class="header">
+	<h1>Magic of Cryptography</h1>
+	</header>
+
+	<div class="row">
+		<div class = "col-3 col-m-3">	
+			<nav class= "menu_theory">
+				<br>Menu Theory<br>
+					<ul>	
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptology');">Cryptology</a>
+						</li>	
+						<div class = "submenu" id ="submenu_cryptology">
+							<ul>	
+								<br><li>
+										<a href = "Cryptosystem_types.html">Basic Information</a>
+									</li>							
+								<br><li>
+										<a href = "Cryptography_theory.html">Cryptography</a>
+									</li>
+								<br><li>
+										<a href = "Cryptoanalysis_theory.html">Cryptoanalysis</a>
+									</li>
+							</ul>	
+						</div>
+							<br><li>
+								<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems');">Cryptosystem Types</a>
+							</li>
+						<div class = "submenu" id ="submenu_cryptosystems">
+							<ul>
+								<br><li>
+										<a href = "Cryptosystems_types.html">Basic Information</a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_symmetric_keys.html"> Symmetric Cryptosystems </a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_asymmetric_keys.html">Asymmetric Cryptosystems</a>
+									</li>
+							</ul>	
+						</div>
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems_examples');">Cryptosystem Examples</a>
+						</li>
+						<div class = "submenu" id ="submenu_cryptosystems_examples">
+							<ul>
+								<br><li>
+										<a href = "Caesar_theory.html">Caesar Cipher</a>
+									</li>
+								<br><li>
+										<a href = "Vigenere_theory.html">Vigenere Cipher</a>
+									</li>
+								<br><li>
+										<a href = "Knapsack_theory.html">Merkle Hellman Cipher</a>
+									</li>	
+								<br><li>
+										<a href = "RSA_theory.html">RSA Cipher</a>
+									</li>
+								<br><li>
+									working on (DSA?)
+									</li>
+							</ul>
+						</div>
+						<br><li>
+								Digital Signature
+							</li>
+						<br><li>
+								Electronic Signature
+							</li>
+						<br><li>
+								CrypTool
+							</li>
+					</ul>
+			</nav>
+		</div>
+
+		<div class="col-6 col-m-9">
+			<section class = "section">
+				<h1>Digital Signature</h1>
+				<h3>A bit of recall...</h3>
+				I the previous sites we were discussing about the methods of encrypting messages. Encryption as a process guarantees confidentiality of the message. 
+				<br>So let's move back to our old friends and imagine the following situation: Anna receives the encrypted message from Mary, <img src = "resources/signature.png" alt = "signature" align = "right" width="320px">she uses her private decrypting key so she is able to get the plain text of the message. But how can she be sure that noone has impersonated of Mary? Unfortunately ciphers do not ensure authenticity of the message. 
+				<br>To provide authenticity of paper document we use signatures, so there should be something similar to the idea of hand signatures but adapted to the digital documents. And here finally comes the <b>digital signature</b>.
+				<br>
+				<h3>Digital signature - a closer look</h3>
+				Digital signature is a mathematical function of technique which is used to provide authenticity and integrity of a electronic document or message. This is the digital correspondet to the handwritten signature or a stamp. Thanks to the digital signature we know that message comes from proper sender and we have got also assurance that the message was not changed during the transmission.
+				So lets sum up what the siganture gives to the users:
+				<ul>
+					<li><b>Authenticity</b> - receiver is sure about the author of the document. Signature leads flawless to the sender.</li>
+					<li><b>Non-repudiation</b> - it means that the author of the document signed by him cannot deny having signed it. Signature is an evidence that author knows the document.</li>
+					<li><b>Integrity</b> - valid signature tells the receiver that the message was not changed during the transmission. Because of the fact that signature uses text of the message itself, changing the text will affect validation of the signature.</li>
+				</ul>		
+				This looks great however not all countries are respecting both: handwritten signatures and digital signatures equally nowadays
+			</section>
+		</div>
+
+		<div class="col-3 col-m-12">
+		<aside class="menu_practical">
+			Cryptography in practice
+			<ul>
+				<br><li>
+						<a href = "Cryptosystems_types.html">Basic information</a>
+					</li>
+				<br><li>
+						<a href = "caesar.html">Caesar Cipher</a>
+					</li>
+				<br><li>
+						<a href = "vigenere.html">Vigenere Cipher</a>
+					</li>
+				<br><li>
+						<a href = "knapsack.html">Merkle Hellman Cipher</a>
+					</li>
+				<br><li>
+						<a href = "rsa.html">RSA Cipher</a>
+					</li>
+			</ul>
+		</aside>
+		</div>
+
+	</div>
+
+	<div class="footer">
+	<p>Done by Pawel Grzegorzewski 190116</p>
+	</div>
+
+</body>
+</html>
+
+
+
+
+	
