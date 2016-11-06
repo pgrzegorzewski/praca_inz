@@ -80,7 +80,7 @@
 								<a href = "Digital_signature.html">Digital Signature</a>
 							</li>
 						<br><li>
-								Electronic Signature
+								<a href = "Electronic_signature.html">Electronic Signature</a>
 							</li>
 						<br><li>
 								CrypTool
@@ -106,18 +106,24 @@
 					<li><b>Integrity</b> - valid signature tells the receiver that the message was not changed during the transmission. Because of the fact that signature uses text of the message itself, changing the text will affect validation of the signature.</li>
 				</ul>		
 				This looks great however not all countries are respecting both: handwritten signatures and digital signatures equally nowadays
+				<br>
 				<h3>How to sign?</h3>
-				Let's explain how signing the message or any other kind of electronic document from the technical point of view. Digital signature usually uses asmmetric cryptography. During encryption we were using public key and a private one for decryption. Digital signature works opposite, sender signs the message with his private key, and the receiver uses senders public key to verify provenance of the text.
+				Let's explain how signing the message or any other kind of electronic document from the technical point of view. <img src = "resources/asymmetric_keys_signature.png" alt = "signing a message" align = "left" width="340px">Digital signature usually uses asmmetric cryptography. During encryption we were using public key and a private one for decryption. Digital signature works opposite, sender signs the message with his private key, and the receiver uses senders public key to verify provenance of the text.
 				<br>There exist two main standartsusing cryptography systems: one usng already known RSA cryptosystem and the second one using DSA cryptosystem. 
 				<br><br>To try digital signature with RSA cryptosystem click on the pen.
 
+				<br>
 				<h3>Encryption + Signature</h3>
 				If we want to use both signature and encryption there is one correct order to apply both of these actions. We should firstly generate digital signature and then encrypt whole message. 
 				To explain why I will again use exmple with our friends.
-				<br>Mary sends message to the Anna. She uses her private kay to sign the message and then encrypts whole with Anna public key and sends it to her. Anna gets the message andat the beginning uses her privatekey to decrypt the message and affter that varify the signature with Mary public key.
+				<br>Mary sends message to the Anna. She uses her private kay to sign the message and then encrypts whole with Anna public key and sends it to her. Anna gets the message andat the beginning uses her private key to decrypt the message and affter that varify the signature with Mary public key.
 				<br>Let's assume that kevin somehow stole the message. In that kind of situation he is not able to do anything with the messge becaus he has access to Anna decrypting key.
 				<br>But what may happen if Mary performed signing and the encryption in the opposite order? This time Kevin can easily verify the sender of the message using Mary's public key. Moreover he can exchange original signature with his own and transfer changed message to the proper receiver.
-
+				
+				<h3>Digital Signature vs electronic signature</h3>
+				Sometimes it is hard to distinguish electronic and the digital signature, however we should not treat them as synonyms. We can imagine electonic signature as electonic correspondent to handwritten signature. Something which varifies the owner of a document (more about electronic signature in the next page).
+				Digital signature is the mechanism of creating electronic signature (in most of cases). We should think about digital signature as a mathematical conversion of data. we should consider digital signature as <b>a process</b>! 
+				There is also one more aspect connected with the legal point of view. Digital signature adds data to the original message or a document. Electronic signature in each country is defined differently. In few countries electronic signature do not use digital signature, that is why both definitions should not be used interchangeably.
 			
 			</section>
 			

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="StyleSheet" href="config.css" />
+<link rel="StyleSheet" href="vigenere.css" />
+<link rel="StyleSheet" href="knapsack_theory.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="vigenere.js"></script>
+<script type="text/javascript" src="vigenere_decryption.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+</head>
+<body>
+<div class="page">
+	<header class="header">
+	<a href = "strona.html"><h1>Magic of Cryptography</h1></a>
+	</header>
+
+	<div class="row">
+		<div class = "col-3 col-m-3">	
+			<nav class= "menu_theory">
+				<br>Menu Theory<br>
+					<ul>	
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptology');">Cryptology</a>
+						</li>	
+						<div class = "submenu" id ="submenu_cryptology">
+							<ul>	
+								<br><li>
+										<a href = "Cryptosystem_types.html">Basic Information</a>
+									</li>							
+								<br><li>
+										<a href = "Cryptography_theory.html">Cryptography</a>
+									</li>
+								<br><li>
+										<a href = "Cryptoanalysis_theory.html">Cryptoanalysis</a>
+									</li>
+							</ul>	
+						</div>
+							<br><li>
+								<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems');">Cryptosystem Types</a>
+							</li>
+						<div class = "submenu" id ="submenu_cryptosystems">
+							<ul>
+								<br><li>
+										<a href = "Cryptosystems_types.html">Basic Information</a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_symmetric_keys.html"> Symmetric Cryptosystems </a>
+									</li>
+								<br><li>
+										<a href = "Cryptosystems_asymmetric_keys.html">Asymmetric Cryptosystems</a>
+									</li>
+							</ul>	
+						</div>
+						<br><li>
+							<a href ='#' onclick = "toggle_visibility('submenu_cryptosystems_examples');">Cryptosystem Examples</a>
+						</li>
+						<div class = "submenu" id ="submenu_cryptosystems_examples">
+							<ul>
+								<br><li>
+										<a href = "Caesar_theory.html">Caesar Cipher</a>
+									</li>
+								<br><li>
+										<a href = "Vigenere_theory.html">Vigenere Cipher</a>
+									</li>
+								<br><li>
+										<a href = "Knapsack_theory.html">Merkle Hellman Cipher</a>
+									</li>	
+								<br><li>
+										<a href = "RSA_theory.html">RSA Cipher</a>
+									</li>
+							</ul>
+						</div>
+						<br><li>
+								<a href = "Digital_signature.html">Digital Signature</a>
+							</li>
+						<br><li>
+								<a href = "Electronic_signature.html">Electronic Signature</a>
+							</li>
+						<br><li>
+								CrypTool
+							</li>
+					</ul>
+			</nav>
+		</div>
+
+		<div class="col-6 col-m-9">
+			<section class = "section">
+				<h1>Electronic Signature</h1>
+				<h3>What is it about?</h3>
+				Nowadays when electronic documents are as popular as trditional, paper documents or even more popular, there is also need for a some kind of mechanism which will allow to varify the owner of the document. And here comes the an electronic signature. It provides the same legal standing as the handwritten signature, however it has got some requirements itself which have to be fullfilled.
+				<br>Electronic signature is the technical correspondent of handwritten signature, it is used to provide authenticity of electonic documents. In many cases it is relised with the digital signature mechanisms. In short digital signature is the mathematical transformated data which is added to the document.   
+				<h3>Legal part...</h3>
+				Legal ducoments regarding electronic signature were created by the Europen Unin in the 19090s. Each country has got its own regulations regarding electronic signature. However there are few rules which are common for most of them. 
+				<br>We can distinguish three types of electronic sigantures which vary with a level of the security of the signature:
+				
+				<ul>
+					<li><b>Electronic signature</b> - Signature which confirms the identity of the person who is signing the dicument. </li>
+					<li><b>Advanced electronic signature</b> - Signature which is stroctly related with the signed document and the author. What is also very important is that thanks to the mathematical functions it is really hard to fake the signature itself.</li>
+					<li><b>Qualified electronic signature</b> - It is special kind of the advanced electronic signature wich has to fullfill ale the legal, technical and organizational requirements. 
+					Person who wants to have this kind of signature must get from the Certificate Authority Office qualiied certification and also private kay. From that office user is also getting cryptographic card with a private key stored
+					.
+			</section>
+			
+		</div>
+
+		<div class="col-3 col-m-12">
+		<aside class="menu_practical">
+			Cryptography in practice
+			<ul>
+				<br><li>
+						<a href = "Cryptosystems_types.html">Basic information</a>
+					</li>
+				<br><li>
+						<a href = "caesar.html">Caesar Cipher</a>
+					</li>
+				<br><li>
+						<a href = "vigenere.html">Vigenere Cipher</a>
+					</li>
+				<br><li>
+						<a href = "knapsack.html">Merkle Hellman Cipher</a>
+					</li>
+				<br><li>
+						<a href = "rsa.html">RSA Cipher</a>
+					</li>
+			</ul>
+		</aside>
+		</div>
+
+	</div>
+
+	<div class="footer">
+	<p>Done by Pawel Grzegorzewski 190116</p>
+	</div>
+
+</body>
+</html>
+
+
+
+
+	
