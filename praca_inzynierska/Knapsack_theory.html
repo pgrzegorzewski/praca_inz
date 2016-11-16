@@ -20,7 +20,7 @@
 	<div class="row">
 		<div class = "col-3 col-m-3">	
 			<nav class= "menu_theory">
-				<br>Menu Theory<br>
+				Menu Theory<br>
 					<ul>	
 						<br><li>
 							<a href ='#' onclick = "toggle_visibility('submenu_cryptology');">Cryptology</a>
@@ -88,20 +88,23 @@
 
 		<div class="col-6 col-m-9">
 			<section class = "section">
+				<h2>Merkle-Hellman Cipher</h2>
 				<h3>Small piece of history</h3>
-				Knapsack cipher or rather Merkle-Hellman cipher was invented in 1978 by Ralph Merkle and Martin Hellman. It is assymetric cryptosystem with public key. At the beginning it was considered as the perfect cipher. One of the authors announced that person who will break knapsack cryptosystem will win special prize. Unfortunately four years later Merkle was forced to give Adi Shamir 100 dollars in cash who found weakness in the cipher. Moreover Adi Shamir is one of the inventors of more complicated assymetric cryptosystem which provides under few conditions 100% of safety... that must be so embarassing for Merkle.
-				<br>Let's move to the cryptosytem, it is based on kanpsack problem, <img src = "resources/knapsack.png" alt = "encryption" align = "left" width="300px">to be more precise a special case of this algebraic problem - sum of the subset problem. The problem is defined as follows: we have got a set of numbers <b>A</b> and a number <b>n</b>. Our goal is to find the a subset of A which is equall to our number n. 
-				<br>In many cases there are more than one subsets which sum gives us n so we have to add special condition to our A set - it has to be superincreasing. Superincreasing  set of numbers is the set in which every next number is higher than the sum of previous numbers.
+				Knapsack cipher or rather Merkle-Hellman cipher was invented in 1978 by Ralph Merkle and Martin Hellman. It is assymetric cryptosystem with public key. At the beginning it was considered as the perfect cipher. One of the authors announced that person who will break knapsack cryptosystem will win special prize. Unfortunately four years later Merkle was forced to give Adi Shamir 100 dollars in cash who found weakness in the cipher. Moreover Adi Shamir is one of the inventors of more complicated asymmetric cryptosystem which provides under few conditions 100% of safety... that must be so embarassing for Merkle.
+				<br>Let us move to the cryptosytem, it is based on knapsack problem, <img src = "resources/knapsack.png" alt = "encryption" align = "left" width="300px">to be more precise a special case of this algebraic problem − sum of the subset problem. The problem is defined as follows: we have got a set of numbers <b>A</b> and a number <b>n</b>. Our goal is to find the a subset of A which is equall to our number n. 
+				<br>In many cases there are more than one subsets which sum gives us n so we have to add special condition to our A set − it has to be superincreasing. Superincreasing  set of numbers is the set in which every next number is higher than the sum of previous numbers.
 				<br>Ok, we have coped with many results but now our problem became really easy to solve... because to find our subset we are starting from the highest element of A set and checking if it is smaller than sum n. If yes, we are subtracking that element from the n and repeating these steps with the result of subtraction and next element of the set.
 				<br>Problem is solvable in polynominal time.
 				<br>
+			</section>
+			<section class = "section">
 				<h3>Keys</h3>
-				Pair of keys consists of two different set of numbers: <b>hard</b> and <b>easy</b> one. The private key is the easy one - superincreasing set of numbers <b>A</b>, modulus <b>m</b>(sum of set A) and <b>w</b> multiplier. The public key is the hard set of numbers - set <b>B</b> generated from the private key. To obtain public key, we are multiplying each element of set A by  multiplier w and apply the modulo m of our result. These elemnts give us public key - B set.
+				Pair of keys consists of two different set of numbers: <b>hard</b> and <b>easy</b> one. The private key is the easy one − superincreasing set of numbers <b>A</b>, modulus <b>m</b> (sum of set A) and <b>w</b> multiplier. The public key is the hard set of numbers - set <b>B</b> generated from the private key. To obtain public key, we are multiplying each element of set A by  multiplier w and apply the modulo m of our result. These elements give us the public key − B set.
 				<br>
 			</section>
 			<section class = "section">
 				<h3>Encryption</h3>
-				During encryption sender chages the message into binary string and performs multiplication of all consecutive bits by the elements of the public key. If the key lenght is longer or the same size as the message, sender crates sum of all results of multiplications which gives the ciphertext. If the key is smaller, sender has to create sums of x multiplications, where x is the lenght of the key. In that case cipher text becomes group of numbers.
+				During encryption sender changes the message into binary string and performs multiplication of all consecutive bits by the elements of the public key. If the key lenght is longer or the same size as the message, sender crates sum of all results of multiplications which gives the ciphertext. If the key is smaller, sender has to create sums of x multiplications, where x is the lenght of the key. In that case cipher text becomes group of numbers.
 			</section>
 			<section class = "section">
 				<h3>Decryption</h3>
@@ -112,28 +115,28 @@
 			</section>
 			<section class = "section">
 				<h3>Example</h3>
-				Lets look at the practical example which surely will clarify everything. 
-				<br>Mary wants to encrypt the hour of secret meeting with Ann (5pm). To get message from Mary, Anna has to prepare pair of keys which will be used in the cipher.
+				Let us look at the practical example which surely will clarify everything. 
+				<br>Mary wants to encrypt the hour of secret meeting with Anna (5pm). To get message from Mary, Anna has to prepare pair of keys which will be used in the cipher.
 				<br>First step is to choose private key. Anna starts with choosing superincreasing set A. <img src = "resources/knapsack_2.png" alt = "encryption" align = "right" width="200px">
-				<br><b><i>A = {2, 5, 8, 17}</i></b> (as You can observe every next number is higer than a sum of previous numbers). m (modulus) as we said before is the sum of all elements of the A set.
-				<br><b><i>m = 32</i></b>
+				<br><br><b>A = {2, 5, 8, 17}</b> (as You can observe every next number is higer than a sum of previous numbers). m (modulus) as we said before is the sum of all elements of the A set.
+				<br><b>m = 32</b>
 				<br> Now we have to choose multiplier w which has to be coprime with modulus and 1 < w < m
-				<br><b><i>w = 11</i></b>
+				<br><b>w = 11</b>
 				<br><br>The private key is ready, it is composed of these three elements: A, m and w. Now Anna can generate public key for Mary. To do that Mary needs to perform modulo of m operation of each A element multiplied by the w multiplier.
-				<br>2 * 11 mod 32 = 22
+				<br><br>2 * 11 mod 32 = 22
 				<br>5 * 11 mod 32 = 23
 				<br>8 * 11 mod 32 = 24
 				<br>17 * 11 mod 32 = 27
-				<br> The public key is the set <b><i>B = {22, 23, 24, 27}</i></b>
-				<br><br>As we mentioned before Mary want to encrypt "5". First of all, she needs to change the 5 into binary form.
-				<br><b>5</b> in binary is <b><i>0101</b></i>
+				<br><br>The public key is the set <b>B = {22, 23, 24, 27}</b>
+				<br><br>As we mentioned before Mary wants to encrypt "5". First of all, she needs to change the 5 into binary form.
+				<br><br><b>5</b> in binary is <b>0101</b>
 				<br>Now Mary is multipling all consecutive numbers o Anna's publick key by the bits of the message.
 				<br>
 				<br>22 * 0 = 0
 				<br>23 * 1 = 23
 				<br>24 * 0 = 0
 				<br>27 * 1 = 27
-				<br><br>Cipher text is the sum of all pruducts of above multiplications (0 + 23 + 0 + 27) which is <i><b>50</b></i>. So that is Mary's message looks like.
+				<br><br>Cipher text is the sum of all products of above multiplications (0 + 23 + 0 + 27) which is <b>50</b>. So that is Mary's message looks like.
 				<br><br>Now Anna has to decrypt the message. She has to perform one operation - she has to find result of operation modulo m of Marys message multiplier by inverse of w (which is 3).
 				<br>50 * 3 mod 32 = 22
 				<br>Next-to-last step is to find subset od B which sum gives 22. Anna is checkig all consecutives to find the subset in that way:
@@ -142,27 +145,27 @@
 					<tr>
 						<td id ="computation">22 - 17 = 5 > 0 </td>
 						<td id ="bit"><b>1</b></td>
-						<td id ="description">Anna subtracts from 22 the highest element of B. Result is higher than 0 so she get bit '1' of the plain text. If the subtraction at each step gives positive result Anna gets '1' as bit of plain text, if the result is negative she gets '0'. </td>
+						<td id ="description">Anna subtracts from 22 the highest element of B. Result is higher than 0 so she gets bit '1' of the plain text. If the subtraction at each step gives positive result Anna gets '1' as bit of plain text, if the result is negative she gets '0'. </td>
 					</tr>
 					<tr>
 						<td id ="computation">5 - 8 < 0</td>
 						<td id ="bit"><b>0</b></td>
-						<td id ="description">Now she takes result of previous subtraction, and subtracts from it next element of B. This time result is smaller than 0 so we are not performin subtraction so Anna obtains bit '0' of plain text.  </td>
+						<td id ="description">Now she takes result of previous subtraction, and subtracts from it next element of B. This time result is smaller than 0 so we are not performing subtraction so Anna obtains bit '0' of plain text.  </td>
 					</tr>
 					<tr>
 						<td id ="computation">5 - 5 = 0</td>
 						<td id ="bit"><b>1</b></td>
-						<td id ="description">Anna subtracts next elements which gives her result which is not smaller than 0 (she gets 0) which again gives her bit one '1' of plain text.</td>
+						<td id ="description">Anna subtracts next elements which gives her result that is not smaller than 0 (she gets 0) which again gives her bit one '1' of plain text.</td>
 					</tr>
 					<tr>
 						<td id ="computation">0 - 2 < 0</td>
 						<td id ="bit"><b>0</b></td>
-						<td id ="description">Anna subtracts the last element of B from the result of prevoius subtraction which gives her negative result so last bit of plain text is '0'. </td>
+						<td id ="description">Anna subtracts the last element of B from the result of previous subtraction which gives her negative result so last bit of plain text is '0'. </td>
 					</tr>
 				</table>
 				<br><br>The last step is to read all bits and change them into the decimal system - 0101 gives 5.
 				<br>For this time Anna knows when to go to to the secret place to meet Mary.
-				<br>click here to go to practical part<a href = "knapsack.html"><img src = "resources/key.png" style ="width:60px; height:60px" align = "middle"></a> 
+				<br>If You want to go to the practical part click on the key<a href = "knapsack.html"><img src = "resources/key.png" style ="width:60px; height:60px" align = "middle"></a> 
 			</section>
 		</div>
 
