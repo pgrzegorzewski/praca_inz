@@ -63,7 +63,7 @@
 										<a href = "Vigenere_theory.html">Vigenere Cipher</a>
 									</li>
 								<br><li>
-										<a href = "Knapsack_theory.html">Merkle Hellman Cipher</a>
+										<a href = "Knapsack_theory.html">Merkle-Hellman Cipher</a>
 									</li>	
 								<br><li>
 										<a href = "RSA_theory.html">RSA Cipher</a>
@@ -86,10 +86,9 @@
 		<div class="col-6 col-m-9">
 			<section class = "section">
 				<h3>Caesar Cypher</h3>
-				Caesar cipher is the first cipher which appears in human history. Key is the number which means the number of shifted letters in alphabet.
+				Caesar cipher is the first cipher which appeared in human history. Key is the number which means the number of shifted letters in alphabet.
 				<br>Let's say that our key is '6' shifted right. So our encrypted 'A' is now 'G'. 
-				<br><br>Decryption looks exactly the same like in the ecnryption, the only thing we change is the opposite direction. Going back to the example - we have got "G" as a encrypted text, if we want to decrypt we take again key '6' but we change direction to the left. Making that transformation we get again 'A' as a plain text.
-				<br><br>
+				<br><br>Decryption looks exactly the same like in the ecnryption, the only thing we change is the opposite direction. Going back to the example − we have got "G" as a encrypted text, if we want to decrypt we take again key '6' but we change direction to the left. Making that transformation we get again 'A' as a plain text.
 				<!--<table>
 					<tr>
 						<td>
@@ -122,15 +121,14 @@
 				</table>-->
 			</section>
 			<section class ="section">
-								
-				<br><h3>Classic Caesar cipher (right shift of 3 or 13):</h3>
+				<h3>Classic Caesar cipher (right shift of 3 or 13):</h3>
 				<table>				
 					<tr>
 						<td> <!-- colspan-->
 							<label for "list", id="horizontal_label">ROT type:</label>
 							<select name="rot type" id="classic_cipher_list" onblur="setRotType()">
-								<option>historical</option>
-								<option>todays</option>
+								<option>historical (key:3)</option>
+								<option>todays (key:13)</option>
 							</select>
 						</td>
 						<td colspan ="2"></td>
@@ -187,10 +185,10 @@
 			<section class = "section">
 			
 				<h3>Safety</h3>
-				Unfortunately Caesar cipher does not provide any safety nowadays. Every message can be made up with a piece of paper and a pencil by everyone in more less 10 minutes. In many cases brute force is even faster than using statistics. Decryption of the message by the computer even not the fastest one lasts split of a second.
+				Unfortunately Caesar cipher does not provide any safety nowadays. Every message can be made up with a piece of paper and a pencil by everyone in more or less 10 minutes. In many cases the brute force method is even faster than using statistics. Decryption of the message by the computer even not the fastest one lasts split of a second.
 				<br>The entire space of keys is exactly 26 which means there are only 26 possible keys. Longer alphabet like polish increases the key space to 32.
 				<br><br>Widenning the alphabet by next characters increases the decryption time but very very slightly. In practice that manner can increase this time if we are using piece of paper. For example finding the plain text of a sentence encrypted with English alphabet lasts statistically 10 minutes and sentence encrypted in Polish alphabet (6 characters longer) lasts statistically only one minute longer.
-				<br><br>ROT13 is still used in online forums and in some messaging applications.
+				<br>Despite above ROT13 is still used in online forums and in some messaging applications.
 			</section>
 		</div>
 
@@ -208,7 +206,7 @@
 						<a href = "vigenere.html">Vigenere Cipher</a>
 					</li>
 				<br><li>
-						<a href = "knapsack.html">Merkle Hellman Cipher</a>
+						<a href = "knapsack.html">Merkle-Hellman Cipher</a>
 					</li>	
 				<br><li>
 						<a href = "rsa.html">RSA Cipher</a>

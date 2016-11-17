@@ -63,7 +63,7 @@
 										<a href = "Vigenere_theory.html">Vigenere Cipher</a>
 									</li>
 								<br><li>
-										<a href = "Knapsack_theory.html">Merkle Hellman Cipher</a>
+										<a href = "Knapsack_theory.html">Merkle-Hellman Cipher</a>
 									</li>	
 								<br><li>
 										<a href = "RSA_theory.html">RSA Cipher</a>
@@ -85,42 +85,41 @@
 
 		<div class="col-6 col-m-9">
 			<section class = "section">
-				<center><h1>Ceasar Cipher</h1></center>
-				<h2>Historical brief</h2>
-				Caesar Cipher is the first cipher wich appears in<img src = "resources/caesar.jpg" alt = "caesar" align = "right"> human history.  We can find the same cryptology system named "shift cipher" or "Caesar code" The name of cipher comes from the first user of that ciphr - <b>Julius Ceasar</b>. That cipher was used to encrypt mainly military orders. There was used encryption with right shift of 3. In historical documents we can find that Caesar used constant shit "three". For that time Caesar's cipher was a huge milestone in cryptology. Nobody expected that paper covered with as may have seen at first look random letters can hide a secret message.
+				<h2>Caesar Cipher</h2>
+				<h3>Historical brief</h3>
+				Caesar Cipher is the first cipher which appeared in<img src = "resources/caesar.jpg" alt = "caesar" align = "right"> human history.  We can find the same cryptology system named "shift cipher" or "Caesar code". The name of cipher comes from the first user of that cipher − <b>Julius Ceasar</b>. That cipher was used to encrypt mainly military orders. In historical documents we can find that Caesar used constant shift of three. For that time Caesar's cipher was a huge milestone in cryptology. Nobody expected that paper covered with as may have seen at first look random letters can hide a secret message.
 				<br><br>Despite the fact that Caesar cipher does not provide any safety it is still used nowadays with right shift of 13 (ROT13). We can find this type of cipher in few online communicators and forums.
 				<br><br>
-				<h2>Cipher description</h2>
+			</section>
+			<section class = "section">
+				<h3>Cipher description</h3>
 				Caesar cipher belongs to an <b>affine, symmetric, subtitution</b> family of ciphers. In this cipher every single character is replaced with character from shifted alphabet. Key in this cipher is represented by a number which is the shift of alphabet.
-				<br>Processes of encryption and decryption look almost identically. 
-				<br><br>For changing text into cryptogram we are using following formula:
-				<br><b>E<small>n</small>(x) = (x + n) mod 26</b>
-				<br>Where:
-				<br>E<small>n</small> - encrypted character
-				<br>x - following characters
-				<br>n- shift or key
-				<br>We are using mod 26 baceause English alphabet consists of 26 characters. We can expand alphabet by special characters like white characters or numbers.
+				<br>Processes of encryption and decryption look almost identically. For changing text into cryptogram we are using following formula:
+				<br><br><b>E(i) = (i + n) mod 26</b>
+				<br>where:
+				<br>E(i) − i-th character of encrypted character
+				<br>n − shift or key
+				<br><br>We are using mod 26 baceause English alphabet consists of 26 characters. We can expand alphabet by special characters like white characters or numbers but then we have to also change modulo number.
 				<br><br>For decrypting text we are using formula:
-				<br><b>D<small>n</small>(x) = (x - n) mod 26</b>
-				<br>Where:
-				<br>D<small>n</small> - decrypted text
-				<br>x - following character
-				<br>n - shift
+				<br><br><b>D(i) = (i - n) mod 26</b>
+				<br>where:
+				<br>D(i) − i-th character of decrypted text
+				<br>n − shift
 				<br><br><br>
-				If you want to watch show presentation of cipher <img src = "resources/info.png" alt = "info" width = "40px" height = "40px" align = "right" onclick = "toggle_visibility('gif')"> click the "information button"
+				If you want to watch show presentation of cipher <img src = "resources/info.png" alt = "info" width = "40px" height = "40px" align = "right" onclick = "toggle_visibility('gif')"> click on the "information button"
 				<img src="resources/caesar2.gif" id = "gif" style="width:520px; display : none;" alt = "Caesar cipher">
-				
-				<br><br>
+			</section>
+			<section class = "section">
 				<h2>Cryptoanalysis methods</h2>
-				<br>Unfortunately Caesar cipher was useful only in for small period before Christ when nobody had heard about ciphers. Today everyone can break the cipher in few minutes with a pencil and piece of paper.
+				<br>Unfortunately Caesar cipher was useful only for small period before Christ when nobody had heard about ciphers. Today everyone can break the cipher in few minutes with a pencil and piece of paper.
 				<br>Caesar cipher does not provide any safety. However other ciphers which are using this simple cryptology method can be even unbreakable (of course some conditions must be fullfilled).
 				<br>To break the cipher we can use:
 				<ul>
-					<li>Brute force method - checking all existing keys one by one</li>
+					<li>Brute force method − checking all existing keys one by one</li>
 					<li>Finding element of decrypted text</li>
-					<li>Statistics - with knowledge which letters are the most common for language we can suppose which encrypted letters may be in plain text.</li>
+					<li>Statistics - with knowledge which letters are the most common for language we can suppose which encrypted letters may be in plain text</li>
 				</ul>
-				<br>If You want to try Caesar cipher in practice click<a href = "caesar.html"><img src = "resources/key.png" style ="width:60px; height:60px" align = "middle"></a> 				
+				<br>If You want to try Caesar cipher in practice click on<a href = "caesar.html"><img src = "resources/key.png" style ="width:60px; height:60px" align = "middle"></a> 				
 			</section>
 		</div>
 
