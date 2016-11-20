@@ -102,11 +102,56 @@
 					</ul>
 				So how to generate both keys? At the beginning we need to choose two high primary numbers <b>p</b> and <b>q</b>. The higher the numbers are the safer the encryption becomes. It will be explained how lenght of these factors increases the safety in a moment. 
 				<br>The result of multiplication of p and q gives us the "<b>n</b>" factor. Now we have to only determine <b>e</b> and <b>d</b>. To make that we have to calculate result of Euler function of n:
-				omega(n) = (p-1)(q-1)
+				ϕ(n) = (p - 1)(q - 1)
 				<br>Now we are choosing e which have to be <b>coprime</b> number with n.
 				<br>At at the end we are looking for d. To determine it we can use Extended Euclidean algorithm.
 				<br> Example:
-
+				<br><b>p = 31  q = 23  e = 7</b>
+				<br><b>n = p * q = 713</b>
+				<br><b>ϕ(n) = (p - 1)*(q - 1) = 660</b>
+				<br><br>public key − (7, 713)
+				<br><br>
+				Euclidean algorithm:
+				<br><br>
+				<table>
+					<tr>
+						<td>
+							660 = 94 * 7 + 200
+						</td>
+						<td>
+							->
+						</td>
+						<td>
+							2 = 660 - 94 * 713
+						</td>
+					</tr>
+					<tr>
+						<td>
+							7 = 3 * 2 + 1
+						</td>
+						<td>
+							->
+						</td>
+						<td>
+							1 = 7 - 3 * 2
+						</td>
+					</tr>
+					<tr>
+						<td>
+							2 = 2 * 1 + 0
+						</td>
+						<td>
+						</td>
+						<td>
+						</td>
+					</tr>
+				</table>
+				<br><br>
+				NWD(7, 660) = <b>d</b> * 7 + x * 660
+				<br>1 = 7 - 3 * 2 
+				<br>1 = 7 - 3 * (660 - - 94 * 7)
+				<br>1 = 7 - 3 * 660 + 282 * 7
+				<br>283 * 7 - 3 * 660
 			</section>	
 			<section class = "section">	
 				<h3>Where is used?</h3>
