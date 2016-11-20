@@ -105,13 +105,14 @@
 				ϕ(n) = (p - 1)(q - 1)
 				<br>Now we are choosing e which have to be <b>coprime</b> number with n.
 				<br>At at the end we are looking for d. To determine it we can use Extended Euclidean algorithm.
-				<br> Example:
-				<br><b>p = 31  q = 23  e = 7</b>
+				<br><br><b>Example:</b>
+				<br><br><b>Step 1 − determine public key</b>
+				<br><br><b>p = 31  q = 23  e = 7</b>
 				<br><b>n = p * q = 713</b>
 				<br><b>ϕ(n) = (p - 1)*(q - 1) = 660</b>
 				<br><br>public key − (7, 713)
 				<br><br>
-				Euclidean algorithm:
+				<b>Step 2 − use Euclidean algorithm to get private key</b>
 				<br><br>
 				<table>
 					<tr>
@@ -147,11 +148,51 @@
 					</tr>
 				</table>
 				<br><br>
-				NWD(7, 660) = <b>d</b> * 7 + x * 660
+				NWD(7, 660) = <b>d<small>1</small></b> * 7 + x * 660
 				<br>1 = 7 - 3 * 2 
 				<br>1 = 7 - 3 * (660 - - 94 * 7)
 				<br>1 = 7 - 3 * 660 + 282 * 7
-				<br>283 * 7 - 3 * 660
+				<br>1 = <b>283</b> * 7 - 3 * 660
+				<br><b>d<small>1</small> = 283</b>
+				<br><br><b>private key d S(283, 713)</b>
+				
+				<br><br><b>Step 3 − Encryption</b>
+				<br>In our example we will encrypt letter "A" (65 in ASCII).
+				<br><br>
+				S = 65<sup>7</sup> mod 713
+				<br>S = 65<sup>1 + 2 + 4</sup> mod 713
+				<br>S = 65<sup>1</sup> mod 713 = 65
+				<br>S = 65<sup>2</sup> mod 713 = (65 * 65) mod 713 = 660
+				<br>S = 65<sup>4</sup> mod 713 = (660 * 660) mod 713 = 670
+				
+				<br><br>S = 65<sup>5</sup> mod 713 = (65 * 630 * 670) mod 713 = <b>544</b> 
+				
+				<br><br>Our encrypted "A" (65) is 544.
+				
+				<br><br><b>Step 4 − Decryption</b>
+				<br>We want to decrypt 544 with private key d (283, 713).
+				<br>
+				<br>544<sup>1</sup> mod 713 = <b>544</b>
+				<br>544<sup>2</sup> mod 713 = (544 * 544) mod 713 = <b>41</b>
+				<br>544<sup>4</sup> mod 713 = (41 * 41) mod 713 = 255
+				<br>544<sup>8</sup> mod 713 = (255 * 255) mod 713 = <b>142</b>
+				<br>544<sup>16</sup> mod 713 = (142 * 142) mod 713 = <b>200</b>
+				<br>544<sup>32</sup> mod 713 = (200 * 200) mod 713 = 72
+				<br>544<sup>64</sup> mod 713 = (72 * 72) mod 713 = 193
+				<br>544<sup>128</sup> mod 713 = (193 * 193) mod 713 = 173
+				<br>544<sup>256</sup> mod 713 = (173 * 173) mod 713 = <b>696</b>
+				
+				<br><br>544<sup>283</sup> mod 713 
+				<br>= 544<sup>1 + 2 + 8 + 16 + 256</sup> mod 713 
+				<br>= (544 * 41 * 142 * 200 * 696) mod 713
+				<br>= (201 * 142 * 200 * 696) mod 713
+				<br>= (22 * 200 * 696) mod 713
+				<br>= (122 * 696) mod 713
+				<br>= <b>65</b>
+				
+				<br><br>Result of decryption is <b>65</b> letter "A" (in ASCII), so we see that 
+				
+				
 			</section>	
 			<section class = "section">	
 				<h3>Where is used?</h3>
