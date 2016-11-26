@@ -7,7 +7,7 @@ tr{
 
 
 
-#message, #Key_pharse, #keyText, #encryptedText, #public_key_n, #public_key_n_2, #public_key_e, #private_key_d, #messageEncrypted, #messageDecrypted
+#message, #Key_pharse, #keyText, #public_id, #signature, #signatureStatus, #message2, #encryptedText, #public_key_n, #public_key_n_2, #public_key_e, #private_key_d, #messageEncrypted, #messageDecrypted
 {
 	width:250px;
 }

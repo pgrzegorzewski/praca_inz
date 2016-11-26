@@ -12,7 +12,7 @@
 <script language="JavaScript" type="text/javascript" src="lib/cryptico/rsa.js"></script>
 <script language="JavaScript" type="text/javascript" src="lib/cryptico/aes.js"></script>
 <script language="JavaScript" type="text/javascript" src="lib/cryptico/api.js"></script>
-<script language="JavaScript" type="text/javascript" src="rsa_data.js"></script>
+<script language="JavaScript" type="text/javascript" src="signature_rsa.js"></script>
 <script language="JavaScript" type="text/javascript" src="lib/cryptico/cryptico.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -95,13 +95,43 @@
 
 		<div class="col-6 col-m-9">
 			<section class = "section">
-				<h2>RSA Cipher</h2>
-				RSA cipher − cipher created by Ron <b>R</b>ivest, Adi <b>S</b>zamir and Leonard <b>A</b>dleman. One of the most popular and widely used cipher. It belongs to the asymmetric cryptography system's family with public keys. 
-				<br><br>RSA algorithm can be used for encrypting messages and also for creating digital signatures. The cipher is based on the factorizing huge complex numbers.
-				<br><br>To find more information about the cipher go to the theory part by clicking <a href = "RSA_theory.html">here</a>.
+				<h2>Digital Signature</h2>
+				Digital signature is used for the verification of the person who signed a message or a document. In this example we use RSA cryptography system for signature creation and verification.
+				<br><br>To find more information about the digital signature go to the theory part by clicking <a href = "Digital_signature.html">here</a>.
 			</section>
 			<section class ="section">
-				<h3>Encryption</h3>
+				<h3>Encryption + Signature</h3>
+					<br><b>Sender Key</b>
+					<table>
+						<tr>
+							<td id ="td_half_lenght_2" >
+									<label for "message2">Sender key pharse:</label>
+									<textarea id = "message2" rows="3" cols="40" placeholder = "Plain Text" onblur = "setMessage2()"></textarea>
+							</td>
+							<td id ="td_half_lenght_2">
+								
+							</td>
+						</tr>
+						<tr>
+							<td id ="td_half_lenght_2" >
+								<label for "Key_lenght2">Key lenght (bits):</label>
+								<select name="Key lenght (bits)" id="Key_lenght2" onblur="setKeyLenght2()">
+									<option>512</option>
+									<option>1024</option>
+									<option>2048</option>
+									<option>4096</option>
+									<option>8192</option>
+								</select>
+								<br><br><button id = "encrypt_button2" disabled = "true" onclick = "setPublicSignature()">Generate key</button>
+							</td>
+							<td id ="td_half_lenght_2">
+								<label for "public_id">Public id:</label>
+								<textarea id = "public_id" rows="3" cols="40" placeholder = "Plain Text"></textarea>
+							</td>
+						</tr>
+					</table>
+					<br><br>
+					<b>Receiver Key</b>
 					<table>
 						<tr>
 							<td id ="td_half_lenght_2" >
@@ -153,7 +183,7 @@
 							</td>
 							<td  id = "td_half_lenght_2">
 								<label for "encryptedText">Encrypted Message:</label>
-								<textarea id = "encryptedText" rows="3" cols="40" disabled = "true" placeholder = "Encrypted message"></textarea>
+								<textarea id = "encryptedText" rows="3" cols="40"  placeholder = "Encrypted message"></textarea>
 							
 							</td>
 						</tr>
@@ -192,6 +222,17 @@
 						<td id = "td_half_lenght_2">
 							<label for "messageDecrypted">Plain Text:</label>
 							<textarea id = "messageDecrypted" rows="3" cols="40" placeholder = "Original message" onblur = "setMessage()"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td id = "td_half_lenght_2">
+							<label for "signature">Signature:</label>
+							<textarea id = "signature" rows="3" cols="40" placeholder = "Sender public id" disabled = "true"></textarea>
+						</td>
+					
+						<td id = "td_half_lenght_2">
+							<label for "signatureStatus">Signature status:</label>
+							<textarea id = "signatureStatus" rows="3" cols="40" placeholder = "Signature status" disabled = "true"></textarea>
 						</td>
 					</tr>
 				</table>
