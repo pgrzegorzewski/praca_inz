@@ -211,26 +211,39 @@ function setMessageEncrypted()
 
 function decrypt()
 {
+	document.getElementById('messageDecrypted').value = '';
+	document.getElementById('signature').value = ''; 
+	document.getElementById('signatureStatus').value ='';
+	
 	if(encryptedMessageSet == 1 && keySet == 1)
 	{
-		decryptedMessageText = cryptico.decrypt(encryptedMessageText.cipher, publicKey)
-		document.getElementById('messageDecrypted').value = decryptedMessageText.plaintext; 
+		if(document.getElementById('messageEncrypted').value == document.getElementById('encryptedText').value )
+		{
+			decryptedMessageText = cryptico.decrypt(document.getElementById('messageEncrypted').value, publicKey);
+			document.getElementById('messageDecrypted').value = decryptedMessageText.plaintext; 
+			if(isSignedEncrypted == 1)
+			{
+				document.getElementById('signature').value = cryptico.publicKeyID(decryptedMessageText.publicKeyString); 
+				document.getElementById('signatureStatus').value = 'Signature verified'; 
+			}
+			else
+			{				
+				document.getElementById('signature').value = 'No signature' 
+				document.getElementById('signatureStatus').value = 'No signature'; 
+			}
+		}
+		else
+		{
+			decryptedMessageText = cryptico.decrypt(document.getElementById('messageEncrypted').value, publicKey);
+			document.getElementById('messageDecrypted').value = 'Oryginal message was changed during the transmission';
+			document.getElementById('signature').value = ''; 
+			document.getElementById('signatureStatus').value = 'Signature invalid'; 
+		}
 	}
 	else
 	{
-		alert('put message to decrytp');
+		alert('put message You would like to decrypt');
 	}
-	if(isSignedEncrypted == 1)
-	{
-		document.getElementById('signature').value = decryptedMessageText.publicKeyString; 
-		document.getElementById('signatureStatus').value = 'Signature verified'; 
-	}
-	else
-	{
-		document.getElementById('signature').value = decryptedMessageText.publicKeyString; 
-		document.getElementById('signatureStatus').value = 'Signature invalid'; 
-	}
-	
 }
 
 function textShow(name) {
