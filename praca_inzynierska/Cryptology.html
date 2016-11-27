@@ -21,7 +21,7 @@
 							<a href ='#' onclick = "toggle_visibility('submenu_cryptology');">Cryptology</a>
 						</li>	
 						<div class = "submenu" id ="submenu_cryptology">
-							<ul>	
+							<ul>
 								<br><li>
 										<a href = "Cryptology.html">Basic Information</a>
 									</li>							
@@ -45,7 +45,7 @@
 										<a href = "Cryptosystems_symmetric_keys.html"> Symmetric Cryptosystems </a>
 									</li>
 								<br><li>
-										<a href = "Cryptosystems_asymmetric_keys.html">Asymetric Cryptosystems</a>
+										<a href = "Cryptosystems_asymmetric_keys.html">Asymmetric Cryptosystems</a>
 									</li>
 							</ul>	
 						</div>
@@ -61,7 +61,7 @@
 										<a href = "Vigenere_theory.html">Vigenere Cipher</a>
 									</li>
 								<br><li>
-										<a href = "Knapsack_theory.html">Merkle Hellman Cipher</a>
+										<a href = "Knapsack_theory.html">Merkle-Hellman Cipher</a>
 									</li>	
 								<br><li>
 										<a href = "RSA_theory.html">RSA Cipher</a>
@@ -83,26 +83,36 @@
 
 		<div class="col-6 col-m-9">
 			<section class = "section">
-			<h2>Cryptography</h2>
-			Cryptography is branch of science describing techniques for secure information. It is strictly connected with mathematics. Cryptography is about creating and improving cryptology methods which provide insurance that private messages could not be read by third parties. The aim of cryptography is to create cryptogram which is conditionally (with key) easy - the time and amount of arythmetical operations are low to retrive plain text, and unconditionally (without key) as difficult as possible.
-			<br><br>Cryptography method or cipher in other words changes private message into the stream of letters which at first look does not have any sense. Thing which enables addressee to recreate original message is a key. The key is the set of parameters required cipher users to encrypt or decrypt the message. <br>We can distinguish two types of keys:
-			<ul>
-				<li><b>Symmetric key</b> − key used for encryption and decryption is exactly the same</li>
-				<li><b>Asymmetric key</b> − pair of keys, one for encryption and the second one for decryption</li>
-			</ul>
-			<br>We will look into that topic closer in the next pages.
-			<br><br>So how everything looks like in practice. Let us assume that we have got two sisters Mary and Anna and one brother Kevin. Sisters always have their own secrets and they do not want Kevin to know them. When Kevin left house both sisters figured out the key. 
-			<br>Now let us move to the most important part. Mary writes letter to Anna, to provide security she uses encrypting function involving the private key. Thanks to that, attacker − nosy Kevin, if he steals the letter he will not be able to read his siter's secret. Anna gets the letter (through the safe channel) from her sister and uses decrypting function involving key. 
-			<br>Picture below shows the described situation.
-			<br><br><img src = "resources/encryption.png" alt = "encryption" width="500px">
-			<br><br><h3>Safety of the cryptosystem</h3>
-			One the most important aspects of cryptography system is safety. We have to distinguish naive and true safety of the cryptosystem.
-			<br>Naive safety of the cipher tells us about total amount of possible keys. The more possible keys the higher naive safety is. However high naive safety of cryptosystem does not always provide true safety. 
-			<br>High naive safety of the cipher is effective mainly against brute force attack.
-			<br><br> To learn more about cryptoanalysis click on "Next" buy if You move back to cryptology itself click on "Back".
+				<h2>Basic information − Cryptology</h2>
+				According to the definition from encyclopaedia  − cryptology is the branch of science related with ciphering and safe data transmission. Ciphering is the changing the original text into another one which for people who have no key have no logical sense. Key enables to retrive original text from the encrypted one.
+				<br><br>We can divide cryptology into two main parts: 
+				<ul>
+					<li>
+						Cryptography − connected with securing information by applying cryptography methods
+					</li>
+					<br>
+					<li> 
+						Cryptoanalysis − connected with recreating the true information from the ciphers without the key
+					</li>
+				</ul>
+				Cryptology takes its roots from ancient Rome. Since that time cryptology developed remarkably. 
+				<br><br>Ciphers within the years were chanigng as well as the attacks at them. From trivial shifting alphabet to very complex involving lots of machine computations mathematical transformation which are used nowadays.
+				<br>The demand for the new, more complex and safer ciphers appeared when known ciphers stopped to be considered as safe ones. 
+				<br>There are two main groups of ciphers considering character transformation:
+				<ul>
+					<li>
+						Transposition cipher − encrypted message consists of the same characters as the original message but their order differs 
+					</li>
+					<br>
+					<li> 
+						Substitution cipher − each character of the original message is exchanged by different one according the predefined rule
+					</li>
+				</ul>
+				<img src = "resources/cipher_types.png" alt = "cipher types" width = "540px" height = "320px" align = "middle">
+				<br>To learn more about cryptography and cryptoanalysis click on "Next".
 			</section>
 			<section class = "section">
-					<center class = "buttons_next_prev"><a href = "Cryptoanalysis_theory.html">Next</a> <a href = "Cryptology.html">Back</a>
+					<center class = "buttons_next_prev"><a href = "Cryptography_theory.html">Next</a>
 			</section>
 		</div>
 
