@@ -89,42 +89,13 @@
 				Caesar cipher is the first cipher which appeared in human history. Key is the number which means the number of shifted letters in alphabet.
 				<br>Let's say that our key is '6' shifted right. So our encrypted 'A' is now 'G'. 
 				<br><br>Decryption looks exactly the same like in the ecnryption, the only thing we change is the opposite direction. Going back to the example − we have got "G" as a encrypted text, if we want to decrypt we take again key '6' but we change direction to the left. Making that transformation we get again 'A' as a plain text.
-				<!--<table>
-					<tr>
-						<td>
-							<label for "key">Numerical key:</label>
-							<input type = "number" id = "key", placeholder = "key (number)" min="0" max="26" onblur = "setKey()" /> 
-							
-						</td>
-						<td>
-							<label for "key">Alphabetical key:</label>
-							<input type = "text" id = "key_letter", placeholder = "key (letter)" maxlength = "1" onblur = "setKeyLetter()" /> 
-						</td>
-						<td>
-							<label for "list">Shift direction:</label>
-							<select name="shift direction" id="list" onblur="setShift()">
-								<option>right</option>
-								<option>left</option>
-							</select>
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
-							<input type = "text" id = "caesar" placeholder = "Letter before encryption" maxlength = "1"  disabled = "true" />
-						</td>
-						<td><input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "caesar()" />
-						<td>
-							<textarea id = "caesar_encrypted" rows="2" cols="15" disabled = "true" placeholder = "letter after encryption"></textarea>
-						</td>
-					</tr>
-				</table>-->
+				
 			</section>
 			<section class ="section">
 				<h3>Classic Caesar cipher (right shift of 3 or 13):</h3>
 				<table>				
 					<tr>
-						<td> <!-- colspan-->
+						<td>
 							<label for "list", id="horizontal_label">ROT type:</label>
 							<select name="rot type" id="classic_cipher_list" onblur="setRotType()">
 								<option>historical (key:3)</option>

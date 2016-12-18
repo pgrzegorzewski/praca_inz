@@ -10,6 +10,11 @@ img{
 	padding:10px;
 }
 
+#img2{
+	padding:3px;
+	padding-bottom:12px;
+}
+
 .row::after {
     content: "";
     clear: both;

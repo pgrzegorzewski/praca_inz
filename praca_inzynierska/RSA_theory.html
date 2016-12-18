@@ -89,41 +89,41 @@
 			<section class = "section">
 				<h2>RSA Cipher</h2>
 				<h3>A bit of history and theory</h3>
-				RSA belongs to the family of <b>asymmetric cryptography system with public keys</b>. It is one of the first ciphers of that kind and one of the most popular nowadays. The authors of RSA cipher are Ron <b>R</b>ivest, Adi <b>S</b>zamir and Leonard <b>A</b>dleman <img src = "resources/rsa.jpg" alt = "RSA authors" align = "left" height ="200px">(it can be easily noticed that name RSA come from the first letters of surnames of authors), they invented it in 1977. That universal cipher despite the message encryption found also usage in generating signatures. RSA provides confidentiality, integrity, authenticity and non-reputability of electronic communication and data storage.
+				RSA belongs to the family of <b>asymmetric cryptography systems with public keys</b>. It is one of the first ciphers of that kind and one of the most popular nowadays. The authors of RSA cipher are Ron <b>R</b>ivest, Adi <b>S</b>zamir and Leonard <b>A</b>dleman <img src = "resources/rsa.jpg" alt = "RSA authors" align = "left" height ="200px">(it can be easily noticed that name RSA comes from the first letters of surnames of authors), they invented it in 1977. That universal cipher despite the message encryption found also usage in generating signatures. RSA provides confidentiality, integrity, authenticity and non-reputability of electronic communication and data storage.
 				<br>RSA uses asymmetric keys which means that we have got pair of different keys which are however strictly linked with each other. You can find more information about theory about cryptography systems with asymmetric keys <a href ="">here</a> . 
 			</section>	
 			<section class = "section">	
 				<h3>Perfect cipher?</h3>
-				<br>What is the reason of the popularity of RSA system. RSA cryptosystem's security is connected with difficulty of factoring really large integers which are product of two large prime numbers. Multiplying such numbers is quite easy task however determining the original prime numbers from factoring is really difficult even for today's super computers. The largest broken key till now was the 768 bit key. To break the key it was used computer cluster. Nowadays the most popular keys are with 1024 or 2048 bit lenght. As the computational power of computers is growing year over year it is predicted that 1024 may be broken in the near future. That is why we are use 2048 bit key the most often.
+				What is the reason of the popularity of RSA system? RSA cryptosystem's security is connected with difficulty of factoring really large integers which are product of two large prime numbers. Multiplying such numbers is quite easy task however determining the original prime numbers from factoring is really difficult even for today's super computers. The largest broken key till now was the 768 bit key. To break the key it was used computer cluster. Nowadays the most popular keys are with 1024 or 2048 bit lenght. As the computational power of computers is growing year over year it is predicted that 1024 may be broken in the near future. That is why we use 2048 bit key the most often.
 				<br>In the RSA cipher the key is always a pair of numbers:
 				<br><ul>
 					<li><b>(n, e)</b> − public key</li>
 					<li><b>(n, d)</b> − private key</li>
 					</ul>
 				So how to generate both keys? At the beginning we need to choose two high primary numbers <b>p</b> and <b>q</b>. The higher the numbers are the safer the encryption becomes. It will be explained how lenght of these factors increases the safety in a moment. 
-				<br>The result of multiplication of p and q gives us the "<b>n</b>" factor. Now we have to only determine <b>e</b> and <b>d</b>. To make that we have to calculate result of Euler function of n:
+				<br>The result of multiplication of p and q gives us the "<b>n</b>" factor. Then we have to only determine <b>e</b> and <b>d</b>. To make that we have to calculate result of Euler function of n:
 				ϕ(n) = (p - 1)(q - 1)
-				<br>Now we are choosing e which have to be <b>coprime</b> number with n.
-				<br>At at the end we are looking for d. To determine it we can use Extended Euclidean algorithm.
+				<br>Next we choose e which have to be <b>coprime</b> number with n.
+				<br>At at the end we look for d. To determine it we can use Extended Euclidean algorithm.
 				<br><br><b>Example:</b>
 				<br><br><b>Step 1 − determine public key</b>
 				<br><br><b>p = 31  q = 23  e = 7</b>
 				<br><b>n = p * q = 713</b>
-				<br><b>ϕ(n) = (p - 1)*(q - 1) = 660</b>
-				<br><br>public key − (7, 713)
+				<br><b>ϕ(n) = (p - 1) * (q - 1) = 660</b>
+				<br><br><b>public key  (e)− (7, 713)</b>
 				<br><br>
-				<b>Step 2 − use Euclidean algorithm to get private key</b>
+				<b>Step 2 − use Extended Euclidean algorithm to get private key</b>c
 				<br><br>
 				<table>
 					<tr>
 						<td>
-							660 = 94 * 7 + 200
+							660 = 94 * 7 + 2
 						</td>
 						<td>
 							->
 						</td>
 						<td>
-							2 = 660 - 94 * 713
+							2 = 660 - 94 * 7
 						</td>
 					</tr>
 					<tr>
@@ -150,14 +150,14 @@
 				<br><br>
 				NWD(7, 660) = <b>d<small>1</small></b> * 7 + x * 660
 				<br>1 = 7 - 3 * 2 
-				<br>1 = 7 - 3 * (660 - - 94 * 7)
+				<br>1 = 7 - 3 * (660 - 94 * 7)
 				<br>1 = 7 - 3 * 660 + 282 * 7
 				<br>1 = <b>283</b> * 7 - 3 * 660
 				<br><b>d<small>1</small> = 283</b>
-				<br><br><b>private key d S(283, 713)</b>
+				<br><br><b>private key (d) − (283, 713)</b>
 				
 				<br><br><b>Step 3 − Encryption</b>
-				<br>In our example we will encrypt letter "A" (65 in ASCII).
+				<br><br>In our example we will encrypt letter "A" (65 in ASCII).
 				<br><br>
 				S = 65<sup>7</sup> mod 713
 				<br>S = 65<sup>1 + 2 + 4</sup> mod 713
@@ -165,12 +165,12 @@
 				<br>S = 65<sup>2</sup> mod 713 = (65 * 65) mod 713 = 660
 				<br>S = 65<sup>4</sup> mod 713 = (660 * 660) mod 713 = 670
 				
-				<br><br>S = 65<sup>5</sup> mod 713 = (65 * 630 * 670) mod 713 = <b>544</b> 
+				<br><br>S = 65<sup>7</sup> mod 713 = (65 * 660 * 670) mod 713 = <b>544</b> 
 				
 				<br><br>Our encrypted "A" (65) is 544.
 				
 				<br><br><b>Step 4 − Decryption</b>
-				<br>We want to decrypt 544 with private key d (283, 713).
+				<br>We want to decrypt 544 with private key (283, 713).
 				<br>
 				<br>544<sup>1</sup> mod 713 = <b>544</b>
 				<br>544<sup>2</sup> mod 713 = (544 * 544) mod 713 = <b>41</b>
@@ -190,7 +190,7 @@
 				<br>= (122 * 696) mod 713
 				<br>= <b>65</b>
 				
-				<br><br>Result of decryption is <b>65</b> letter "A" (in ASCII), so we see that 
+				<br><br>Result of decryption is <b>65</b> letter "A" (in ASCII), so we see that whole process was performed without any errors.
 				
 				
 			</section>	
@@ -198,9 +198,9 @@
 				<h3>Where is used?</h3>
 				There are many protocols based on encryption and digital signatures.
 				<br>Great examples are SSH, SSL/TLS or S/MIME.
-				<br>We can find RSA in computer programs like internet browsers, aplications for chatting, email and VPNs (virtual private networks).
+				<br>We can find RSA in computer programs like internet browsers, applications for chatting, email and VPNs (virtual private networks).
 				
-				<br>If You want to go to the practical part click on the key<a href = "rsa.html"><img src = "resources/key.png" style ="width:60px; height:60px" align = "middle"></a> 
+				<br>If You want to go to the practical part click on the key<a href = "rsa.html"><img id = "img2"src = "resources/key2.png" style ="width:60px" align = "middle"></a> 
 			</section>
 		</div>
 

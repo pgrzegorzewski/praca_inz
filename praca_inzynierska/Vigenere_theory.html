@@ -89,15 +89,15 @@
 			<section class = "section">
 				<h2>Vigenere Cipher</h2>
 				<h3>Historical brief</h3>
-				More than fourteen centuries passed until Caesar cipher found its improved alternative. In 1467 Leaon Battista Alberti invented a metal disc to switch between different alphabets, however it was not very useful. 41 years later Johannes Trithemius described in his work "Poligraphia" his huge invention − Tabula recta. Tabula recta is two dimmensional array consisting od all possible shifted alphabets. In the first row there is not shifted alphabet, in the next row we can find alphabet shifted by one position right, next is alphabet shifted by two and so on and so on... You can find Tabula Recta on the image below. How to create encrypted text with Tabula Recta according to Trithemius instruction? Simple and easy, every next letter of text you want to encrypt you should take from next row of Tabula. Again as in the case of previous cipher it was not very applicative. However not cipher but Tabula found great application in Vigenere Cipher.
+				More than fourteen centuries passed until Caesar cipher found its improved alternative. In 1467 Leaon Battista Alberti invented a metal disc to switch between different alphabets, however it was not very useful. 41 years later Johannes Trithemius described in his work "Poligraphia" his huge invention − Tabula recta. Tabula recta is two dimmensional array consisting of all possible shifted alphabets. In the first row there is not shifted alphabet, in the next row we can find alphabet shifted by one position right, next is alphabet shifted by two and so on and so on... You can find Tabula Recta on the image below. How to create encrypted text with Tabula Recta according to Trithemius instruction? Simple and easy, every next letter of text you want to encrypt you should take from next row of Tabula. Again as in the case of previous cipher it was not very applicative. However not cipher but Tabula found great application in Vigenere Cipher.
 				
 				<br><br>
 				<div id="center">
 					<img id="tabula_recta" src="resources/tabula_recta.png"  align = "middle" alt = "tabula recta" onclick = "increase_decrease_size()", onmouseover = "change_img()", onmouseleave = "change_img2()" />
-					<br>Tabula recta
+					<br>Tabula Recta
 				</div>
 				<br>
-				Blaise de Vigenere seems to be really sad Cryptographer, truth is that he is not the invetor of the cipher signed his name. We can find description of the Vigenere cipher in the "La cifra del. Sig. Giovan Battista Bellaso". Basing on Trithemius cipher work Bellaso improved cipher by adding a key. Key provided significant safety for the encrypted message. Bellaso's cipher required for users only strong security for the key so they were usually stated between useres in advance. 
+				Blaise de Vigenere seems to be really sad Cryptographer, truth is that he is not the inventor of the cipher signed his name. We can find description of the Vigenere cipher in the "La cifra del. Sig. Giovan Battista Bellaso". Basing on Trithemius cipher work Bellaso improved cipher by adding a key. Key provided significant safety for the encrypted message. Bellaso's cipher required for users only strong security for the key so they were usually stated between useres in advance. 
 				<br> 
 				To tell the truth Blaise de Vigenere has something in common<img src = "resources/Vigenere.png" alt = "Vigenere" align = "left" height ="150px"> with Blaise's cryptology system. Vigenere made another improvement after Bellaso which was also connected with the key. This time Vigenere exchanged previous key which usually was one word or short phrase with autokey. Autokey is as in case of previous key a word or even one letter with appended message to it.
 				<br>So let us say we want to encrypt a word "<b>example</b>" with autokey "<b>z</b>" the autokey becomes "<b>zexampl</b>."
@@ -105,11 +105,11 @@
 			</section>	
 			<section class = "section">
 				<h3>Cipher description</h3>
-				Vigenere cipher belongs to an <b>polialphabetic, subtitution</b> family of ciphers. If we want to encrypt a message using one of three ciphers described above we can use tabula recta. If we are encrypting a word using first − Trithemius method we are looking at positions of plain text and we are exchanging them by letters read from following rows of Tabula.	
+				Vigenere cipher belongs to a <b>polialphabetic, subtitutional</b> family of ciphers. If we want to encrypt a message using one of three ciphers described above we can use Tabula Recta. If we are encrypting a word using first − Trithemius method we are looking at positions of plain text and we are exchanging them by letters read from following rows of Tabula.	
 			</section>	
 			<section class = "section">
 				<h3>Encryption</h3>
-				In case of Bellaso or Vigenere version we are concentrating on pair of letters: the letter from plain text and the letter from the key. We are looking at row with one of them and column with other one. Encrypted letter is at the cell where our column and row are crossing together.
+				In case of Bellaso or Vigenere version we concentrate on pair of letters: the letter from plain text and the letter from the key. We look at row with one of them and column with other one. Encrypted letter is at the cell where our column and row cross together.
 				<br>
 				<br><img src="resources/vigenere_encryption.png" id = "tabula_encryption"  align = "middle" alt = "tabula recta encryption"/>
 				<table>
@@ -129,7 +129,7 @@
 				<h3>Decryption</h3>
 				There are two ways of decrypting: similar to the encryption or key reversing. 
 				<br><br><b>Classic decryption</b>
-				<br>We are finding the row (or column) with key letter and following this row (column) until we find the cryptogram letter. Then we are following the column upwards (row to the left) - the column header (row header) is the encrypted letter.
+				<br><br>We find the row (or column) with key letter and following this row (column) until we find the cryptogram letter. Then we follow the column upwards (row to the left) – the column header (row header) is the encrypted letter.
 				<br><img src="resources/vigenere_decryption.png" id = "tabula_encryption"  align = "middle" alt = "tabula recta decryption"/>
 				<br><br><b>Key reversing</b>
 				<br><br>In this method we have to perform key reversion. To do that we take key and change it according to the formula:
@@ -137,7 +137,7 @@
 				<br>where:
 				<br>R(i) − i-th character of reversed key
 				<br>K(i) − i-th character of key
-				<br><br>Having reversed key we can perform decryption in the same manner like we are doing encryption. We find a letter of the plain text in the place in the crossing point of column and row containing key letter and cryptogram.
+				<br><br>Having reversed key we can perform decryption in the same manner like we encrypt message. We find a letter of the plain text in the place in the crossing point of column and row containing key letter and cryptogram.
 			</section>	
 			<section class = "section">	
 				<h3>Mathematical description</h3>
@@ -149,7 +149,7 @@
 				<br>M(i) − i-th character of the message
 				<br>K(i) − i-th character of key 
 				<br>Again we are using mod 26 baceause of a lenght of English alphabet. We can expand alphabet by special characters like white characters or numbers.
-				<br><br>For decrypting text we are using formula:
+				<br><br>For decrypting text we use formula:
 				<br><br><b>D(i) = (C(i) - K(i)) mod 26</b>
 				<br>where:
 				<br>D(i) − i-th character of plaintext
@@ -160,17 +160,17 @@
 				<h3>Cryptoanalysis methods</h3>
 				Charles Babbage was the first man who successfully broke the cipher. He divided message into the parts as long as the length of the key and then used statistics to get decrypted text.
 				<br><br>Next method of breaking the Vigenere cipher is the Kasinski method published in 1863. Kasinski noticed that repeatitions in encrypted text may be encrypted with the same key letters. That observation may suggest the lenght of the key and finnaly break the exact keyword.
-				<br><br>Other known method is descriped by William Friedman. Method found in 1920s is using index of coincidence. It is used to measure uneveness of the cipher letter frequencies.
+				<br><br>Other known method is descriped by William Friedman. Method found in 1920s uses index of coincidence. It is used to measure uneveness of the cipher letter frequencies.
 			</section>
 			<section class = "section">
 				<h3>Unbreakable?</h3>
-				Vigenere cipher can be unbreakable. However three conditions must be fullfilled:
+				Vigenere cipher can be unbreakable. However three conditions must be fulfilled:
 				<ul>
 					<li>Key must be as long as the text which we are encrypting</li>
 					<li>Key must be totally random string of letters</li>
 					<li>We have to use one key for encryption only one message</li>
 				</ul>
-			If You want to try Vigenere cipher in practice click on the key<a href = "vigenere.html"><img src = "resources/key.png" style ="width:60px; height:60px" align = "middle"></a> 
+			If You want to try Vigenere cipher in practice click on the key <a href = "vigenere.html"><img id = "img2"src = "resources/key2.png" style ="width:60px" align = "middle"></a> 
 			</section>
 		</div>
 
