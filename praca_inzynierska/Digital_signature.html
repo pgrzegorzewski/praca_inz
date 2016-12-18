@@ -90,13 +90,13 @@
 			<section class = "section">
 				<h1>Digital Signature</h1>
 				<h3>A bit of recall...</h3>
-				IN the previous sites we were discussing about the methods of encrypting messages. Encryption as a process guarantees confidentiality of the message. 
+				In the previous sites we were discussing about the methods of encrypting messages. Encryption as a process guarantees confidentiality of the message. 
 				<br>So let us move back to our old friends and imagine the following situation: Anna receives the encrypted message from Mary, <img src = "resources/signature.png" alt = "signature" align = "right" width="320px">she uses her private decrypting key so she is able to get the plain text of the message. But how can she be sure that noone has impersonated of Mary? Unfortunately ciphers do not ensure authenticity of the message. 
 				<br>To provide authenticity of paper document we use signatures, so there should be something similar to the idea of hand signatures but adapted to the digital documents. And here finally comes the <b>digital signature</b>.
 				<br>
 				<h3>Digital signature − a closer look</h3>
 				Digital signature is a mathematical function of technique which is used to provide authenticity and integrity of an electronic document or message. This is the digital correspondent to the handwritten signature or a stamp. Thanks to the digital signature we know that message comes from proper sender and we have got also assurance that the message was not changed during the transmission.
-				So lets sum up what the signature gives to the users:
+				So let us sum up what the signature gives to the users:
 				<ul>
 					<li><b>Authenticity</b> − receiver is sure about the author of the document. Signature leads flawless to the sender.</li>
 					<li><b>Non-repudiation</b> − author of the document signed by him cannot deny having signed it. Signature is an evidence that author knows the document.</li>
@@ -106,21 +106,21 @@
 			</section>
 			<section class = "section">
 				<h3>How to sign?</h3>
-				Let us explain how to sign the message or any other kind of electronic document from the technical point of view. <img src = "resources/asymmetric_keys_signature.png" alt = "signing a message" align = "left" width="340px">Digital signature usually uses asmmetric cryptography. During encryption we use public key and a private one for decryption. Digital signature works opposite, sender signs the message with his private key, and the receiver uses senders public key to verify provenance of the text.
-				<br>There exist two main standartsusing cryptography systems: one usng already known RSA cryptosystem and the second one using DSA cryptosystem. 
-				<br><br>To try digital signature with RSA cryptosystem click on the pen.
+				Let us explain how to sign the message or any other kind of electronic document from the technical point of view. <img src = "resources/asymmetric_keys_signature.png" alt = "signing a message" align = "left" width="340px">Digital signature usually uses asymmetric cryptography. During encryption we use public key and a private one for decryption. Digital signature works opposite, sender signs the message with his private key, and the receiver uses sender's public key to verify provenance of the text.
+				<br>There exist two main standartsusing cryptography systems: one using already known RSA cryptosystem and the second one using DSA cryptosystem. 
+				<br><br>To try digital signature with RSA cryptosystem click on the pen. <a href = "signature_rsa.html"><img id = "img2"src = "resources/pen.png" style ="width:60px" align = "middle"></a> 
 			</section>
 			<section class = "section">
 				<h3>Encryption + Signature</h3>
 				If we want to use both signature and encryption there is one correct order to apply both of these actions. At the beginning we should generate digital signature and then encrypt whole message. 
-				To explain why let us again use exmple with our friends.
-				<br>Mary sends message to the Anna. She uses her private key to sign the message and then encrypts whole with Anna public key and sends it to her. Anna gets the message and at first uses her private key to decrypt the message and after that varify the signature with Mary public key.
-				<br>Let us assume that Kevin somehow stole the message. In that kind of situation he is not able to do anything with the messge becaus he has access to Anna decrypting key.
-				<br>But what may happen if Mary performed signing and the encryption in the opposite order? This time Kevin can easily verify the sender of the message using Mary's public key. Moreover he can exchange original signature with his own and transfer changed message to the proper receiver.
+				To explain why let us again use example with our friends.
+				<br>Mary sends message to the Anna. She uses her private key to sign the message and then encrypts whole with Anna public key and sends it to her. Anna gets the message and at first uses her private key to decrypt the message and after that varify the signature with Mary's public key.
+				<br>Let us assume that Kevin somehow stole the message. In that kind of situation he is not able to do anything with the message because he has access to Anna's decrypting key.
+				<br>But what may happen if Mary performs signing and the encryption in the opposite order? This time Kevin can easily verify the sender of the message using Mary's public key. Moreover he can exchange original signature with his own and transfer changed message to the proper receiver.
 			</section>
 			<section class = "section">	
 				<h3>Digital Signature vs electronic signature</h3>
-				Sometimes it is hard to distinguish electronic and the digital signature, however we should not treat them as synonyms. We can imagine electronic signature as electonic correspondent to a handwritten signature. This is something which varifies the owner of a document (more about electronic signature in the separate site).
+				Sometimes it is hard to distinguish electronic and the digital signature, however we should not treat them as synonyms. We can imagine electronic signature as electronic correspondent to a handwritten signature. This is something which varifies the owner of a document (more about electronic signature in the separate site).
 				Digital signature is the mechanism of creating electronic signature (in most of cases). We should think about digital signature as a mathematical conversion of data. We should consider digital signature as <b>a process</b>! 
 				There is also one more aspect connected with the legal point of view. Digital signature adds data to the original message or a document. Electronic signature in each country is defined differently. In a few countries electronic signature do not use digital signature, that is why both definitions should not be used interchangeably.
 			
