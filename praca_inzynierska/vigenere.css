@@ -15,6 +15,10 @@ a.suggestion span{
 	display:none;
 }
 
+label
+{
+	text-align:left;
+}
 
 #td_grid{
 	width:168px;

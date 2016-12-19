@@ -198,6 +198,7 @@ function setKey2()
 		}
 	isKey2Created = 1;
 	document.getElementById("keyResult2").value = newKey2;	
+	enableButton('encryptButton2');
 	
 }
 

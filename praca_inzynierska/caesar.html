@@ -106,13 +106,15 @@
 					</tr>
 					<tr>
 						<td id ="wide_td">
-							<textarea id = "caesarClassic" placeholder = "Before encryption" ></textarea>
+							<label for "caesarClassic">Plain text:</label>
+							<textarea id = "caesarClassic" placeholder = "Plain text (before encryption)" ></textarea>
 						</td>
 						<td id = "encrypt_td">
 							<input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "classic_caesar()" />
 						</td>
 						<td id ="wide_td">
-							<textarea id = "caesar_encrypted_2" rows="2" cols="15" disabled = "true" placeholder = "After encryption"></textarea>
+							<label for "caesar_encrypted_2">Cryptogram:</label>
+							<textarea id = "caesar_encrypted_2" rows="2" cols="15" disabled = "true" placeholder = "Cryptogram (after encryption)"></textarea>
 						</td>
 					</tr>
 				</table>
@@ -124,11 +126,14 @@
 				<h3>Text:</h3>
 				<table>
 					<tr>
-						<td id = "alphanumeric_key" colspan ="2">
+						<td id = "alphanumeric_key">
 							
-							<input type = "number" id = "key2", min="0" max="26" onblur = "setKey2()"/> <label for "key2"> Numerical key</label><br>
+							<input type = "number" id = "key2", min="0" max="25" onblur = "setKey2()"/><label for "key2">Numerical key:</label>
 							
-							<input type = "text" id = "key_letter2",  maxlength = "1" onblur = "setKeyLetter2()" /> <label for "key"> Alphabetical key</label>
+							<input type = "text" id = "key_letter2",  maxlength = "1" onblur = "setKeyLetter2()" /> <label for "key_letter2">Alphabetical key:</label>
+						</td>
+						<td id ="encrypt_td">
+							
 						</td>
 						<td id = "list_td" >
 							<label for "list2", id = "list_label">Direction:</label>
@@ -140,13 +145,15 @@
 					</tr>
 					<tr>
 						<td>
-							<textarea id = "caesarString" rows="2" cols="15" disabled = "true" placeholder = "Before encryption"></textarea>
+							<label for "caesarString">Plain text:</label>
+							<textarea id = "caesarString" rows="2" cols="15" disabled = "true" placeholder = "Plain text (before encryption)"></textarea>
 						</td>
 						<td id ="encrypt_td">
 							<input type = "button" id = "encrypt_button" value = "Encrypt" onclick = "ceasarString()" />
 						</td>
 						<td>
-							<textarea id = "caesar_encrypted_3" rows="2" cols="15" disabled = "true" placeholder = "After encryption"></textarea>
+							<label for "caesar_encrypted_3">Cryptogram:</label>
+							<textarea id = "caesar_encrypted_3" rows="2" cols="15" disabled = "true" placeholder = "Cryptogram (after encryption)"></textarea>
 						</td>
 					</tr>
 				</table>
@@ -158,7 +165,7 @@
 				<h3>Safety</h3>
 				Unfortunately Caesar cipher does not provide any safety nowadays. Every message can be made up with a piece of paper and a pencil by everyone in more or less 10 minutes. In many cases the brute force method is even faster than using statistics. Decryption of the message by the computer even not the fastest one lasts split of a second.
 				<br>The entire space of keys is exactly 26 which means there are only 26 possible keys. Longer alphabet like polish increases the key space to 32.
-				<br><br>Widenning the alphabet by next characters increases the decryption time but very very slightly. In practice that manner can increase this time if we are using piece of paper. For example finding the plain text of a sentence encrypted with English alphabet lasts statistically 10 minutes and sentence encrypted in Polish alphabet (6 characters longer) lasts statistically only one minute longer.
+				<br><br>Widenning the alphabet by next characters increases the decryption time but very very slightly. In practice that manner can increase this time if we use piece of paper. For example finding the plain text of a sentence encrypted with English alphabet lasts statistically 10 minutes and sentence encrypted in Polish alphabet (6 characters longer) lasts statistically only one minute longer.
 				<br>Despite above ROT13 is still used in online forums and in some messaging applications.
 			</section>
 		</div>

@@ -172,8 +172,8 @@
 					</tr>
 				</table>
 				<br><br>
-				You can try to encrypt message using Tabula Recta. Because of the fact that table is symmetric it does not matter where you put key vertically or horizontally.
-				<br>In this example let's say that we are putting key letters vertically and text letters horizontally.
+				You can try to encrypt message using Tabula Recta. Because of the fact that the table is symmetric it does not matter where you put key vertically or horizontally.
+				<br>In this example let us say that we put key letters vertically and text letters horizontally.
 				<br><br><br>
 				<script>
 					generateTable();
@@ -183,7 +183,7 @@
 					<tr>
 						<td colspan = "3">
 							<label for "tabula_key" id = "horizontal_label">Key:</label>
-							<textarea id = "tabula_key" rows="2" cols="15" disabled = "true" placeholder = "key"></textarea>
+							<textarea id = "tabula_key" rows="2" cols="15" disabled = "true" placeholder = "Key"></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -222,7 +222,7 @@
 						</td>
 						<td id="wide_td">
 							<label for "key_decryption">Key:</label>
-							<textarea id = "key_decryption" rows="2" cols="15" placeholder = "key" onblur = "readKeyDecryption()"></textarea>
+							<textarea id = "key_decryption" rows="2" cols="15" placeholder = "Key" onblur = "readKeyDecryption()"></textarea>
 						
 						</td>
 					</tr>
@@ -236,7 +236,8 @@
 						<td id="encrypt_td">
 							<input type = "button" id = "decryptButton" value = "Decrypt" onclick = "vigenereDecrypt()" />
 						</td>
-						<td id="wide_td">Plain text:
+						<td id="wide_td">
+							<label for "vigenere_decrypted">Reversed key:</label>
 							<textarea id = "vigenere_decrypted" rows="2" cols="15" disabled = "true" placeholder = "Text after decryption"></textarea>
 						</td>
 					</tr>

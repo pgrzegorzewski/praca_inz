@@ -11,6 +11,10 @@ a.suggestion:hover span{
 	text-align: center;
 }
 
+label{
+	text-align:left;
+}
+
 #td_narrow
 {
 	width:150;

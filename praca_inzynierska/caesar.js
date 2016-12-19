@@ -64,27 +64,34 @@ function setKey()
 	enable_input();
 }
 
-function setKeyLetter()
+function setKeyLetter2()
 {
-	var keyLetter = document.getElementById('key_letter');
+	var keyLetter = document.getElementById('key_letter2');
 	var keyLetterValue = keyLetter.value.charCodeAt();
 	enable_input();
-	shiftSet = 1;
-	if(keyLetterValue < SMALL_A || keyLetterValue > SMALL_Z)
+	shiftSet2 = 1;
+	if(keyLetterValue >= SMALL_A && keyLetterValue <= SMALL_Z)
 	{
-		document.getElementById('key_letter').value = "a";
-		document.getElementById('key').value = 0;
-		shift = 0;
+		document.getElementById('key2').value = keyLetterValue - CAPITAL_A - 32;
+		document.getElementById('key_letter2').value = document.getElementById('key_letter2').value.toUpperCase();
+		shift2 = keyLetterValue - CAPITAL_A;
+		
+	}
+	else if(keyLetterValue >= CAPITAL_A && keyLetterValue <= CAPITAL_Z)
+	{	
+		document.getElementById('key2').value = keyLetterValue - CAPITAL_A;
+		shift2 = keyLetterValue - CAPITAL_A;
 	}
 	else
-	{	
-		document.getElementById('key').value = keyLetterValue - SMALL_A;
-		shift = keyLetterValue - SMALL_A;
+	{
+		document.getElementById('key_letter2').value = "A";
+		document.getElementById('key2').value = 0;
+		shift2 = 0
 	}
 	
 }
 
-function setKeyLetter2()
+function setKeyLetter()
 {
 	var keyLetter = document.getElementById('key_letter2');
 	var keyLetterValue = keyLetter.value.charCodeAt();
@@ -109,7 +116,12 @@ function setKey2()
 	var keyValue2 = document.getElementById('key2');
 	shift2 = Math.abs(keyValue2.value);
 	document.getElementById('key2').value = shift2;
-	document.getElementById('key_letter2').value = String.fromCharCode(shift2+SMALL_A);
+	if(shift2 < 0 || shift2 > 25)
+	{
+		shift2 = 0;
+		document.getElementById('key2').value = 0;
+	}
+	document.getElementById('key_letter2').value = String.fromCharCode(shift2 + CAPITAL_A);
 	shiftSet2 = 1;
 	enable_input2();
 }
