@@ -98,6 +98,9 @@
 				<h2>Digital Signature</h2>
 				Digital signature is used for the verification of the person who signed a message or a document. In this example we use RSA cryptography system for signature creation and verification.
 				<br><br>To find more information about the digital signature go to the theory part by clicking <a href = "Digital_signature.html">here</a>.
+				<br><br><b>Remarks</b>
+				<br>Like in the case of rsa encryption to provide higher safety level the key is hashed. Function which generates and hashes key uses for that purpose random phrase as a coefficient which is provided in the "Key hash phrase" textbox.
+				<br>Both coefficients 'p' and 'q' are generated as a big integers (stored as an array). Here will be shown only 'n', 'e' and 'd' to preserve more clear view.
 			</section>
 			<section class ="section">
 				<h3>Encryption + Signature</h3>
@@ -126,28 +129,28 @@
 							</td>
 							<td id ="td_half_lenght_2">
 								<label for "public_id">Public id:</label>
-								<textarea id = "public_id" rows="3" cols="40" placeholder = "Plain Text"></textarea>
+								<textarea id = "public_id" rows="3" cols="40" placeholder = "Plain text"></textarea>
 							</td>
 						</tr>
 					</table>
 					<br><br>
-					<b>Receiver Key</b>
+					<b>Receiver key</b>
 					<table>
 						<tr>
 							<td id ="td_half_lenght_2" >
-									<label for "message">Plain Text:</label>
-									<textarea id = "message" rows="3" cols="40" placeholder = "Plain Text" onblur = "setMessage()"></textarea>
+									<label for "message">Plain text:</label>
+									<textarea id = "message" rows="3" cols="40" placeholder = "Plain text" onblur = "setMessage()"></textarea>
 							</td>
 							<td id ="td_half_lenght_2">
-									<label for "Key_pharse">Key Phrase:</label>
-									<textarea id = "Key_pharse" rows="3" cols="40" placeholder = "Key phrase" onblur = "setKeyPharse()"></textarea>
+									<label for "Key_pharse">Key hash phrase:</label>
+									<textarea id = "Key_pharse" rows="3" cols="40" placeholder = "Key hash phrase" onblur = "setKeyPharse()"></textarea>
 							</td>
 						</tr>
 	
 						<tr>
 							<td id ="td_one_third">
-								<label for "Key_lenght">Key lenght (bits):</label>
-								<select name="Key lenght (bits)" id="Key_lenght" onblur="setKeyLenght()">
+								<label for "Key_lenght">Key length (bits):</label>
+								<select name="Key lenght (bits)" id="Key_length" onblur="setKeyLenght()">
 									<option>512</option>
 									<option>1024</option>
 									<option>2048</option>
@@ -167,22 +170,22 @@
 						<tr>
 							<td id = "td_half_lenght_2">
 								<label for "public_key_n">Key n:</label>
-								<textarea id = "public_key_n" rows="3" cols="40" disabled = "true" placeholder = "Public Key n"></textarea>
+								<textarea id = "public_key_n" rows="3" cols="40" disabled = "true" placeholder = "Public key n"></textarea>
 							</td>
 							<td  id = "td_half_lenght_2">
 								<label for "public_key_e">Key e:</label>
-								<textarea id = "public_key_e" rows="3" cols="40" disabled = "true" placeholder = "Public Key e"></textarea>
+								<textarea id = "public_key_e" rows="3" cols="40" disabled = "true" placeholder = "Public key e"></textarea>
 							
 							</td>
 						</tr>
 							
 						<tr>
 							<td id = "td_half_lenght_2">
-								<label for "keyText">Key Hashed:</label>
-								<textarea id = "keyText" rows="3" cols="40" disabled = "true" placeholder = "Key Text"></textarea>
+								<label for "keyText">Key hashed:</label>
+								<textarea id = "keyText" rows="3" cols="40" disabled = "true" placeholder = "Key text"></textarea>
 							</td>
 							<td  id = "td_half_lenght_2">
-								<label for "encryptedText">Encrypted Message:</label>
+								<label for "encryptedText">Encrypted message:</label>
 								<textarea id = "encryptedText" rows="3" cols="40"  placeholder = "Encrypted message"></textarea>
 							
 							</td>
@@ -220,7 +223,7 @@
 						</td>
 					
 						<td id = "td_half_lenght_2">
-							<label for "messageDecrypted">Plain Text:</label>
+							<label for "messageDecrypted">Plain text:</label>
 							<textarea id = "messageDecrypted" rows="3" cols="40" placeholder = "Original message" onblur = "setMessage()"></textarea>
 						</td>
 					</tr>
