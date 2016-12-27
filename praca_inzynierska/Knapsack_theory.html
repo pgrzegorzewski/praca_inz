@@ -99,7 +99,7 @@
 			</section>
 			<section class = "section">
 				<h3>Keys</h3>
-				Pair of keys consists of two different sets of numbers: <b>hard</b> and <b>easy</b> one. The private key is the easy one − superincreasing set of numbers <b>A</b>, modulus <b>m</b> (sum of set A) and <b>w</b> multiplier. The public key is the hard set of numbers – set <b>B</b> generated from the private key. To obtain public key, we multiply each element of set A by  multiplier w and apply the modulo m of our result. These elements give us the public key − B set.
+				Pair of keys consists of two different sets of numbers: <b>hard</b> and <b>easy</b> one. The private key is the easy one − superincreasing set of numbers <b>A</b>, modulus <b>m</b> (sum of set A) and <b>w</b> multiplier. The public key is the hard set of numbers ryptanalys set <b>B</b> generated from the private key. To obtain public key, we multiply each element of set A by  multiplier w and apply the modulo m of our result. These elements give us the public key − B set.
 				<br>
 			</section>
 			<section class = "section">
@@ -137,7 +137,7 @@
 				<br>24 * 0 = 0
 				<br>27 * 1 = 27
 				<br><br>Cipher text is the sum of all products of above multiplications (0 + 23 + 0 + 27) which is <b>50</b>. So that is Mary's message looks like.
-				<br><br>Now Anna has to decrypt the message. She has to perform one operation – she has to find result of operation modulo m of Marys message multiplier by inverse of w (which is 3).
+				<br><br>Now Anna has to decrypt the message. She has to perform one operation ryptanalys she has to find result of operation modulo m of Marys message multiplier by inverse of w (which is 3).
 				<br>50 * 3 mod 32 = 22
 				<br>Next-to-last step is to find subset od B which sum gives 22. Anna checks all consecutives to find the subset in that way:
 				<br><br>
